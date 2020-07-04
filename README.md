@@ -1,4 +1,4 @@
-# WitcherTRPG
+# WitcherTRPG : html - php
 Utilitaire MJ - Joueur pour le JdR The Witcher
 
 ------------------
