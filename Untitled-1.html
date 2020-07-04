@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<select name="Sexe" id="sexe-select">
+    <option value="" disabled>--Sexe--</option>
+    <option value="H">Homme</option>
+    <option value="F">Femme</option>
+</select>
+<select name="Type" id="type-select">
+    <option value="" disabled>--Type--</option>
+    <option value="P">Prénom</option>
+    <option value="N">Nom</option>
+</select>
+<br>
+<textarea id="story" name="story" rows="5" cols="33" placeholder="Liste">
+</textarea>
+<br>
+<input type="button" value="Générer" onclick="transfert()">
+<br><br>
+<textarea type="text" id="myInput" rows="5" cols="33"></textarea>
+<br>
+<div class="tooltip">
+<button onclick="myFunction()" onmouseout="outFunc()">
+  <span class="tooltiptext" id="myTooltip">Copier dans le presse-papier</span>Copier</button>
+</div>
+
+<script>
+function transfert() {
+	var Sexe = document.getElementById("sexe-select").value;
+	var Type = document.getElementById("type-select").value;
+	var Texte = document.getElementById("story").value;
+
+    let split = Texte.split("\n");
+    
+    var KKK = split.length;
+    var aff = "";
+
+    for (let i = 0; i < KKK; i++) {
+                var ABCDER = '<option value="'+split[i]+'">'+split[i]+'</option>';
+                // <option value="Ration de survie">Ration de survie</option>
+                var aff = aff+"\n"+ABCDER;
+    }    
+
+    document.getElementById("myInput").innerHTML = aff;
+
+}
+
+
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copié !";
+}
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copier dans le presse-papier";
+}
+</script>
+
+</body>
+</html>

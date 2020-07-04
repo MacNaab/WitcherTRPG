@@ -1,0 +1,48 @@
+.nav-link{cursor: pointer;}
+.dropdown-item{cursor: pointer;}
+.img_cool{max-width: 100%;height: auto;margin-left: auto;margin-right: auto;}
+
+@media only screen and (max-width: 600px) {     /* Téléphone portable */
+  body{margin-top: 5%;margin-bottom: 5%;}
+  .log{height: 250px; background-color: beige;overflow: auto;}
+  #barre1{display: none;} 
+  #barre2{display: block;max-width: 75%;margin-left: auto;margin-right: auto;}   
+  #barre3{display: block;max-width: 75%;margin-left: auto;margin-right: auto;} 
+  .API1AA::after{display: table;content: "";clear: both;}
+  .API1A1{width: 50%;float: left;}
+  #les_boutons_d_actions{border-radius: 5%;}
+  #jdr{height: 80vw;}
+}
+
+@media only screen and (min-width: 600px) {     /* Tablettes */
+  body{margin-bottom: 5%; margin-top: 5%;margin-left: 10%;margin-right: 10%;}
+  .P3TABLE{width: 75%;margin-left: auto;margin-right: auto;}
+  .log{height: 250px;max-width: 75%;margin-left: auto;margin-right: auto; background-color: beige;overflow: auto;}
+  #barre3{display: none;} 
+  #barre2{display: none;} 
+  #barre1{display: block;}  
+  .progress {
+    position: absolute;
+    width: 7.5%;
+    height: 250px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+  .progress-bar {
+    position: absolute;
+    top: 0%;  /* = PVmax - PV */
+    width: 100%;
+    height: 100%;  /* PV*/
+  }
+  .API1AA::after{display: table;content: "";clear: both;}
+  .API1A1{width:33%;float: left;}
+  #les_boutons_d_actions{border-radius: 2.5%;}
+  #jdr{height: 66vw;}
+}
+
+
+@media only screen and (min-width: 900px) {     /* PC */
+  .API1AA::after{display: table;content: "";clear: both;}
+  .API1A1{width: 14%;float: left;}
+  #jdr{height: 50vw;}
+}
