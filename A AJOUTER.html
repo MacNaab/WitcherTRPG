@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<input type="text" id="ak4"><input type="button" value="gen" onclick="alpha1()">
+    <br>
+    <div id="ak44"></div>
+</body>
+
+<script>
+function alpha1(){
+	var texte = document.getElementById('ak4').value;
+	var Loot = ["","Journal partiellement utilisé | Statuette étrange | Poupée magique noire", "Cuisse de dinde enveloppée | Copeaux d'ongle | Masque étrange", "Médaillon | Pot de cendres | Cercle étrange", "Miroir à main | Collier étrangleur | Oreille d'elfe" , "Instrument | Souris taxidermée | Pieu en bois avec runes", "Badge de guilde | Mèche de cheveux | Livre lié dans la peau", "Outils de voleurs | Lettre étrange | Partie de monstre (au choix du MJ)", "Peau d'animal | Instructions pour un métier | Unité de minerai rougeoyant "," Livre aléatoire | Fragment de pierre | Champignon hallucinogène "," Gourde | Poche pleine de gravier | Organe conservé dans un bocal "," Bague en argent | Fortunes griffonnées | Fiole de sang "," Menottes | Boule d'argile | Registres de magie noire "," Rouleau de lit | Remède populaire pour quelque chose | Main sanglante "," Dés | Pièce mécanique | Sac de dents "," Grand livre commercial | Os gratté | Crâne de monstre "," Vin pas cher | Sous-vêtements féminins | Notes sur les joueurs "," Carte de la région | Étrange viande séchée | Carte d'un endroit inconnu "," Flacon de spiritueux | Matériel de chantage | Oiseau mort " , "Porte-bonheur d'une certaine forme | Aides conjugales | Croquis fébriles "," Deck Gwent | Journal de rêve étrange | Notes insensés "," Tente | Arêtes de poisson | Parchemin illisible "," Esquisse d'une personne | Remarque avec un chiffre | Symbole écrit dans le sang "," Savon | Dent | Étrange statuette de jade "," Symbole sacré | Chaussure usée | Une mèche de cheveux blonds "," Allume feu | Rênes | Une étrange lampe vide "," Sifflet | Liste de personnes | Os humain écorcé "," Pierre du soleil | Cinq clous de fer | Chaussures de fer "," Liste de courses | Coquilles de mer étranges | Crâne humain "," 1 unité de plumes | Poésie étrange | Encensoir plein de sang séché "," Viande séchée ou poisson salé | Pain extrêmement moisi | Peau tatouée "," Poche d'épices | Clé inconnue | Dague rituelle "," Flacon vide | Papier avec des marques de rouge à lèvres | Anneau de magie noire "," Craie | Pointe de flèche | Langue coupée "];
+    if(texte != ""){
+    	let split = texte.split(' ');
+        var aff = "";
+        for (let i = 0; i < split.length; i++) {
+//  			str = str + i;
+            var item = Number(split[i]);
+            if(item != 100){
+            	var item = Math.ceil(item/3);
+            }else{var item = 33;}
+            var aff = aff+Loot[item]+"<br>";
+		}
+    	document.getElementById('ak44').innerHTML = aff;
+    }
+}
+</script>
+
+</html>
