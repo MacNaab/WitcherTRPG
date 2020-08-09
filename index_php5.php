@@ -149,7 +149,7 @@ $sql->execute();
 $pseudoINbdd = $sql->rowCount();
 	if($pseudoINbdd != 0){
 ?>
-<div><h3>Inventaire :</h3>
+<div><h3>Diagramme :</h3>
       <div class="table-responsive">
         <table class="table table-striped table-dark P3TABLE" >
           <thead>

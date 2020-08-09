@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#Table_Search_Bar").on("keyup", function() {
       var value = $(this).val().toLowerCase();
-      $("tbody tr").filter(function() {
+      $("#Aff_Table tr").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
@@ -42,7 +42,7 @@ $(document).ready(function(){
       var Investment3 = ["160","39","201","76"];
       var Cost3 = ["320","78","402","152"];
       
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -118,7 +118,7 @@ $(document).ready(function(){
       var Investment3 = ["722","623","720","506","342","525","844","646","525","760","660","626"];
       var Cost3 = ["1440","1296","1440","1012","606","1012","1686","1296","1012","1462","1282","1296"];
       
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -194,7 +194,7 @@ $(document).ready(function(){
       var Investment3 = ["431","565","450","431","565","565","758","1012","836","631","600","450","637","378","468","468","527"];
       var Cost3 = ["862","1124","900","862","1124","1124","1385","1524","1422","1274","1200","900","1274","750","798","937","1050"];
       
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -273,7 +273,7 @@ $(document).ready(function(){
       var Investment3 = ["28","61","96","97","109","149","144"];
       var Cost3 = ["60","120","187","195","217","300","292"];
       
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Components</th><th scope="col">Composants</th><th scope="col">Investissement</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -333,7 +333,7 @@ $(document).ready(function(){
       var Cost = ["1","1","1","22","5","16","9","3","2","50","3","3","2"];
   
   
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -366,7 +366,7 @@ $(document).ready(function(){
       var Cost = ["8","10","58","30","4","48","28","60","14"];
   
   
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -398,7 +398,7 @@ $(document).ready(function(){
       var Weight = ["1.5","1","1","0.1","1","1","1.5","1","1","1","1.5","1","1","2","1","0.1"];
       var Cost = ["52","82","240","100","80","85","30","300","114","98","5","72","48","4","64","30"];
   
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -430,7 +430,7 @@ $(document).ready(function(){
       var Weight = ["0.1","0.1","0.1","0.1","0.1","0.1","0.1","0.1"];
       var Cost = ["24","45","8","2","82","10","32","3"];
   
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -463,7 +463,7 @@ $(document).ready(function(){
       var Weight = ["0,1","0,1","0,1","4","0,1","0,1","0,1","0,1","0,1","0,1","0,1","0,1","0,1","0,1","0,1","1","0,5","0,1","0,1","0,5","1","0,1","0,5","0,1","0,1","0,5","0,1","0,5","0,5","0,1","0,1","0,5","0,1","1","1","0,1","1","0,1","1,5","5","1","0,1","0,1","0,1","3","N/A","0,1","2","0,1","0,1","2","0,1","0,1","4","0,1","0,1","1","1","0,1","0,5","1","0,1","0,1","0,5","0,1","0,1","0,5","0,1","0,1","0,5","0,5","0,1","0,1","2","0,1","0,1","0,5","0,1","0,1","2","1","0,1","0,1","0,1","0,1","0,1","0,1","0,5","0,1","0,1","0,5","0,5","0,1","0,1","0,5","0,1","0,1","2","0,1","0,1","0,5","0,1","0,1","0,1","0,1","0,1","0,1","5","1","1","0,1","1","0,1","0,1","0,1","0,1","0,1","0,5","0,5","0,1","0,1","0,1","0,1","0,1","0,1","0,1","0,5","0,1","0,1","0,1","0,5","0,1","0,1","0,1","0,1","0,1","4,5","0,1"];
       var Cost = ["18","9","135","87","95","43","17","55","19","146","100","30","77","5","66","167","76","164","8","86","106","40","80","8","40","42","100","69","87","150","38","95","100","150","90","10","192","75","55","205","167","134","250","176","82","30","76","150","21","55","75","18","292","310","46","146","92","120","8","40","87","60","152","44","8","20","134","2","70","80","50","21","33","189","100","14","90","85","8","136","250","80","40","90","17","62","91","30","30","79","88","36","276","46","149","192","43","145","94","65","155","18","39","75","36","200","32","106","92","159","38","150","148","28","46","106","65","20","95","9","38","8","9","82","66","97","87","12","17","60","48","140","132","30","17","99","147","8"];
   
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Substance</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Substance</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -495,7 +495,7 @@ $(document).ready(function(){
       var Components = ["Aether x2, Hydragenum, Vermilion","Vermilion, Quebrith","Aether, Rebis","Vitriol, Rebis","Quebrith, Aether","Quebrith, Vermilion","Vermilion x2, Vitriol, Caelum","Quebrith, Rebis, Caelum x2","Quebrith, Caelum","Sol, Aether x2, Caelum","Hydragenum, Aether x2, Vitriol","Aether, Quebrith, Vermilion, Vitriol x3","Quebrith, Hydragenum, Caelum x2, Vitriol","Quebrith x2, Aether x2, Rebis","Quebrith x2, Vermilion x2, Aether, Vitriol","Quebrith, Rebis x2, Caelum, Vitriol, Vermilion","Sol x3, Fulgur x3, Caelum, Vermilion","Rebis x3, Hydragenum x2, Vitriol x2, Vermilion","Vermilion x2, Aether x2, Caelum, Sol, Fulgur","Quebrith x2, Aether, Vitriol x2, Vermilion, Hydragenum x2","Hydragenum x3, Aether x2, Vermilion, Vitriol x2","Sol x2, Rebis x3, Fulgur, Vitriol"];
       var Cost = ["27","27","30","47","22","18","24","37","33","30","28","84","52","67","54","67","142","120","100","114","118","97"];
   
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Composants</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Niveau</th><th scope="col">DC</th><th scope="col">Temps</th><th scope="col">Composants</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
@@ -526,7 +526,7 @@ $(document).ready(function(){
       var Weight = [];
       var Cost = [];
   
-      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody>';
+      html = '<table class="table table-striped table-hover table-responsive"><thead><tr><th scope="col">Name</th><th scope="col">Nom</th><th scope="col">Rareté</th><th scope="col">Localisation</th><th scope="col">Quantité</th><th scope="col">DC</th><th scope="col">Poids</th><th scope="col">Coût</th></tr></thead><tbody id="Aff_Table">';
   
     // Loop through array and add table cells
     for (var i=0; i<Name.length; i++) {
