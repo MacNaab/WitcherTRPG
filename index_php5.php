@@ -125,6 +125,45 @@ $pseudoINbdd = $sql->rowCount();
 <?php
 $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
 while ($result = $sql->fetch()){
+  if($result['SousType'] != "Diagramme"){
+?>
+          <tr>
+            <th scope="row"><?=$result['Nom'];?></th>
+            <td><?=$result['Description'];?></td>
+			<td><?=$result['Durabilité'];?></td>
+			<td><?=$result['Poids']*$result['Durabilité'];?></td>
+		  </tr>
+<?php }} ?>			
+        </tbody>
+      </table>
+      </div>     
+    </div>
+<?php
+}
+$sql = null;
+
+$sql = $conn->prepare("SELECT * FROM witcher_inventaire2 WHERE (joueur =:joueur AND SousType = 'Diagramme' AND Type = 'Sac')");
+$sql->bindValue(':joueur', $joueur, PDO::PARAM_STR);
+$sql->execute();
+
+$pseudoINbdd = $sql->rowCount();
+	if($pseudoINbdd != 0){
+?>
+<div><h3>Inventaire :</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-dark P3TABLE" >
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Description</th>
+			  <th scope="col">Quantité</th>
+			  <th scope="col">Poids</th>
+            </tr>
+          </thead>
+          <tbody>
+<?php
+$result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+while ($result = $sql->fetch()){
 ?>
           <tr>
             <th scope="row"><?=$result['Nom'];?></th>
@@ -135,7 +174,7 @@ while ($result = $sql->fetch()){
 <?php } ?>			
         </tbody>
       </table>
-      </div>
+      </div>     
     </div>
 <?php
 }

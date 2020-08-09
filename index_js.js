@@ -253,4 +253,17 @@ if(P4_Caract.value == "8"){ // VOL
         }
       });
     });
+    $('#P4_TTS_REFRESH').on('click', function() {
+      $.ajax({
+        url: "index_php2bis2.php",
+        type: "POST",
+        cache: false,
+        success: function(data){
+//          $('#jdr').src(data);
+          document.getElementById('jdr').src = data;
+          document.getElementById('jdr0').href = data;
+          document.getElementById('jdr0').innerHTML = "ouvrir le TTS dans un nouvel onglet";
+        }
+      });
+    });
   }); 

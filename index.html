@@ -36,6 +36,7 @@
   <link rel="icon" type="image/png" href="icon.png" />
   <script src="index_js.js"></script>	
   <script src="test.js"></script>	
+  <script src="table.js"></script>	
 
 <div id="login_formulaire">
   <div class="form-group">
@@ -135,7 +136,7 @@
 <div id="page_3" style="display: none;">
   <br>
   <div style="text-align: center;">
-    <button id="P3_INV_REFRESH" class="btn btn-info btn-lg">
+    <button id="P3_INV_REFRESH" class="btn btn-info btn-lg" title="Mettre à jour l'inventaire">
       <svg class="bi bi-bag-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 4h14v10a2 2 0 01-2 2H3a2 2 0 01-2-2V4zm7-2.5A2.5 2.5 0 005.5 4h-1a3.5 3.5 0 117 0h-1A2.5 2.5 0 008 1.5z"/>
       </svg>
@@ -249,12 +250,55 @@
       <div id="P3_ACHAT3"></div>
     </div>
   </div>
+
+  <br><br>
+  <div>
+    <h3>Artisanat et Alchimie</h3>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" id="Crafting Materials" onclick="Materials1();aff(this.id);">Crafting Materials</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Animal Parts" onclick="Materials2();aff(this.id);">Hides & Animal Parts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Minerals" onclick="Materials3();aff(this.id);">Ingots & Minerals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Alchemical Treatments" onclick="Materials4();aff(this.id);">Alchemical Treatments</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Ingredient Diagrams" onclick="Diagrams1();aff(this.id);" role="tab">Ingredient Diagrams</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Weapon Diagrams" onclick="Diagrams2();aff(this.id);" role="tab">Weapon Diagrams</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Armor Diagrams" onclick="Diagrams3();aff(this.id);" role="tab">Armor Diagrams</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Elderfolk Diagrams" onclick="Diagrams4();aff(this.id);" role="tab">Elderfolk Diagrams</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Substances" onclick="Substances();aff(this.id);">Substances</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Formulae" onclick="Formulae();aff(this.id);">Formulae</a>
+      </li>
+    </ul>
+      
+    <div class="form-group center" style="width:250px">
+        <input class="form-control" id="Table_Search_Bar" type="text" placeholder="Rechercher..">
+    </div>
+    
+    <div class="davadi" id="Aff Table"></div>
+  </div>
 </div>
 
 <div id="page_4" style="display: none;">
   <br>
   <div style="text-align: center;">
-    <button id="P4_FICHE_REFRESH" class="btn btn-info btn-lg">
+    <button id="P4_FICHE_REFRESH" class="btn btn-info btn-lg" title="Mettre à jour la fiche">
       <svg class="bi bi-file-post" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M4 1h8a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2zm0 1a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V3a1 1 0 00-1-1H4z" clip-rule="evenodd"/>
         <path d="M4 5.5a.5.5 0 01.5-.5h7a.5.5 0 01.5.5v7a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-7z"/>
@@ -367,12 +411,16 @@
 
 
   <br>
-  <div style="text-align: center;"><button class="btn btn-info btn-lg"  onclick="affiche_ou()"><svg class="bi bi-aspect-ratio-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" d="M1.5 2A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13zm1 2a.5.5 0 00-.5.5v3a.5.5 0 001 0V5h2.5a.5.5 0 000-1h-3zm11 8a.5.5 0 00.5-.5v-3a.5.5 0 00-1 0V11h-2.5a.5.5 0 000 1h3z" clip-rule="evenodd"/>
-  </svg></button></div>
-  <div ><iframe id="jdr" class="img_cool" style="width:100vw" src="https://www.owlbear.rodeo/"></iframe></div>
+  <div style="text-align: center;">
+    <button class="btn btn-info btn-lg"  onclick="affiche_ou()" title="Afficher/Masquer le TTR"><svg class="bi bi-aspect-ratio-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.5 2A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13zm1 2a.5.5 0 00-.5.5v3a.5.5 0 001 0V5h2.5a.5.5 0 000-1h-3zm11 8a.5.5 0 00.5-.5v-3a.5.5 0 00-1 0V11h-2.5a.5.5 0 000 1h3z" clip-rule="evenodd"/></svg></button>
+    <button id="P4_TTS_REFRESH" class="btn btn-info btn-lg" title="Mettre à jour le TTR"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-clockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.17 6.706a5 5 0 0 1 7.103-3.16.5.5 0 1 0 .454-.892A6 6 0 1 0 13.455 5.5a.5.5 0 0 0-.91.417 5 5 0 1 1-9.375.789z"/><path fill-rule="evenodd" d="M8.147.146a.5.5 0 0 1 .707 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 1 1-.707-.708L10.293 3 8.147.854a.5.5 0 0 1 0-.708z"/></svg></button>
+  </div>
+  <div>
+    <div style="text-align: center;"><a id="jdr0" target="_blank"></a></div>
+    <iframe id="jdr" class="img_cool" style="width:100vw" src="https://www.owlbear.rodeo/"></iframe>
+  </div>
 <div style="text-align: center; margin-left: auto;margin-right: auto;cursor: pointer;">
-  <button id="P4_IMG_REFRESH" class="btn btn-info btn-lg">
+  <button id="P4_IMG_REFRESH" class="btn btn-info btn-lg" title="Mettre à jour l'image">
     <svg class="bi bi-image-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M.002 3a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2h-12a2 2 0 01-2-2V3zm1 9l2.646-2.354a.5.5 0 01.63-.062l2.66 1.773 3.71-3.71a.5.5 0 01.577-.094L15.002 9.5V13a1 1 0 01-1 1h-12a1 1 0 01-1-1v-1zm5-6.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd"/>
     </svg>
