@@ -193,14 +193,30 @@ if($result['profession'] == "9"){$Capacité2 = "	<p><span>&bull; </span><strong>
 	if($result['race'] == "Humain" || $result['race'] == "Humaine"){$Capacité = "<p><span>&bull; </span><strong>Digne de confiance :</strong><span> Les humains b&eacute;n&eacute;ficient d&rsquo;un bonus mineur (+1) sur leurs jets de Charisme, de S&eacute;duction et de Persuasion lorsqu&rsquo;ils interagissent avec d&rsquo;autres humains. </span></p><p><span>&bull; </span><strong>Ing&eacute;nieux :</strong><span> Les humains sont intelligents et trouvent souvent des solutions brillantes pour r&eacute;soudre des probl&egrave;mes d&eacute;licats. Ils b&eacute;n&eacute;ficient d&rsquo;un bonus naturel de +1 en D&eacute;duction. </span></p><p><span>&bull; </span><strong>T&ecirc;tu comme une mule :</strong><span> Un humain peut puiser dans sa d&eacute;termination pour relancer un jet rat&eacute; de R&eacute;sistance &agrave; la contrainte ou de Courage. Il a droit au total &agrave; trois relances par session de jeu. Le joueur choisit le meilleur des deux jets, mais il ne peut pas renouveler sa tentative pour le m&ecirc;me jet, m&ecirc;me s&rsquo;il &eacute;choue &agrave; nouveau.</span></p>";}
 	if($result['race'] == "Elfe"){$Capacité = "<p><span>&bull; </span><strong>Esth&egrave;te :</strong><span> Les elfes ont un talent inn&eacute; pour les activit&eacute;s artistiques et une attirance pour la beaut&eacute;. Ils b&eacute;n&eacute;ficient d&rsquo;un bonus naturel de +1 dans la comp&eacute;tence Beaux-arts. </span></p><p><span>&bull; </span><strong>&OElig;il d&rsquo;aigle :</strong><span> Des si&egrave;cles de tradition et de pratique ont permis aux elfes de devenir les meilleurs archers au monde. Ils b&eacute;n&eacute;ficient d&rsquo;un bonus naturel de +2 dans la comp&eacute;tence Archerie et peuvent prendre leur arc puis le bander sans d&eacute;penser d&rsquo;action.</span></p><p><span>&bull; </span><strong>Harmonie avec la nature :</strong><span> Les elfes ne d&eacute;rangent jamais les animaux, ce qui signifie qu&rsquo;ils consid&egrave;rent toutes les b&ecirc;tes qu&rsquo;ils croisent comme amicales, et que ces derni&egrave;res ne les attaqueront pas, sauf en cas de provocation.</span></p>";}
 	if($result['race'] == "Nain" || $result['race'] == "Naine"){$Capacité = "<p><span>&bull; </span><strong>&OElig;il de l&rsquo;expert :</strong><span> Comme les nains ont l&rsquo;&oelig;il pour rep&eacute;rer les plus petits d&eacute;tails, il est presque impossible de les rouler dans la farine. Ils b&eacute;n&eacute;ficient d&rsquo;un bonus naturel de +1 dans la comp&eacute;tence N&eacute;goce. </span></p><p><span>&bull; </span><strong>Coriace :</strong><span> &Agrave; cause de leur silhouette trapue et de leur propension &agrave; exercer des m&eacute;tiers physiques &eacute;reintants, les nains b&eacute;n&eacute;ficient d&rsquo;un bonus naturel de +1 dans la comp&eacute;tence Physique. </span></p><p><span>&bull; </span><strong>Tann&eacute; comme du cuir :</strong><span> Comme les nains poss&egrave;dent une peau naturellement &eacute;paisse, ils r&eacute;duisent de &ndash;2 le total de d&eacute;g&acirc;ts physiques qu&rsquo;ils re&ccedil;oivent. Cette r&eacute;duction s&rsquo;applique une fois que les d&eacute;g&acirc;ts ont pass&eacute; l&rsquo;armure, mais avant les modificateurs li&eacute;s &agrave; la localisation.</span></p>";}
-	
-	?>
-    <div><h3>Capacités</h3><div><?=$Capacité;?><?=$Capacité2;?></div></div>
-	<br>	
-	
-	<?php
 }
 	}
 $sql = null;
+$Capacité3 = "";
+$sql = $conn->prepare("SELECT * FROM witcher_cc WHERE joueur =:joueur && type = 'talent'");
+$sql->bindValue(':joueur', $joueur, PDO::PARAM_STR);
+$sql->execute();
+
+$pseudoINbdd = $sql->rowCount();
+//Rowcount permet de sortir le nombre de valeur que t'as requête renvoi, que l'on rentre dans la variable pseudoINbdd (ou autre )
+	if($pseudoINbdd != 0){
+//Si la requête renvoi 0, le pseudo n'existe pas dans la base, sinon le pseudo existe.
+$result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+while ($result = $sql->fetch()){
+	$BACA = $result['nom'];
+	$BACB = $result['description'];
+	$Capacité3 = "$Capacité3 <p><span>&bull; </span><strong> $BACA :</strong> $BACB </p>";
+}
+	}
+$sql = null;
+	?>
+    <div><h3>Capacités</h3><div><?=$Capacité;?><?=$Capacité2;?><?=$Capacité3;?></div></div>
+	<br>	
+	
+	<?php
 $conn = null;
 ?>
