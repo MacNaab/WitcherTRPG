@@ -46,10 +46,10 @@ function p4(){
     page_1.style.display = "none";
 }
 
-function affiche_ou(){
-  var el = document.getElementById('jdr');
-  if(el.style.display == 'block'){el.style.display = 'none';}
-  else{el.style.display = 'block';}
+function affiche(X){
+	var info = document.getElementById(X).style.display;
+    if(info == 'none'){document.getElementById(X).style.display = "block";}
+    else{document.getElementById(X).style.display = "none";}
 }
 
 

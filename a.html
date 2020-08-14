@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Jeu de rôle - The Witcher Edition</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <link href="index_css.css" rel="stylesheet">
+</head>
+<body>
+  <script src="index_js.js"></script>	
+  <script src="MJ.js"></script>	
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" id="p1" onclick="p1()">Loots</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="p2" onclick="p2()">---</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="p3" onclick="p3()">Combat</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" id="p4" onclick="p4()">Histoire</a>
+    </li>
+  </ul>
+
+  <div id="page_1">
+    <div><h2>Loot individuel</h2>cf Bestiaire</div>
+  <br>
+    <div style="display: inline;"><h2>Monstres Intelligent :</h2><input onchange="MI()" type="number" id="MI_nbre" placeholder="Nombre de Monstres">
+      <div id="MI_aff"></div>
+      <br>
+    </div>
+  <br>
+  <div><h2>Tanière :</h2>
+    <br>Nombre de Monstres : <input onchange="Tanière()" id="Tanière_M" type="number">
+    Nombre de Large : <input onchange="Tanière()" id="Tanière_L" type="number">
+    <br><div id="Tanière_aff"></div>
+  </div>
+  <br>
+  <div><h2>Humain :</h2><input type="number" onchange="Humain()" min="0" id="Humain_Nbre">
+    <br><div id="Humain_aff"></div>
+  </div>
+  <br>
+  <div><h2>Maison : <input id="Maison" onchange="Maison()" type="checkbox"></h2>
+    <div id="Maison_aff"></div>
+  </div>
+  <br>
+  <div><h2>Générateur :</h2>
+    <div>
+      <div>Généré des items : <input type="number" onchange="MI_item()" min="0" placeholder="Nombre d'items" id="MI_item"></div>
+      <div id="MI_item_aff"></div>
+    </div>
+    <br>
+    <div>
+      <div>Généré des couronnes : <input type="number" onchange="Couronnes()" min="0" placeholder="Couronnes max" id="Couronnes_max"></div>
+      <div id="Couronnes_aff"></div>
+    </div>
+  </div>
+  </div>
+  
+  <div id="page_2" style="display: none;">
+<button class="accordionW3S">-	Session 1</button>
+<div class="panelW3S">
+  <p><span style="text-decoration: underline;"><strong>Qu&ecirc;te&nbsp;:</strong></span> Un long fleuve tranquille</p>
+  <p>Le groupe quitte Wyzima lors d&rsquo;une attaque nocturne de Nilfgaard. Il se rencontre dans la fuite, ils se rendent compte de la cruaut&eacute; de Nilfgaard en voyant un des paysans qui est accompagn&eacute; se faire assassin&eacute;. Ils d&eacute;cident de continuer leur chemin et finissent par arriv&eacute;es dans les mar&eacute;cages du Pontar.</p>
+</div>
+<button class="accordionW3S">-	Session 2</button>
+<div class="panelW3S">
+  <p><span style="text-decoration: underline;"><strong>Qu&ecirc;te&nbsp;:</strong></span> Un long fleuve tranquille</p>
+  <p>Le groupe passe la nuit devant le Pontar, a leur r&eacute;veil un groupe de Scoia&rsquo;tael les emm&egrave;nent dans leur camp o&ugrave; ils doivent les aider &agrave; r&eacute;parer le camp. Gr&acirc;ce l&rsquo;expertise du nain Barmir (artisan), la r&eacute;paration de la porte ne pose pas de difficult&eacute;s. Les elfes leur offre la travers&eacute;e du Pontar.</p>
+</div>
+
+<button class="accordionW3S">-	Session 3</button>
+<div class="panelW3S">
+  <p><span style="text-decoration: underline;"><strong>Qu&ecirc;te&nbsp;:</strong></span> Un long fleuve tranquille (fin)</p>
+  <p>Malheureusement, Hermavinn Idn'Tharael (l&rsquo;elfe criminel du groupe) est rest&eacute; dans le village de Scoia&rsquo;tael. Les autres ont d&eacute;cid&eacute; de traverser le Pontar, ce qu&rsquo;ils ne savaient pas c&rsquo;est que le Pontar est infest&eacute; par des noyeurs&nbsp;! Le groupe arrive &agrave; s&rsquo;en d&eacute;barrer notamment gr&acirc;ce &agrave; la magicienne. A la fin du combat, la chaine qui permettait la travers&eacute;e est bris&eacute;e et le groupe d&eacute;rive dans une temp&ecirc;te. A son r&eacute;veil, il se trouve au milieu de nulle part, ils d&eacute;couvrent des villages pil&eacute;s par&nbsp;Nilfgaard.</p>
+  <p><span style="text-decoration: underline;"><strong>Qu&ecirc;te&nbsp;:</strong></span> Une bonne nuit &agrave; tous</p>
+  <p>Ils finissent par trouver le village d&rsquo;Ashberg en Aedirn o&ugrave; l&rsquo;atmosph&egrave;re est tr&egrave;s &eacute;trange. Ils vont dans la taverne o&ugrave; l&rsquo;aubergiste leur donne RDV derri&egrave;re la taverne &agrave; minuit. C&rsquo;est &agrave; ce moment que Fabio (l&rsquo;homme d&rsquo;arme) d&eacute;cide de quitter l&rsquo;aventure.</p>
+  <p>&nbsp;</p>
+  <p><span style="text-decoration: underline;"><strong>Suite&nbsp;:</strong></span> Le groupe se rend au RDV.</p>
+</div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordionW3S");
+      var i;
+      
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("activeW3S");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } 
+        });
+      }
+      </script>
+  </div>
+  
+  <div id="page_3" style="display: none;">
+  <br>
+  <div class="input-group mb-3" style="margin-right: 20%;">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm"><input type="text" class="form-control" placeholder="Nom" id="EN_nom"></div>
+      <div class="col-sm"><input type="number" class="form-control" id="EN_initiative" placeholder="Initiative"></div>
+      <div class="col-sm"><input type="number" class="form-control" id="EN_vie" placeholder="PV"></div>
+      <div class="col-sm"><input type="number" class="form-control" id="EN_STA" placeholder="Endurance"></div>
+      <div class="col-sm"><input type="button" class="input-group-text" value="Ajouter" onclick="Add_Méchant(),trie1()"></div>
+    </div>
+  </div>
+
+  <div id="EN_nbre" style="display: none;">0</div>
+  <br><div>Combat :
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+    <select class="custom-select" id="Combat_Nom">
+      <option value="" disabled selected>Ennemie</option>
+    </select>          
+        </div>
+        <div class="col-sm"><input class="form-control" type="number" id="Combat_PV" placeholder="PV"></div>
+        <div class="col-sm"><input class="form-control" type="number" id="Combat_STA" placeholder="Endurance"></div>
+        <div class="col-sm"><input class="input-group-text" onclick="Combat()" type="button" value="Combat !"></div>
+      </div>
+    </div>
+
+    
+
+   </div>
+   <i>En cas de régénération de PV / Endurance : mettre la valeur en négatif.</i>
+  <br>
+  <div>PV = 0 → mourant (stat divisé par 3), "Death Save" : chaque tour jet Sauvegarde, si > SAUVEGARDE (non modif) → survie (-1/tour) sinon mort
+    <br>STA = 0 → inconscient, jet de SAUVEGARDE
+  </div>
+  <br>
+  <div><b>Ordre du combat:</b><div id="ordre_atk"></div></div><div id="ordre_atk0" style="display: none;"></div>
+  <br>
+  <div id=méchant style="columns: 2;"></div>
+  <br>
+  <div class="log">
+    <div id="P3_LOG"><i>Début du combat...</i></div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm"><input class="form-control" type="number" id="TEST_COMBAT_1" placeholder="Valeur des dégâts"></div>
+      <div class="col-sm"><input class="form-control" type="number" id="TEST_COMBAT_2" placeholder="Valeur de l'armure"></div>
+      <div class="col-sm">
+        <select id="TEST_COMBAT_3" class="custom-select">
+          <option selected>Localisation</option>
+          <option value="1">Tête</option>
+          <option value="2">Torse</option>
+          <option value="3">Jambe</option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <select id="TEST_COMBAT_4" class="custom-select">
+          <option selected value="0">ABS R/V</option>
+          <option value="1">Résistance</option>
+          <option value="2">Vulnérable</option>
+        </select>
+      </div>
+      <div class="col-sm"><input type="button" class="btn btn-info" onclick="oncalculebien6()" value="Calculer"></div>
+    </div>
+  </div>
+  <br>
+  <div style="text-align: center;">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary btn-group-lg" onclick="P3_A()">Dé / Initiative</button>
+      <button type="button" class="btn btn-secondary btn-group-lg" onclick="P3_B()">Attaque / Dommages</button>
+      <button type="button" class="btn btn-secondary btn-group-lg" onclick="P3_C()">Défense</button>
+    </div>
+  </div>
+
+  <div id="P3_1" style="display: none;">
+    <div><h2>Génération Jet Compétence</h2>
+      <div style="display: inline;">
+        <input type="number" id="ATQ_Caractéristique" placeholder="Caractéristique"><input type="number" id="ATQ_Comptétence" placeholder="Compétence"><input type="number" id="ATQ_Mod" placeholder="Modificateur"><input type="button" value="Calculer !" onclick="ATQ()">
+      </div>
+      <div id="ATQ_aff"></div>
+    </div>
+    <br>
+    <div><h2>Initiative :</h2>
+      Initiative = 1D10 + REF<br>
+      <div>
+        <input type="number" id="Initiative_REF" placeholder="REF">
+        <input type="button" onclick="INI()" value="Calculer !">
+      </div>
+      <div id="Initiative_aff"></div>  
+    </div>
+  </div>
+  <div id="P3_2" style="display: none;">
+    <div><h2>Attaque :</h2>
+      CaC = 1D10 + REF + Compétence d'arme + Mod.<br>
+      Distance = 1D10 + DEX + Compétence d'arme + RNG (portée) + Mod.<br>
+      Magie = 1D10 + VOL + Incantation<br>
+      <input type="number" placeholder="score attaquant" id="cc_i1"><input type="number" placeholder="score défense" id="cc_i2"><input type="button" value="Calculer !" onclick="cc_calcul()">
+      <div id="attaque_aff"></div>
+    </div><br>
+  
+    <div><h2>Dommages :</h2>
+      Dégâts = DMG arme + Précision + Bonus Blessure critique
+      <div id="DMG_aff"></div>
+      Localisation coup : <input type="button" onclick="Localisation()" value="Générer !">
+      <div id="Localisation_aff"></div><br>
+      Génération de dmg : <input type="number" id="dmg_mob_1" placeholder="nbre dé"><input type="number" id="dmg_mob_2" placeholder="nbre face"><input type="number" id="dmg_mob_3" placeholder="mod."><input type="button" onclick="calcul_dmg_mob()" value="Calculer">
+      <div id="dmg_mob_aff"></div>
+      <span style="display: none;" id="Localisation_Nbre">0</span>
+      
+    </div>
+  </div>
+  <div id="P3_3" style="display: none;">
+    <div><h2>Défense :</h2>
+      Esquive = 1D10 + REF + Esquive<br>
+      Repositionnement = 1D10 + DEX + Athlétisme > bouge SPD/2<br>
+      Bloquer : -1 SP
+      <list>
+        <ul>Bouclier : 1D10 + REF + Mêlée</ul>
+        <ul>Arme : 1d10 + (REF ++) + Compétence arme</ul>
+        <ul>Corps : 1d10 + REF + Bagarre > DMG la partie du corps</ul>
+      </list>
+      Parer : Si Blocage > ou = 3 (CaC) ou 5 (Arme de Jet)<br>
+      Défense magique : 1D10 + VOL + Résist. magie
+    </div>
+  </div>
+
+
+
+  </div>
+  
+
+<div id="page_4" style="display: none;">
+<br>
+  <div class="log">
+    <div id="P4_LOG"><i>Début de l'aventure</i></div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm"><input class="form-control" type="text" id="TEST_TEST0" placeholder="Lien url du TTS"></div>
+      <div class="col-sm"><input type="button" class="btn btn-info" id="BTN_MJ_0" value="Changer de TTS"></div>
+      <div class="col-sm"><input class="form-control" type="text" id="TEST_TEST" placeholder="Lien url de l'image"></div>
+      <div class="col-sm"><input type="button" class="btn btn-info" id="BTN_MJ_2" value="Changer l'image"></div>
+      <div class="col-sm"><input class="form-control" type="text" id="TEST_TEST2" placeholder="Texte a ajouter dans le log" ></div>
+      <div class="col-sm"><input type="button" class="btn btn-info" id="BTN_MJ_3" value="Envoyez"></div>
+    </div>
+  </div>
+<br><br>
+  <div style="text-align: center;">
+    <input type="button" class="btn btn-primary" value="Joueur" onclick="perlinpinpin()">
+    <input type="button" class="btn btn-primary" value="Ajout Inventaire" onclick="perlinpinpin2()">
+    <input type="button" class="btn btn-primary" value="Edit Inventaire" onclick="perlinpinpin3()">
+    <input type="button" class="btn btn-primary" value="Edit Stat" onclick="perlinpinpin4()">
+  </div>
+  <br>
+   <div id="VASTA_1" style="background-color: gray;padding: 15px;display: none;">
+    <div class="container">
+      <div class="row">
+        <div id="liste_joueurs" class="col-sm">
+          <select id="MJ_ADD_1" class="custom-select">
+            <option selected>Joueur</option>
+          </select>
+        </div>
+        <div class="col-sm">
+          <select id="MJ_ADD_2" class="custom-select">
+            <option selected>Action</option>
+            <option value="1">PV</option>
+            <option value="2">END</option>
+            <option value="3">Réputation</option>
+            <option value="4">XP</option>
+            <option value="5">Argent</option>
+            <option value="6">Relance</option>
+
+          </select>
+        </div>
+        <div class="col-sm"><input type="number" id="MJ_ADD_3" class="form-control" placeholder="Valeur a ajouter/retirer"></div>
+        <div class="col-sm"><input type="button" class="btn btn-info" id="BTN_MJ_4" value="Valider"></div>
+      </div>
+    </div>
+   </div>
+   <br>
+   <div id="VASTA_2" style="background-color: lightgreen;padding: 15px;display: none;">
+    <div class="container">
+      <div class="row">
+    <div id="liste_joueurs2" class="col-sm">
+      <select id="MJ_ADD_4" class="custom-select">
+        <option selected>Joueur</option>
+      </select>
+    </div>
+    <div class="col-sm">
+      <select id="MJ_ADD_5" class="custom-select">
+        <option selected>Type</option>
+        <optgroup label="Arme">
+          <option value="1">CaC</option>
+          <option value="2">Distance</option>
+          <option value="3">Argent</option>
+          <option value="4">Bouclier</option>
+        </optgroup><optgroup label="Armure">
+          <option value="5">Casque</option>
+          <option value="6">Torse</option>
+          <option value="7">Pantalon</option>
+        </optgroup><optgroup label="Inventaire">
+          <option value="8">Sac</option>
+        </optgroup>
+
+      </select>
+    </div>
+    <div class="col-sm"><input type="text" id="MJ_ADD_6" class="form-control" placeholder="Nom de l'item"></div>
+    <div class="col-sm"><input type="number" id="MJ_ADD_7" class="form-control" placeholder="Poids"></div>
+      </div><br>
+      <div class="row">
+        <div class="col-sm"><input type="text" id="MJ_ADD_8" class="form-control" placeholder="Protection">
+          <small class="form-text text-muted">Protection/Dégâts</small>
+        </div>
+        <div class="col-sm"><input type="number" id="MJ_ADD_9" class="form-control" placeholder="Durabilité">
+          <small class="form-text text-muted">Durabilité/Qtité</small>
+        </div>
+        <div class="col-sm"><input type="number" id="MJ_ADD_10" class="form-control" placeholder="EV">
+          <small class="form-text text-muted">EV/Précision</small>
+        </div>
+      </div><br>
+      <div class="row">
+    <div class="col-sm"><textarea class="form-control" id="MJ_ADD_11" rows="3" placeholder="Description / Effet
+Argent (5d6)"></textarea></div>
+    <div class="col-sm"><input type="button" class="btn btn-info" id="BTN_MJ_5" value="Valider"></div>
+  </div>
+    </div>
+   </div>
+   <div id="VASTA_3" style="background-color: lightgreen;padding: 15px;display: none;">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div id="liste_joueurs3" class="col-sm">
+            <select id="MJ_ADD_3_1" class="custom-select">
+              <option selected>Joueur</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <select id="MJ_ADD_3_2" class="custom-select">
+            <option selected>Type</option>
+            <option value="1">Arme</option>
+            <option value="2">Armure</option>
+            <option value="3">Sac</option>
+          </select>
+        </div>
+        <div class="col">
+          <input type="button" class="btn btn-info" id="BTN_MJ_6" value="Valider">
+        </div>
+      </div><br>
+      <div id="MJ_ADD_3_aff"></div><br>
+      <div class="row">
+        <div class="col">
+          <input type="number" class="form-control" id="MJ_ADD_3_3" placeholder="ID">
+        </div>
+        <div class="col">
+          <select id="MJ_ADD_3_4" class="custom-select">
+            <option selected>Type</option>
+            <option value="1">Poids</option>
+            <option value="2">Durabilité/Quantité</option>
+            <option value="3">Description/Effet</option>
+            <option value="4">Protection/Dégâts</option>
+            <option value="5">EV/précision</option>
+            <option value="SUPPRIMER">SUPPRIMER</option>
+          </select>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="MJ_ADD_3_5" placeholder="Nouvelle valeur">
+        </div>
+        <div class="col">
+          <input type="button" class="btn btn-info" id="BTN_MJ_7" value="Valider">
+        </div>
+      </div>
+    </div>
+   </div>
+   <div id="VASTA_4" style="background-color: lightgreen;padding: 15px;display: none;">
+    <div class="container">
+      <div class="row">
+        <div id="liste_joueurs4" class="col">
+            <select id="MJ_ADD_4_1" class="custom-select">
+              <option selected>Joueur</option>
+            </select>
+        </div>
+        <div class="col">
+          <select id="MJ_ADD_4_2" class="custom-select">
+            <option value="1" selected>Bonus</option>
+            <option value="2">Malus</option>
+          </select>
+        </div>
+        <div class="col">
+          <input type="button" class="btn btn-info" id="BTN_MJ_8" value="Valider">
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col">
+          <textarea class="form-control" id="MJ_ADD_4_3" rows="5"></textarea>
+        </div>
+        <div class="col">
+          <input type="button" class="btn btn-info" id="BTN_MJ_9" value="Editer">
+        </div>
+      </div>
+    </div>
+   </div>
+ 
+  <br>
+<div style="text-align: center; margin-left: auto;margin-right: auto;">
+  <button id="P4_TEXT_REFRESH" class="btn btn-info btn-lg"><svg class="bi bi-arrow-repeat" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M2.854 7.146a.5.5 0 00-.708 0l-2 2a.5.5 0 10.708.708L2.5 8.207l1.646 1.647a.5.5 0 00.708-.708l-2-2zm13-1a.5.5 0 00-.708 0L13.5 7.793l-1.646-1.647a.5.5 0 00-.708.708l2 2a.5.5 0 00.708 0l2-2a.5.5 0 000-.708z" clip-rule="evenodd"/>
+    <path fill-rule="evenodd" d="M8 3a4.995 4.995 0 00-4.192 2.273.5.5 0 01-.837-.546A6 6 0 0114 8a.5.5 0 01-1.001 0 5 5 0 00-5-5zM2.5 7.5A.5.5 0 013 8a5 5 0 009.192 2.727.5.5 0 11.837.546A6 6 0 012 8a.5.5 0 01.501-.5z" clip-rule="evenodd"/>
+  </svg>
+  </button>
+  <button id="P4_IMG_REFRESH" class="btn btn-info btn-lg">
+    <svg class="bi bi-image-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M.002 3a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2h-12a2 2 0 01-2-2V3zm1 9l2.646-2.354a.5.5 0 01.63-.062l2.66 1.773 3.71-3.71a.5.5 0 01.577-.094L15.002 9.5V13a1 1 0 01-1 1h-12a1 1 0 01-1-1v-1zm5-6.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd"/>
+    </svg>
+  </button>
+<br><br>
+  <div id="P4_img">
+    <img style="max-width: 100%;height: auto;" onclick="img_nouvelle_page()">
+  </div>
+</div>
+</div>
+
+</body>
+</html>
