@@ -163,7 +163,7 @@ $pseudoINbdd = $sql->rowCount();
 $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
 while ($result = $sql->fetch()){
 ?>
-	<div style="text-align: justify;"><b><?=$result['nom'];?></b> : <?=$result['description'];?></div>
+	<div style="text-align: justify;"><b>• <?=$result['nom'];?></b> : <?=$result['description'];?></div>
 <?php } ?><br><?php }
 $sql = null;
 
