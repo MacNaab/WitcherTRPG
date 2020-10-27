@@ -9,12 +9,12 @@
     <input type="password" class="form-control" id="exampleInputPassword1">
     <small class="form-text text-muted">La race de votre joueur par défaut. Exemple: Sorceleur</small>
   </div>
-  <div style="text-align: center;"><input type="button" class="btn btn-primary" value="Se connecter" id="Se_connecter"></div>
+  <div style="text-align: center;"><input type="button" class="btn btn-primary" value="Se connecter" onclick="loggin()"></div>
   
   <hr><hr>
   
   <div class="custom-file">
-    <input type="file" class="custom-file-input" id="customFile" accept=".json">
+    <input type="file" class="custom-file-input" id="customFile" accept=".json" onchange="loggin2(this.files)">
     <label class="custom-file-label" for="customFile">Importer une fiche de PJ</label>
     <small class="form-text text-muted">Fiche en format .json</small>
   </div>
