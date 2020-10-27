@@ -13,7 +13,8 @@ function loggin(){
   var mdp = $('#exampleInputPassword1').val();
   if(joueur!=""){
     if(JSON_FICHE.hasOwnProperty(joueur) == true){
-      if(JSON_FICHE[joueur].Race == mdp){
+      JSON_FICHE = JSON_FICHE[joueur];	
+      if(JSON_FICHE.Race == mdp){
         alert('logged');
 		test();
       }else{
