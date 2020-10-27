@@ -1,5 +1,6 @@
 [
-  'joueur1': {
-    []
+  'test': {
+    'Race': 'Humain',
+    'Profession': 'Gredin'
   }
 ]
