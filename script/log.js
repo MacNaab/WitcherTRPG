@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 var JSON = "";
-$.getJSON('../data/pj.json', function(jd) {
+$.getJSON('data/pj.json', function(jd) {
 	JSON = jd;
 });
 
