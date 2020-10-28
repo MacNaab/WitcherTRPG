@@ -6,7 +6,7 @@ Utilitaire MJ - Joueur pour le JdR The Witcher.
 Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il est recommandé d'utiliser OwlbearRodeo comme VTT.
 
 ------------------
-
+# Sommaire
 - [Joueur](#heading)
   * [Importer sa fiche](#sub-heading)
     + [Sub-sub-heading](#sub-sub-heading)
@@ -58,6 +58,6 @@ La fiche comprends les éléments suivants: [...]
 - template_min.js
 
 #### template_min.json
-C'est la version minimale pour un PJ. Vous pouvez la retrouver ici.  Lors de la première utilisatio, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
+C'est la version minimale pour un PJ. Vous pouvez la retrouver ici. \n Lors de la première utilisation, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
 #### template.json
 C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver ici.
