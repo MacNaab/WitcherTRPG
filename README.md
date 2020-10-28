@@ -40,6 +40,7 @@ Dans cette section, vous aurez les principales informations sur votre personnage
 
 #### Compétences
 Dans cette section, vous aurez la liste de vos compétences (par caractéristique) ainsi que vos compétences de profession. Vos trouverez aussi vos capacités raciales et votre compétence exclusive, le tout en détaillé. Vous aurez également un tableau qui regroupant les différentes compétences de votre profession, ce tableau possède une fonction de recherche.
+
 Si vous pratiquez la magie, vos sorts seront dans cette section ainsi qu'un tableau regroupant les différents formes de magie que vous pouvez pratiquer, ce tableau possède une fonction de recherche.
 
 #### Inventaire
@@ -47,6 +48,7 @@ Dans cette section, vous trouverez votre inventaire divisé en trois catégories
 - Armes
 - Armures
 - Inventaire
+
 Vous trouverez également un gestionnaire d'achat d'objets communs (à prix fixe) ainsi qu'un tableau regroupant les différents items du jeu, ce tableau possède une fonction de recherche.
 
 #### Histoire
@@ -60,6 +62,7 @@ La première ligne sert aux principaux lancés (caractéristique, compétence).
 
 #### Journal
 Dans cette section, vous avez la possibilité de prendre des notes, tenir un journal de PJ tout en jouant.
+
 Pour cela, cliquez sur "Editer le journal". "Valider" enregistrera les modifications dans votre fiche de personnage, si vous cliquez sur Annuler, ces modifications ne seront pas enregistrées.
 
 ## MJ
@@ -81,6 +84,6 @@ La fiche comprends les éléments suivants: [...]
 - template_min.js
 
 #### template_min.json
-C'est la version minimale pour un PJ. Vous pouvez la retrouver ici. \n Lors de la première utilisation, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
+C'est la version minimale pour un PJ. Vous pouvez la retrouver ici. Lors de la première utilisation, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
 #### template.json
 C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver ici.
