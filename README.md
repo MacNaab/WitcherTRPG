@@ -8,24 +8,35 @@ Il est recommandé d'utiliser OwlbearRodeo comme VTT.
 
 ------------------
 
-- [Heading](#heading)
+- [Joueur](#heading)
   * [Sub-heading](#sub-heading)
     + [Sub-sub-heading](#sub-sub-heading)
-- [Heading](#heading-1)
+- [MJ](#heading-1)
   * [Sub-heading](#sub-heading-1)
     + [Sub-sub-heading](#sub-sub-heading-1)
-- [Heading](#heading-2)
+- [Fiche](#heading-2)
   * [Sub-heading](#sub-heading-2)
     + [Sub-sub-heading](#sub-sub-heading-2)
 
+------------------
 
-# Heading levels
+## Joueur
 
-> This is a fixture to test heading levels
+This is an h1 heading
 
-<!-- toc -->
+### Sub-heading
 
-## Heading
+This is an h2 heading
+
+### Sub-heading
+
+This is an h2 heading
+
+#### Sub-sub-heading
+
+This is an h3 heading
+
+## MJ
 
 This is an h1 heading
 
@@ -37,19 +48,7 @@ This is an h2 heading
 
 This is an h3 heading
 
-## Heading
-
-This is an h1 heading
-
-### Sub-heading
-
-This is an h2 heading
-
-#### Sub-sub-heading
-
-This is an h3 heading
-
-## Heading
+## Fiche
 
 This is an h1 heading
 
