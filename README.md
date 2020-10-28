@@ -8,7 +8,7 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
 ------------------
 
 - [Joueur](#heading)
-  * [Sub-heading](#sub-heading)
+  * [Importer sa fiche](#sub-heading)
     + [Sub-sub-heading](#sub-sub-heading)
 - [MJ](#heading-1)
   * [Sub-heading](#sub-heading-1)
@@ -20,9 +20,11 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
 ------------------
 
 ## Joueur
-[...]
+Vous avez deux possibilitées :
+- Se connecter (si votre fiche est dans data/pj.json)
+- Importer votre Fiche
 
-### Sub-heading
+### Importer sa fiche
 
 This is an h2 heading
 
@@ -47,13 +49,15 @@ This is an h2 heading
 This is an h3 heading
 
 ## Fiche
-
-This is an h1 heading
+La fiche de PJ doit être dans un format .json
 
 ### Eléments
+La fiche comprends les éléments suivants: [...]
+  Vous trouverez 2 exemples de fiches:
+- template.json
+- template_min.js
 
-This is an h2 heading
-
-#### Sub-sub-heading
-
-This is an h3 heading
+#### template_min.json
+C'est la version minimale pour un PJ. Vous pouvez la retrouver ici.  Lors de la première utilisatio, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
+#### template.json
+C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver ici.
