@@ -86,5 +86,7 @@ C'est la version minimale pour un PJ. Vous pouvez la retrouver ici. Lors de la p
 ### template.json
 C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver ici.
 
-### Éléments
-#### test
+### Propriétés
+Nous allons détailler les différentes propriétés de la fiche Json.
+#### Nom
+C'est le nom de votre personnage.
