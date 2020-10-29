@@ -1,0 +1,78 @@
+{
+	"*Nom du joueur*": {
+		"Nom": "*Nom du personnage*",
+		"Race": "*Race du personnage*",
+		"Profession": "*Profession du personnage*",
+		"Caractéristique": {
+			"INT": 1,
+			"REF": 2,
+			"DEX": 3,
+			"COR": 4,
+			"VIT": 5,
+			"EMP": 6,
+			"TEC": 7,
+			"VOL": 8,
+			"CHA": 9,
+			"VIG": "Si vigeur"
+		},
+		"Compétences": [
+			{"Nom": "*Nom de la compétence*",
+			"V":"*Valeur de la compétence*",
+			"C":"*Caractéristique*",
+			"P":"*Si Compétence Profession*"}
+		],
+		"Magie": [
+			{"Nom": "*Nom de la compétence magique*",
+			"Type": "*Typ de compétence magique*"}
+		],
+		"PS": "Santé actuelle",
+		"END": "END actuelle",
+		"Réput": "Réputation",
+		"Inventaire": {
+			"Arme": [
+				{"Nom": "*Nom de l'arme*",
+				"Type": "Type de l'arme*",
+				"Pré": "Précision de l'arme*",
+				"Dég": "Dégâts de l'arme*",
+				"Fia": "Fiabilité actuelle de l'arme*",
+				"FiaMax": "Fiabilité maximale de l'arme*",
+				"Main": "Combien de mains libres sont nécessaire par manier l'arme*",
+				"Por": "Portée de l'arme*",
+				"Effet": "Effet de l'arme*",
+				"Diss": "Dissimulation de l'arme*",
+				"AM": "Améliorations de l'arme*",
+				"Poids": "Poids de l'arme*"
+				}
+			],
+			"Armure": [
+				{"Nom": "*Nom de l'armure*",
+				"Type": "Type de l'armure*",
+				"PA": "Pouvoir d'arrêt de l'armure*",
+				"Fia": "Fiabilité actuelle de l'armure*",
+				"FiaMax": "Fiabilité maximale de l'armure*",
+				"Effet": "Effet de l'armure*",
+				"AM": "Améliorations de l'armure*",
+				"VE": "Valeur d'encombrement de l'armure*",
+				"Poids": "Poids de l'arme*"
+				}
+			],
+			"Autre": [
+				{"Nom": "*Nom de l'item*",
+				"Effet": "*Effet de l'item*",
+				"Poids": "*Poids de l'item*",
+				"Qtt": "*Quantité de l'item*"
+				}
+			]
+		},
+		"Or": "*Nombre de couronnes*",
+		"HdV": "*Histoire de vie du personnage*",
+		"Event": "*Evénements de vie du personnage*",
+		"Description": "*Description du personnage*",
+		"Portrait": "*lien du portrait du personnage*",
+		"Relance": "*Nombre de dé de relance restant du personnage*",
+		"Bonus": "*Bonus du personnage*",
+		"Malus": "*Malus du personnage*",
+		"Journal": "*Journal du personnage*",
+		"PP": "*Points de progression du personnage*"
+	}
+}
