@@ -16,7 +16,7 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
     + [Histoire](#Histoire)
     + [Journal](#Journal)
 - [MJ](#MJ)
-  * [Sub-heading](#sub-heading-1)
+  * [Interface](#Interface-1)
     + [Sub-sub-heading](#sub-sub-heading-1)
 - [Fiche](#Fiche-1)
   * [template_min.json](#template_min.json)
@@ -87,10 +87,10 @@ Pour cela, cliquez sur "Editer le journal". "Valider" enregistrera les modificat
 ## MJ
 This is an h1 heading
 
-### Sub-heading
+### Interface
 This is an h2 heading
 
-#### Sub-sub-heading
+#### X
 This is an h3 heading
 
 ## Fiche
@@ -232,7 +232,7 @@ Elle regroupe les diférentes compétences magiques du personnage. Chaque compé
         "Nom": "Démangeaison éternelle",
         "Type": "Envoûtement"
       }
-    ],
+    ]
 ```
 #### PS
 Correspond aux Points de Santé actuel.
@@ -378,8 +378,8 @@ Regroupe les bonus du PJ. Elle peut prendre comme propriété :
 ##### Exemple
 ```JSON
 "Bonus": {
-			"Desc": "Détection des Monstres",
-			"INT": 2
+	"Desc": "Détection des Monstres",
+	"INT": 2
 }
 ```
 #### Malus
@@ -391,8 +391,8 @@ Regroupe les malus du PJ. Elle peut prendre comme propriété :
 ##### Exemple
 ```JSON
 "Malus": {
-			"Desc": "",
-			"Encombré": true
+	"Desc": "",
+	"Encombré": true
 }
 ```
 #### Journal
