@@ -91,7 +91,9 @@ Nous allons détailler les différentes propriétés de la fiche Json.
 #### Nom
 C'est le nom de votre personnage.
 ##### Exemple
-`"Nom": "GERALT DE RIV"`
+```JSON
+"Nom": "GERALT DE RIV"
+```
 #### Race
 C'est la race de votre personnage. Elle peut prendre les valeurs:
 - Humain ou Humaine
@@ -102,7 +104,9 @@ C'est la race de votre personnage. Elle peut prendre les valeurs:
 - Gnome
 - Vampire
 ##### Exemple
-`"Race": "Sorceleur"`
+```JSON
+"Race": "Sorceleur"
+```
 #### Profession
 C'est la profession de votre personnage. Elle peut prendre les valeurs:
 - Artisan
@@ -120,7 +124,9 @@ C'est la profession de votre personnage. Elle peut prendre les valeurs:
 - Hors-la-loi
 - Nomade
 ##### Exemple
-`"Profession": "Sorceleur"`
+```JSON
+"Profession": "Sorceleur"
+```
 #### Caractéristique
 Elle regroupe les caractéristiques primaires et secondaires.
 ##### Primaires
@@ -145,7 +151,6 @@ Elle regroupe les caractéristiques primaires et secondaires.
 - Pieds: Coup-de-pied
 - Poings: Coup-de-poings
 ##### Exemple
-
 ```JSON
  "Caractéristique": {
       "INT": 6,  
@@ -168,7 +173,6 @@ Elle regroupe les caractéristiques primaires et secondaires.
       "Pieds": "1d6+6",
       "Poings": "1d6+2"
     }
-
 ```
 #### Compétences
 Elle regroupe les différentes compétences du personnage. Chaque compétence possède pour valeurs:
@@ -177,7 +181,6 @@ Elle regroupe les différentes compétences du personnage. Chaque compétence po
 - C: pour la caractéristique dépendante
 - P: qui prend la valeur "true" si c'est une compétence de profession sinon elle prendra la valeur "false"
 ##### Exemple
-
 ```JSON
     "Compétences": [
       {"Nom": "Déduction","V": 9,"C": "INT","P": false},
@@ -190,7 +193,6 @@ Elle regroupe les différentes compétences du personnage. Chaque compétence po
       {"Nom": "Formation de sorceleur","V": 10,"C": "INT","P": true}
       {"Nom": "Estomac de fer","V": 10,"C": "-","P": true}
     ]
-
 ```
 #### Magie
 Elle regroupe les diférentes compétences magiques du personnage. Chaque compétence magique possède pour valeurs:
@@ -216,15 +218,21 @@ Elle regroupe les diférentes compétences magiques du personnage. Chaque compé
 #### PS
 Correspond aux Points de Santé actuel.
 ##### Exemple
-`"PS": 50`
+```JSON
+"PS": 50
+```
 #### END
 Correspond à l'Endurance actuel.
 ##### Exemple
-`"END": 20`
+```JSON
+"END": 20
+```
 #### Réput
 Correspond à la réputation.
 ##### Exemple
-`"Réput": "Légende"`
+```JSON
+"Réput": "Légende"
+```JSON
 #### Inventaire
 Correspond à l'inventaire du PJ. Il est divisé en trois catégories:
 - Arme
@@ -309,29 +317,44 @@ Ce sont les autres objets que possède le PJ. Chacun possède comme propriétés
 #### Or
 Correspond aux couronnes que possède le PJ
 ##### Exemple
-`"Or": 1`
+```JSON
+"Or": 1
+```
 #### HdV
 Correspond à l'Histoire de Vie du PJ
 ##### Exemple
-`"HdV": "Né à ...<br>Famille de ..."`
+```JSON
+"HdV": "Né à ...<br>Famille de ..."
+```
 #### Event
 Correspond aux événements de vie du PJ
 ##### Exemple
-`"Event": "..."`
+```JSON
+"Event": "..."
+```
 #### Description
 Correspond à la description du PJ
 ##### Exemple
-`"Description": "Cheveux blancs..."`
+```JSON
+"Description": "Cheveux blancs..."
+```
 #### Portrait
 Correspond au portrait du PJ. Il doit s'agit d'un lien url.
 ##### Exemple
-`"Portrait": "https://i.pinimg.com/originals/f1/02/41/f1024170e571510ecffc8f0ddf0b477d.jpg"`
+```JSON
+"Portrait": "https://i.pinimg.com/originals/f1/02/41/f1024170e571510ecffc8f0ddf0b477d.jpg"
+```
 #### Relance
 Correspond aux dé de relance restant.
 ##### Exemple
-`"Relance": 1`
+```JSON
+"Relance": 1
+```
 #### Bonus
 Regroupe les bonus du PJ.
+```JSON
+"Bonus": {"Desc":"Détection des monstres"}
+```
 #### Malus
 Regroupe les malus du PJ.
 #### Journal
@@ -339,4 +362,6 @@ Correspond au journal du PJ enregistré dans l'onglet Journal.
 #### PP
 Correspond aux Points de Progression du PJ
 ##### Exemple
-`"PP": 1`
+```JSON
+"PP": 1
+```
