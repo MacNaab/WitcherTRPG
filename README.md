@@ -17,7 +17,10 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
     + [Journal](#Journal)
 - [MJ](#MJ)
   * [Interface](#Interface-1)
-    + [Sub-sub-heading](#sub-sub-heading-1)
+    + [Butin](#Butin)
+    + [Wiki](#Wiki)
+    + [Gestion](#Gestion)
+
 - [Fiche](#Fiche-1)
   * [template_min.json](#template_min.json)
   * [template.json](#template.json)
@@ -85,13 +88,16 @@ Dans cette section, vous avez la possibilité de prendre des notes, tenir un jou
 Pour cela, cliquez sur "Editer le journal". "Valider" enregistrera les modifications dans votre fiche de personnage, si vous cliquez sur Annuler, ces modifications ne seront pas enregistrées.
 
 ## MJ
-This is an h1 heading
+### Importer sa dtb
 
 ### Interface
-This is an h2 heading
-
-#### X
-This is an h3 heading
+#### Butin
+Dans cette section 
+#### Wiki
+Dans cette section, vous avez la possibilité de rechercher un élément stocké dans votre fichier X.json (à la manière d'un wiki).
+#### Gestion
+Cette section n'est fonctionnelle que si vous intégrez le code sur votre serveur, github ne prenant pas en charge les scripts côté serveur (php).  
+Vous pouvez télécharger la version à installer sur votre ici.
 
 ## Fiche
 La fiche de PJ doit être dans un format .json. Vous pouvez éditer votre fiche avec n'importe quel éditeur de texte (bloc-note, Notepad++, Visual Studio Code...) ou utiliser un éditeur en ligne ([jsoneditoronline](https://jsoneditoronline.org/) ...).
