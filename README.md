@@ -18,7 +18,7 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
 - [MJ](#MJ)
   * [Sub-heading](#sub-heading-1)
     + [Sub-sub-heading](#sub-sub-heading-1)
-- [Fiche](#Fiche)
+- [Fiche](#Fiche-1)
   * [Eléments](#sub-heading-2)
     + [Sub-sub-heading](#sub-sub-heading-2)
 
