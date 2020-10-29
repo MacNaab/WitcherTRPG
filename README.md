@@ -89,8 +89,27 @@ Nous allons détailler les différentes propriétés de la fiche Json.
 #### Nom
 C'est le nom de votre personnage.
 #### Race
-C'est la race de votre personnage. Il peut prendre les valeurs:
+C'est la race de votre personnage. Elle peut prendre les valeurs:
 - Humain ou Humaine
-- 
+- Elfe
+- Nain ou Naine
+- Sorceleur
+- Halfelin ou Halfeline
+- Gnome
+- Vampire
 #### Profession
-C'est la profession de votre personnage.
+C'est la profession de votre personnage. Elle peut prendre les valeurs:
+- Artisan
+- Barde
+- Criminel
+- Docteur
+- Homme d'armes
+- Mage
+- Marchand
+- Prêtre
+- Sorceleur
+- Noble
+- Paysan
+- Fanatique
+- Hors-la-loi
+- Nomade
