@@ -75,15 +75,16 @@ This is an h2 heading
 This is an h3 heading
 
 ## Fiche
-La fiche de PJ doit être dans un format .json
+La fiche de PJ doit être dans un format .json. Vous pouvez éditer votre fiche avec n'importe quel éditeur de texte (bloc-note, Notepad++, Visual Studio Code...) ou utiliser un éditeur en ligne ([jsoneditoronline](https://jsoneditoronline.org/) ...).
 
-### Eléments
-La fiche comprends les éléments suivants: [...]
-  Vous trouverez 2 exemples de fiches:
+Vous trouverez 2 exemples de fiches:
 - template.json
 - template_min.js
 
-#### template_min.json
+### template_min.json
 C'est la version minimale pour un PJ. Vous pouvez la retrouver ici. Lors de la première utilisation, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
-#### template.json
+### template.json
 C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver ici.
+
+### Éléments
+#### test
