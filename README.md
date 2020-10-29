@@ -146,7 +146,7 @@ Elle regroupe les caractéristiques primaires et secondaires.
 - Poings
 ##### Exemple
 `
- "Caractéristique": {. 
+ "Caractéristique": {
       "INT": 6,  
       "REF": 14,  
       "DEX": 10,
