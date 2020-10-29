@@ -337,7 +337,7 @@ Ce sont les autres objets que possède le PJ. Chacun possède comme propriétés
           "Qtt": 1
         }
       ]
-    },
+    }
 ```
 #### Or
 Correspond aux couronnes que possède le PJ
@@ -346,19 +346,19 @@ Correspond aux couronnes que possède le PJ
 "Or": 1
 ```
 #### HdV
-Correspond à l'Histoire de Vie du PJ
+Correspond à l'Histoire de Vie du PJ. Doit être au format .html.
 ##### Exemple
 ```JSON
 "HdV": "Né à ...<br>Famille de ..."
 ```
 #### Event
-Correspond aux événements de vie du PJ
+Correspond aux événements de vie du PJ. Doit être au format .html.
 ##### Exemple
 ```JSON
 "Event": "..."
 ```
 #### Description
-Correspond à la description du PJ
+Correspond à la description du PJ. Doit être au format .html.
 ##### Exemple
 ```JSON
 "Description": "Cheveux blancs..."
