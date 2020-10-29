@@ -7,18 +7,18 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
 
 ------------------
 # Sommaire
-- [Joueur](#heading)
+- [Joueur](#Joueur)
   * [Importer sa fiche](#sub-heading)
-  * [Interface](#sub-heading-1)
-    + [Fiche](#sub-sub-heading)
-    + [Compétences](#sub-sub-heading-1)
-    + [Inventaire](#sub-sub-heading-2)
-    + [Histoire](#sub-sub-heading-3)
-    + [Journal](#sub-sub-heading-4)
-- [MJ](#heading-1)
+  * [Interface](#Interface)
+    + [Fiche](#Fiche)
+    + [Compétences](#Compétences)
+    + [Inventaire](#Inventaire)
+    + [Histoire](#Histoire)
+    + [Journal](#Journal)
+- [MJ](#MJ)
   * [Sub-heading](#sub-heading-1)
     + [Sub-sub-heading](#sub-sub-heading-1)
-- [Fiche](#heading-2)
+- [Fiche](#Fiche)
   * [Eléments](#sub-heading-2)
     + [Sub-sub-heading](#sub-sub-heading-2)
 
@@ -88,3 +88,9 @@ C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver ici.
 Nous allons détailler les différentes propriétés de la fiche Json.
 #### Nom
 C'est le nom de votre personnage.
+#### Race
+C'est la race de votre personnage. Il peut prendre les valeurs:
+- Humain ou Humaine
+- 
+#### Profession
+C'est la profession de votre personnage.
