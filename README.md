@@ -88,7 +88,7 @@ Pour cela, cliquez sur "Editer le journal". "Valider" enregistrera les modificat
 
 ## MJ
 ### Importer sa dtb
-
+Si vous utilisez la version hébergée sur Github, vous pouvez importer un fichier .json correspondant au "wiki". Si vous utilisez la version a héberger sur votre serveur, cette option est inutile puisque vous hébergez ce fichier.
 ### Interface
 #### Butin
 Dans cette section vous trouverez différents générateurs de butins.
