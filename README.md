@@ -8,7 +8,7 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
 ------------------
 # Sommaire
 - [Joueur](#Joueur)
-  * [Importer sa fiche](#sub-heading)
+  * [Importer sa fiche](#importer-sa-fiche)
   * [Interface](#Interface)
     + [Fiche](#Fiche)
     + [Compétences](#Compétences)
@@ -19,8 +19,10 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
   * [Sub-heading](#sub-heading-1)
     + [Sub-sub-heading](#sub-sub-heading-1)
 - [Fiche](#Fiche-1)
-  * [Eléments](#sub-heading-2)
-    + [Sub-sub-heading](#sub-sub-heading-2)
+  * [template_min.json](#template_min.json)
+  * [template.json](#template.json)
+  * [Propriétés](#template_min)
+    + [Nom](#Nom)
 
 ------------------
 
@@ -113,4 +115,79 @@ C'est la profession de votre personnage. Elle peut prendre les valeurs:
 - Fanatique
 - Hors-la-loi
 - Nomade
-#### --
+#### Caractéristique
+Elle regroupe les caractéristiques primaires et secondaires.
+
+Les primaires:
+- INT
+- REF
+- DEX
+- COR
+- VIT
+- EMP
+- TEC
+- VOL
+- CHA
+- VIG
+Les secondaires:
+#### Compétences
+Elle regroupe les différentes compétences du personnage. Chaque compétence possède pour valeurs:
+- Nom: le nom de la compétence
+- V: sa valeur
+- C: pour la caractéristique dépendante
+- P: qui prend la valeur "true" si c'est une compétence de profession sinon elle prendra la valeur "false"
+#### Magie
+Elle regroupe les diférentes compétences magiques du personnage. Chaque compétence magique possède pour valeurs:
+- Nom: le nom de la compétence magique
+- Type: qui correspond au type de compétence magique (Sort, Invocation, Signe, Envoûtement, Rituel, Vampire)
+#### PS
+Correspond aux Points de Santé actuel.
+#### END
+Correspond à l'Endurance actuel.
+#### Réput
+Correspond à la réputation.
+#### Inventaire
+Correspond à l'inventaire du PJ. Il est divisé en trois catégories:
+- Arme
+- Armure
+- Autre
+##### Arme
+Ce sont les différentes armes que possède le PJ. Chaque arme possède comme propriétés:
+- Nom: Nom de l'arme
+- Type: Type d'arme
+- Pré: Précision de l'arme
+- Fia: Fiabilité actuelle de l'arme
+- FiaMax: Fiabilité maximale de  l'arme
+- Main: Combien de mains libres sont nécessaire par manier l'arme
+- Por: Portée de l'arme
+- Effet: Effet de l'arme
+- Diss: Dissimulation de l'arme
+- AM: Amélioration de l'arme
+- Poids: Poids de l'arme
+##### Armure
+Ce sont les différentes armures que possède le PJ. Chaque armure possède comme propriétés:
+- Nom: Nom de l'armure
+- Type: Type d'armure (Tête,Torse,Jambe)
+- PA: Pouvoir d'arrêt de l'armure
+- Fia: Fiabilité actuelle de l'armure
+- FiaMax: Fiabilité maximale de  l'armure
+- Effet: Effet de l'armure
+- AM: Amélioration de l'armure
+- VE: Valeur d'Encombrement de l'armure
+- Poids: Poids de l'armure
+##### Autre
+Ce sont les autres objets que possède le PJ. Chacun possède comme propriétés:
+- Nom: Nom de l'objet
+- Effet: Effet de l'objet
+- Poids: Poids de l'objet pour 1 unitée
+- Qtt: Quantité d'unitée de l'item
+#### Or
+Correspond aux couronnes que possède le PJ
+#### HdV
+Correspond à l'Histoire de Vie du PJ
+#### Event
+Correspond aux événements de vie du PJ
+#### Description
+Correspond à la description du PJ
+#### Portrait
+Correspond au portrait du PJ. Il doit s'agit d'un lien url.
