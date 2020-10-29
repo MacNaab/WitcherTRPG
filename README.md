@@ -21,7 +21,7 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
 - [Fiche](#Fiche-1)
   * [template_min.json](#template_min.json)
   * [template.json](#template.json)
-  * [Propriétés](#template_min)
+  * [Propriétés](#Propriétés)
     + [Nom](#Nom)
 
 ------------------
@@ -232,7 +232,7 @@ Correspond à la réputation.
 ##### Exemple
 ```JSON
 "Réput": "Légende"
-```JSON
+```
 #### Inventaire
 Correspond à l'inventaire du PJ. Il est divisé en trois catégories:
 - Arme
