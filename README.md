@@ -76,13 +76,13 @@ This is an h3 heading
 La fiche de PJ doit être dans un format .json. Vous pouvez éditer votre fiche avec n'importe quel éditeur de texte (bloc-note, Notepad++, Visual Studio Code...) ou utiliser un éditeur en ligne ([jsoneditoronline](https://jsoneditoronline.org/) ...).
 
 Vous trouverez 2 exemples de fiches:
-- template.json
-- template_min.js
+- [template.json](https://github.com/MacNaab/WitcherTRPG/blob/master/data/template.json)
+- [template_min.json](https://github.com/MacNaab/WitcherTRPG/blob/master/data/template_min.json)
 
 ### template_min.json
-C'est la version minimale pour un PJ. Vous pouvez la retrouver ici. Lors de la première utilisation, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
+C'est la version minimale pour un PJ. Vous pouvez la retrouver [ici](https://raw.githubusercontent.com/MacNaab/WitcherTRPG/master/data/template_min.json). Lors de la première utilisation, les caractéristiques secondaires et capacités seront automatiquement ajoutées.
 ### template.json
-C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver ici.
+C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver [ici](https://raw.githubusercontent.com/MacNaab/WitcherTRPG/master/data/template.json).
 
 ### Propriétés
 Nous allons détailler les différentes propriétés de la fiche Json.
@@ -113,3 +113,4 @@ C'est la profession de votre personnage. Elle peut prendre les valeurs:
 - Fanatique
 - Hors-la-loi
 - Nomade
+#### --
