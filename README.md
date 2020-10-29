@@ -177,7 +177,8 @@ Elle regroupe les différentes compétences du personnage. Chaque compétence po
 - C: pour la caractéristique dépendante
 - P: qui prend la valeur "true" si c'est une compétence de profession sinon elle prendra la valeur "false"
 ##### Exemple
-`
+
+```JSON
     "Compétences": [
       {"Nom": "Déduction","V": 9,"C": "INT","P": false},
       {"Nom": "Bagarre","V": 6,"C": "REF","P": false},
@@ -189,13 +190,14 @@ Elle regroupe les différentes compétences du personnage. Chaque compétence po
       {"Nom": "Formation de sorceleur","V": 10,"C": "INT","P": true}
       {"Nom": "Estomac de fer","V": 10,"C": "-","P": true}
     ]
-`
+
+```
 #### Magie
 Elle regroupe les diférentes compétences magiques du personnage. Chaque compétence magique possède pour valeurs:
 - Nom: le nom de la compétence magique
 - Type: qui correspond au type de compétence magique (Sort, Invocation, Signe, Envoûtement, Rituel, Vampire)
 ##### Exemple
-`
+```JSON
     "Magie": [
       {
         "Nom": "Dissipation",
@@ -210,7 +212,7 @@ Elle regroupe les diférentes compétences magiques du personnage. Chaque compé
         "Type": "Envoûtement"
       }
     ],
-`
+```
 #### PS
 Correspond aux Points de Santé actuel.
 ##### Exemple
@@ -258,7 +260,7 @@ Ce sont les autres objets que possède le PJ. Chacun possède comme propriétés
 - Poids: Poids de l'objet pour 1 unitée
 - Qtt: Quantité d'unitée de l'item
 ##### Exemple
-`
+```JSON
     "Inventaire": {
       "Arme": [
         {
@@ -303,7 +305,7 @@ Ce sont les autres objets que possède le PJ. Chacun possède comme propriétés
         }
       ]
     },
-`
+```
 #### Or
 Correspond aux couronnes que possède le PJ
 ##### Exemple
