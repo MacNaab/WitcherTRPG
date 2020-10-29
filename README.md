@@ -145,7 +145,8 @@ Elle regroupe les caractéristiques primaires et secondaires.
 - Pieds
 - Poings
 ##### Exemple
-`
+
+```JSON
  "Caractéristique": {
       "INT": 6,  
       "REF": 14,  
@@ -167,7 +168,8 @@ Elle regroupe les caractéristiques primaires et secondaires.
       "Pieds": "1d6+6",
       "Poings": "1d6+2"
     }
-`
+
+```
 #### Compétences
 Elle regroupe les différentes compétences du personnage. Chaque compétence possède pour valeurs:
 - Nom: le nom de la compétence
