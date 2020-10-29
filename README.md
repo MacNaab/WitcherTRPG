@@ -33,8 +33,6 @@ Vous avez deux possibilitées :
 Vous pouvez importer votre fiche (format .json). Vous référez à [Fiche](#heading-2).
 
 ### Interface
-This is an h2 heading
-
 #### Fiche
 Dans cette section, vous aurez les principales informations sur votre personnage: histoire, événements, description mais égalements les caractéristiques primaires et secondaires. Vous avez également la possibilité de rajouter une image de portrait (lien url).
 
@@ -55,10 +53,10 @@ Vous trouverez également un gestionnaire d'achat d'objets communs (à prix fixe
 Dans cette section, vous trouverez une section fiche rapide composé de votre argent, vos dés de relance restant, votre réputation, vos PP, vos PS et END actuel ainsi que les valeurs de la PA, l'encombrement et l'encombrement d'armure. Vous aurez aussi vos bonus et malus.
 
 Ensuite vous trouverez votre simulateur de lancer qui possède un historique.
-La première ligne sert aux principaux lancés (caractéristique, compétence).
-"Jet d'arme" permet de faire un jet de dommage avec une de vos armes.
-"Corps à corps" permet de faire un jet de coup de poings ou de coup de pieds.
-"Dé" permet de lancer un dé possède X face. (X étant le chiffre mis dans cet input)
+- La première ligne sert aux principaux lancés (caractéristique, compétence).
+- "Jet d'arme" permet de faire un jet de dommage avec une de vos armes.
+- "Corps à corps" permet de faire un jet de coup de poings ou de coup de pieds.
+- "Dé" permet de lancer un dé possède X face. (X étant le chiffre mis dans cet input)
 
 #### Journal
 Dans cette section, vous avez la possibilité de prendre des notes, tenir un journal de PJ tout en jouant.
