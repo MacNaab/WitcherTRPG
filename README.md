@@ -124,26 +124,26 @@ C'est la profession de votre personnage. Elle peut prendre les valeurs:
 #### Caractéristique
 Elle regroupe les caractéristiques primaires et secondaires.
 ##### Primaires
-- INT
-- REF
-- DEX
-- COR
-- VIT
-- EMP
-- TEC
-- VOL
-- CHA
-- VIG
+- INT: Intelligence
+- REF: Réflexes
+- DEX: Dextérité 
+- COR: Corps
+- VIT: Vitesse 
+- EMP: Empathie 
+- TEC: Technique 
+- VOL: Volonté
+- CHA: Chance 
+- VIG: Vigueur 
 ##### Secondaires
-- ETOU
-- COU
-- SAUT
-- PS
-- END
-- ENC
-- REC
-- Pieds
-- Poings
+- ETOU: Étourdissement
+- COU: Course
+- SAUT: Saut
+- PS: Points de Santé
+- END: Endurance 
+- ENC: Encombrement 
+- REC: Récupération
+- Pieds: Coup-de-pied
+- Poings: Coup-de-poings
 ##### Exemple
 
 ```JSON
