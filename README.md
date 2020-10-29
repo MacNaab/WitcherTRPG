@@ -83,8 +83,7 @@ Ensuite vous trouverez votre simulateur de lancer qui possède un historique.
 - "Dé" permet de lancer un dé possède X face. (X étant le chiffre mis dans cet input)
 
 #### Journal
-Dans cette section, vous avez la possibilité de prendre des notes, tenir un journal de PJ tout en jouant.
-
+Dans cette section, vous avez la possibilité de prendre des notes, tenir un journal de PJ tout en jouant.  
 Pour cela, cliquez sur "Editer le journal". "Valider" enregistrera les modifications dans votre fiche de personnage, si vous cliquez sur Annuler, ces modifications ne seront pas enregistrées.
 
 ## MJ
@@ -92,12 +91,13 @@ Pour cela, cliquez sur "Editer le journal". "Valider" enregistrera les modificat
 
 ### Interface
 #### Butin
-Dans cette section 
+Dans cette section vous trouverez différents générateurs de butins.
 #### Wiki
 Dans cette section, vous avez la possibilité de rechercher un élément stocké dans votre fichier X.json (à la manière d'un wiki).
 #### Gestion
 Cette section n'est fonctionnelle que si vous intégrez le code sur votre serveur, github ne prenant pas en charge les scripts côté serveur (php).  
-Vous pouvez télécharger la version à installer sur votre ici.
+Vous pouvez télécharger la version à installer sur votre ici.  
+Elle permet de modifier la fiche de PJ des différents joueurs de votre table.
 
 ## Fiche
 La fiche de PJ doit être dans un format .json. Vous pouvez éditer votre fiche avec n'importe quel éditeur de texte (bloc-note, Notepad++, Visual Studio Code...) ou utiliser un éditeur en ligne ([jsoneditoronline](https://jsoneditoronline.org/) ...).
