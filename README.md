@@ -23,6 +23,25 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
   * [template.json](#template.json)
   * [Propriétés](#Propriétés)
     + [Nom](#Nom)
+    + [Race](#Race)
+    + [Profession](#Profession)
+    + [Caractéristique](#Caractéristique)
+    + [Compétences](#Compétences)
+    + [Magie](#Magie)
+    + [PS](#PS)
+    + [END](#END)
+    + [Réput](#Réput)
+    + [Inventaire](#Inventaire)
+    + [Or](#Or)
+    + [HdV](#HdV)
+    + [Evénements](#Event)
+    + [Description](#Description)
+    + [Portrait](#Portrait)
+    + [Relance](#Relance)
+    + [Bonus](#Bonus)
+    + [Malus](#Malus)
+    + [Journal](#Journal)
+    + [PP](#PP)
 
 ------------------
 
@@ -351,12 +370,31 @@ Correspond aux dé de relance restant.
 "Relance": 1
 ```
 #### Bonus
-Regroupe les bonus du PJ.
+Regroupe les bonus du PJ. Elle peut prendre comme propriété :
+- Toute caractéristique
+- Toute compétence
+- Certain état
+- Desc: valeur affiché dans "Histoire" 
+##### Exemple
 ```JSON
-"Bonus": {"Desc":"Détection des monstres"}
+"Bonus": {
+			"Desc": "Détection des Monstres",
+			"INT": 2
+}
 ```
 #### Malus
-Regroupe les malus du PJ.
+Regroupe les malus du PJ. Elle peut prendre comme propriété :
+- Toute caractéristique
+- Toute compétence
+- Certain état
+- Desc: valeur affiché dans "Histoire" 
+##### Exemple
+```JSON
+"Malus": {
+			"Desc": "",
+			"Encombré": true
+}
+```
 #### Journal
 Correspond au journal du PJ enregistré dans l'onglet Journal.
 #### PP
