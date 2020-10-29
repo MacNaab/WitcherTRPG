@@ -90,6 +90,8 @@ C'est la version détaillé d'une fiche de PJ. Vous pouvez la retrouver [ici](ht
 Nous allons détailler les différentes propriétés de la fiche Json.
 #### Nom
 C'est le nom de votre personnage.
+##### Exemple
+{"Nom": "GERALT DE RIV"}
 #### Race
 C'est la race de votre personnage. Elle peut prendre les valeurs:
 - Humain ou Humaine
@@ -99,6 +101,8 @@ C'est la race de votre personnage. Elle peut prendre les valeurs:
 - Halfelin ou Halfeline
 - Gnome
 - Vampire
+##### Exemple
+{"Race": "Sorceleur"}
 #### Profession
 C'est la profession de votre personnage. Elle peut prendre les valeurs:
 - Artisan
@@ -115,6 +119,8 @@ C'est la profession de votre personnage. Elle peut prendre les valeurs:
 - Fanatique
 - Hors-la-loi
 - Nomade
+##### Exemple
+{"Profession": "Sorceleur"}
 #### Caractéristique
 Elle regroupe les caractéristiques primaires et secondaires.
 ##### Primaires
@@ -129,17 +135,72 @@ Elle regroupe les caractéristiques primaires et secondaires.
 - CHA
 - VIG
 ##### Secondaires
--
+- ETOU
+- COU
+- SAUT
+- PS
+- END
+- ENC
+- REC
+- Pieds
+- Poings
+##### Exemple
+{
+ "Caractéristique": {
+      "INT": 6,
+      "REF": 14,
+      "DEX": 10,
+      "COR": 8,
+      "VIT": 9,
+      "EMP": 3,
+      "TEC": 5,
+      "VOL": 8,
+      "CHA": 3,
+      "VIG": 7,
+      "ETOU": 8,
+      "COU": 27,
+      "SAUT": 5,
+      "PS": 40,
+      "END": 40,
+      "ENC": 80,
+      "REC": 8,
+      "Pieds": "1d6+6",
+      "Poings": "1d6+2"
+    }
+}
 #### Compétences
 Elle regroupe les différentes compétences du personnage. Chaque compétence possède pour valeurs:
 - Nom: le nom de la compétence
 - V: sa valeur
 - C: pour la caractéristique dépendante
 - P: qui prend la valeur "true" si c'est une compétence de profession sinon elle prendra la valeur "false"
+##### Exemple
+{
+    "Compétences": [
+      {"Nom": "Déduction","V": 9,"C": "INT","P": false},
+      {"Nom": "Bagarre","V": 6,"C": "REF","P": false},
+      {"Nom": "Arbalète","V": 6,"C": "DEX","P": false},
+      {"Nom": "Physique","V": 6,"C": "COR","P": false},
+      {"Nom": "Persuasion","V": 1,"C": "EMP","P": false},
+      {"Nom": "Alchimie","V": 5,"C": "TEC","P": false},
+      {"Nom": "Résistance à la magie","V": 6,"C": "VOL","P": false},
+      {"Nom": "Formation de sorceleur","V": 10,"C": "INT","P": true}
+      {"Nom": "Estomac de fer","V": 10,"C": "-","P": true}
+    ]
+}
 #### Magie
 Elle regroupe les diférentes compétences magiques du personnage. Chaque compétence magique possède pour valeurs:
 - Nom: le nom de la compétence magique
 - Type: qui correspond au type de compétence magique (Sort, Invocation, Signe, Envoûtement, Rituel, Vampire)
+##### Exemple
+{
+    "Magie": [
+      {
+        "Nom": "Sort 1",
+        "Type": "Sort"
+      }
+    ],
+}
 #### PS
 Correspond aux Points de Santé actuel.
 #### END
