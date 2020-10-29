@@ -117,8 +117,7 @@ C'est la profession de votre personnage. Elle peut prendre les valeurs:
 - Nomade
 #### Caractéristique
 Elle regroupe les caractéristiques primaires et secondaires.
-
-Les primaires:
+##### Primaires
 - INT
 - REF
 - DEX
@@ -129,7 +128,8 @@ Les primaires:
 - VOL
 - CHA
 - VIG
-Les secondaires:
+##### Secondaires
+-
 #### Compétences
 Elle regroupe les différentes compétences du personnage. Chaque compétence possède pour valeurs:
 - Nom: le nom de la compétence
@@ -191,3 +191,13 @@ Correspond aux événements de vie du PJ
 Correspond à la description du PJ
 #### Portrait
 Correspond au portrait du PJ. Il doit s'agit d'un lien url.
+#### Relance
+Correspond aux dé de relance restant.
+#### Bonus
+Regroupe les bonus du PJ.
+#### Malus
+Regroupe les malus du PJ.
+#### Journal
+Correspond au journal du PJ.
+#### PP
+Correspond aux Points P du PJ
