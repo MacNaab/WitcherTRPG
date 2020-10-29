@@ -54,7 +54,7 @@ Vous avez deux possibilitées :
 - Importer votre Fiche
 
 ### Importer sa fiche
-Vous pouvez importer votre fiche (format .json). Vous référez à [Fiche](#heading-2).
+Vous pouvez importer votre fiche (format .json). Vous référez à [Fiche](#Fiche-1).
 
 ### Interface
 #### Fiche
