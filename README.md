@@ -184,6 +184,7 @@ Elle regroupe les caractéristiques primaires et secondaires.
 - CHA: Chance 
 - VIG: Vigueur 
 ##### Secondaires
+Les caractéristiques secondaires sont calculées automatiquement des caractéristiques primaires, toutefois, vous pouvez modifier ces valeurs manuellement.  
 - ETOU: Étourdissement
 - COU: Course
 - SAUT: Saut
