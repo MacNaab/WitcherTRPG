@@ -1,3 +1,5 @@
+function todtb(){}
+
 function oncalculebien(){
     var A = document.getElementById('P4_Caract').value;
     var B = document.getElementById('P4_Compt').value;if(B == "0"){var B = "rien";}
