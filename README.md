@@ -67,9 +67,10 @@ Si vous pratiquez la magie, vos sorts seront dans cette section ainsi qu'un tabl
 
 #### Inventaire
 Dans cette section, vous trouverez votre inventaire divisé en trois catégories:
-- Armes
-- Armures
-- Inventaire
+- [Armes](Arme)
+- [Armures](Armure)
+- [Inventaire](Autre)
+- [Schémas](Schéma)
 
 Vous trouverez également un gestionnaire d'achat d'objets communs (à prix fixe) ainsi qu'un tableau regroupant les différents items du jeu, ce tableau possède une fonction de recherche.
 
@@ -292,6 +293,11 @@ Ce sont les autres objets que possède le PJ. Chacun possède comme propriétés
 - Effet: Effet de l'objet
 - Poids: Poids de l'objet pour 1 unitée
 - Qtt: Quantité d'unitée de l'item
+##### Schéma
+Ce sont les différents schémas et plans connu par le PJ. Chacun possède comme propriétés:
+- Nom: Nom du schéma
+- Desc: Description du schéma
+- Poids: Poids du schéma
 ##### Exemple
 ```JSON
     "Inventaire": {
