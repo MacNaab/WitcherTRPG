@@ -10,7 +10,7 @@ function exportation(){
 	obj[joueur]=JSON_FICHE;
 	var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
 
-	$('<a id="DL_MAP" a href="data:' + data + '" download="data.json">download JSON</a>').appendTo('#app');
+	$('<a id="DL_MAP" a href="data:' + data + '" download="FichePJ.json">download JSON</a>').appendTo('#app');
 	document.getElementById("DL_MAP").click();
 	$("#DL_MAP").remove();	
 }
