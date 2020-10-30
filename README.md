@@ -364,7 +364,7 @@ Ce sont les différents schémas et plans connu par le PJ. Chacun possède comme
         {
           "Nom": "Schéma",
           "Desc": "Armure Novice",
-          "Poids": 0.1,
+          "Poids": 0.1
         }
       ]
     }
@@ -428,7 +428,7 @@ Regroupe les malus du PJ. Elle peut prendre comme propriété :
 ```JSON
 "Malus": {
 	"Desc": "",
-	"Encombré": true
+	"Encombrement": true
 }
 ```
 #### Journal
