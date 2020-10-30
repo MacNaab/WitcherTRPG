@@ -1,6 +1,98 @@
-[
-  'test': {
-    'Race': 'Humain',
-    'Profession': 'Gredin'
+{
+  "test": {
+    "Nom": "Joueur",
+    "Race": "Humaine",
+    "Profession": "Homme d'armes",
+    "Caractéristique": {
+      "INT": 1,
+      "REF": 2,
+      "DEX": 3,
+      "COR": 4,
+      "VIT": 5,
+      "EMP": 6,
+      "TEC": 7,
+      "VOL": 8,
+      "CHA": 9,
+	  "VIG": 0
+    },
+    "Compétences": [
+      {"Nom": "Compétence 1","V": 1,"C": "INT","P": false},
+      {"Nom": "Compétence 1","V": 1,"C": "REF","P": false},
+      {"Nom": "Compétence 1","V": 1,"C": "DEX","P": false},
+      {"Nom": "Compétence 1","V": 1,"C": "EMP","P": false},
+      {"Nom": "Compétence 1","V": 1,"C": "TEC","P": false},
+      {"Nom": "Compétence 1","V": 1,"C": "VOL","P": false},
+      {"Nom": "Compétence 1","V": 1,"C": "INT","P": true}
+    ],
+    "Magie": [
+      {
+        "Nom": "Sort 1",
+        "Type": "Sort"
+      }
+    ],
+    "Réput": "Aucune",
+    "Inventaire": {
+      "Arme": [
+        {
+          "Nom": "Epée",
+          "Type": "C",
+          "Pré": 1,
+          "Dég": "3d6+2",
+          "Fia": 15,
+          "FiaMax": 15,
+          "Main": 2,
+          "Por": "-",
+          "Effet": "-",
+          "Diss": "-",
+          "AM": "-",
+          "Poids": 2.5
+        }
+      ],
+      "Armure": [
+        {
+          "Nom": "Plastron",
+          "Type": ["Torse"],
+          "PA": 12,
+          "Fia": 12,
+          "Effet": "-",
+          "AM": "-",
+          "VE": 1,
+          "Poids": 6
+        },
+		    {
+          "Nom": "Cotte de mailles gnome",
+          "Type": ["Tête","Torse","Jambe"],
+          "PA": 10,
+          "Fia": 9,
+          "Effet": "Résistance : tranchant",
+          "AM": "-",
+          "VE": 0,
+          "Poids": 5
+        }
+      ],
+      "Autre": [
+        {
+          "Nom": "Pièce d'échec",
+          "Effet": "<i>Souvenir du passé...</i>",
+          "Poids": 0.1,
+          "Qtt": 1
+        }
+      ],
+      "Schéma": [
+        {
+          "Nom": "Schéma test",
+          "Desc": "Schéma test",
+          "Poids": 0.1
+        }
+      ]
+    },
+    "Bonus":{},
+    "Malus":{},
+    "Or": 700,
+    "HdV": "Cet homme est un test. <br> Personne ne le connaît.",
+    "Event": "Il a bien vécu.",
+    "Description": "Description sommaire.",
+    "Portrait": "https://i.pinimg.com/474x/57/dd/8f/57dd8fcf2b8d0b4ee4f4a0ab6df999c9.jpg",
+    "PP": 0
   }
-]
+}
