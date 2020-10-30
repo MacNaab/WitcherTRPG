@@ -1,0 +1,329 @@
+<div id="page_3">
+  <br>
+  <div id="P3_INFO">
+    <div id="P3_Arme">
+		<h3>Armes :</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-dark P3TABLE" >
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Type</th>
+              <th scope="col">Dégâts</th>
+              <th scope="col">Précision</th>
+              <th scope="col">Portée</th>
+              <th scope="col">Durabilité</th>
+              <th scope="col">Mains (Dissimulation)</th>
+              <th scope="col">Effet</th>
+              <th scope="col">Poids</th>
+            </tr>
+          </thead>
+          <tbody id="P3_Armes">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="P3_Armure">
+		<h3>Armures :</h3>
+      <div class="table-responsive">
+      <table class="table table-striped table-dark P3TABLE" >
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Type</th>
+            <th scope="col">PA</th>
+            <th scope="col">Durabilité</th>
+            <th scope="col">VE</th>
+            <th scope="col">Effet</th>
+            <th scope="col">Poids</th>
+          </tr>
+        </thead>
+        <tbody id="P3_Armures">
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div id="P3_Inv">
+	<h3>Inventaire :</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-dark P3TABLE" >
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Description</th>
+              <th scope="col">Quantité</th>
+              <th scope="col">Poids</th>
+            </tr>
+          </thead>
+          <tbody id="P3_Items">
+          </tbody>
+        </table>
+      </div>
+    </div>
+	<div id="P3_Dia">
+	<h3>Diagramme/Schéma :</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-dark P3TABLE" >
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Description</th>
+              <th scope="col">Poids</th>
+            </tr>
+          </thead>
+          <tbody id="P3_Dias">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div><h3>Achat</h3>
+      <div class="grid-container4" >
+        <div>
+            <select class="custom-select" id="P3_ACHAT" onchange="achat(this.value)">
+              <option selected>Catégorie</option>
+              <option value="1">Equipement Général</option>
+              <option value="2">Conteneur</option>
+              <option value="3">Nourriture</option>
+              <option value="4">Outils</option>
+              <option value="8">Vêtements</option>
+              <option value="9">Monture</option>
+              <option value="5">Composants</option>
+              <option value="6">Arme</option>
+              <option value="7">Armure</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" list="P3_ACHAT2_2" id="P3_ACHAT2" class="form-control" placeholder="Objet">
+			<datalist id="P3_ACHAT2_2">
+			</datalist>
+        </div>
+        <div>
+            <input type="number" min="1" id="P3_ACHAT4" class="form-control" placeholder="Quantité">
+        </div>
+        <div style="text-align: center;">
+            <input type="button" class="btn btn-primary" value="Acheter !" onclick="achat_f()">
+        </div>
+      </div>
+      <div id="P3_ACHAT3"></div>
+    </div>
+  </div>
+
+  <br><br>
+  <div>
+    <h3>Base de donnée:</h3>
+    <div>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a id="TêteTablo1" class="nav-link" onclick="TableauAdmin('1')">Armes</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTablo2" class="nav-link" onclick="TableauAdmin('2')">Armures</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTablo3" class="nav-link" onclick="TableauAdmin('3')">Items</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTablo4" class="nav-link" onclick="TableauAdmin('4')">Composants</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTablo5" class="nav-link" onclick="TableauAdmin('5')">Schémas</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTablo6" class="nav-link" onclick="TableauAdmin('6')">Potions</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTablo7" class="nav-link" onclick="TableauAdmin('7')">Substances</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTablo8" class="nav-link" onclick="TableauAdmin('8')">Formules</a>
+        </li>
+      </ul>
+      <div>
+        <div class="form-group center" style="width:250px">
+          <input class="form-control" id="myInput" type="text" placeholder="Rechercher.." onkeyup="searchbar('1')">
+        </div>
+        <table class="table table-bordered table-hover table-responsive">
+          <thead class="thead-dark" id="tabloT">
+            <tr>
+            </tr>
+          </thead>
+          <tbody id="tabloC">
+          </tbody>
+        </table>    
+      </div>
+    </div>   
+  </div>
+</div>
+<script>
+if(JSON_FICHE.Inventaire.Arme != undefined){
+	JSON_FICHE.Inventaire.Arme.forEach(function(e){
+		$("#P3_Armes").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Type+"</td><td>"+e.Dég+"</td><td>"+e.Pré+"</td><td>"+e.Por+"</td><td>"+e.Fia+"/"+e.FiaMax+"</td><td>"+e.Main+"<br>("+e.Diss+")</td><td>"+e.Effet+"<br>"+e.AM+"</td><td>"+e.Poids+"</td></tr>")
+	});
+}else{$("#P3_Arme").remove();}
+
+if(JSON_FICHE.Inventaire.Armure != undefined){
+	JSON_FICHE.Inventaire.Armure.forEach(function(e){
+		$("#P3_Armures").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Type+"</td><td>"+e.PA+"</td><td>"+e.Fia+"/"+e.PA+"</td><td>"+e.VE+"</td><td>"+e.Effet+"<br>"+e.AM+"</td><td>"+e.Poids+"</td></tr>")
+	});
+}else{$("#P3_Armure").remove();}
+
+if(JSON_FICHE.Inventaire.Autre != undefined){
+	JSON_FICHE.Inventaire.Autre.forEach(function(e){
+		$("#P3_Items").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Effet+"</td><td>"+e.Qtt+"</td><td>"+e.Poids*e.Qtt+"</td></tr>")
+	});
+}else{$("#P3_Inv").remove();}
+
+if(JSON_FICHE.Inventaire.Schéma != undefined){
+	JSON_FICHE.Inventaire.Schéma.forEach(function(e){
+		$("#P3_Dias").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Desc+"</td><td>"+e.Poids+"</td></tr>")
+	});
+}else{$("#P3_Dia").remove();}
+
+function achat(e){
+	$('#P3_ACHAT2_2').empty();
+	$('#P3_ACHAT2').val('');
+	$('#P3_ACHAT4').val('');
+	document.getElementById('P3_ACHAT4').disabled = false;
+	if(e == '6' || e == '7'){
+			document.getElementById('P3_ACHAT4').disabled = true;
+			$('#P3_ACHAT4').val(1);
+	}
+	if(e == '5'){ // Compo
+		JSON_item.Composants.forEach(function(f){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')});
+	}else if(e == '6'){ // Arme
+		JSON_item.Arme.forEach(function(f){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')});
+	}else if(e == '7'){ // Armure
+		JSON_item.Armure.forEach(function(f){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')});
+	}else if(e == '10'){ // Potions
+		JSON_item.Potion.forEach(function(f){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')});
+	}else{
+		JSON_item.Item.forEach(function(f){
+			if(e=='4' && f.Catégorie == 'Outils'){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')}
+			if(e=='1' && f.Catégorie == 'Général'){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')}
+			if(e=='2' && f.Catégorie == 'Contenants'){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')}
+			if(e=='3' && f.Catégorie == 'Nourritures'){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')}
+			if(e=='8' && f.Catégorie == 'Vêtements'){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')}
+			if(e=='9' && f.Catégorie == 'Montures'){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')}
+		});
+	}
+}
+function achat_f(){
+	var type = $('#P3_ACHAT').val();
+	var nom = $('#P3_ACHAT2').val();
+	if(type=='6'){	// Arme
+		var found = JSON_item.Arme.find(x => x.Nom == nom);
+		if(found != undefined){
+			if(found.Prix <= JSON_FICHE.Or){
+				JSON_FICHE.Or += -found.Prix;
+				JSON_FICHE.Inventaire.Arme.push(
+					{"Nom": nom,
+					"Type": found.Type,
+					"Pré": found.Précision,
+					"Dég": found.Dégats,
+					"Fia": found.Fia,
+					"FiaMax": found.Fia,
+					"Main": found.Mains,
+					"Por": found.Portée,
+					"Effet": found.Effet,
+					"Diss": "?",
+					"AM": "-",
+					"Poids": found.Poids
+					}
+				);
+				$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' pour un prix de '+found.Prix+' couronnes.');
+			}else{
+				$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour l\'arme '+nom+'. Cette arme a un prix de '+found.Prix+' et vous avez '+JSON_FICHE.Or+' couronnes.');
+			}
+		}else{
+			$('#P3_ACHAT3').html('<b>Erreur:</b> l\'arme '+nom+' est inconnue. Réessayer avec une arme du menu déroulant.');
+		}
+	}else if(type=='7'){	// Armure
+		var found = JSON_item.Armure.find(x => x.Nom == nom);
+		if(found != undefined){
+			if(found.Prix <= JSON_FICHE.Or){
+				JSON_FICHE.Or += -found.Prix;
+				JSON_FICHE.Inventaire.Armure.push(
+					{"Nom": nom,
+					"Type": found.Type,
+					"PA": found.PA,
+					"Fia": found.PA,
+					"Effet": found.Effet,
+					"AM": "-",
+					"VE": found.VE,
+					"Poids": found.Poids
+					}
+				);
+				$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' pour un prix de '+found.Prix+' couronnes.');
+			}else{
+				$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour l\'armure '+nom+'. Cette armure a un prix de '+found.Prix+' et vous avez '+JSON_FICHE.Or+' couronnes.');
+			}
+		}else{
+			$('#P3_ACHAT3').html('<b>Erreur:</b> l\'armure '+nom+' est inconnue. Réessayer avec une armure du menu déroulant.');
+		}
+	}else{
+		var Quantité = $('#P3_ACHAT4').val();
+		if(Quantité == '' || Quantité == undefined){Quantité = 1;}
+		if(type=='5'){	// Compo
+			var found = JSON_item.Composants.find(x => x.Nom == nom);
+			if(found != undefined){
+				if(found.Prix*Quantité <= JSON_FICHE.Or){
+					JSON_FICHE.Or += -found.Prix;
+					JSON_FICHE.Inventaire.Autre.push(
+						{"Nom": nom,
+						"Effet": found.Effet,
+						"Poids": found.Poids,
+						"Qtt": Quantité,
+						}
+					);
+					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
+				}else{
+					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
+				}
+			}else{
+				$('#P3_ACHAT3').html('<b>Erreur:</b> le composant '+nom+' est inconnu. Réessayer avec un composant du menu déroulant.');
+			}
+		}else if(type=='10'){	// Potion
+			var found = JSON_item.Potion.find(x => x.Nom == nom);
+			if(found != undefined){
+				if(found.Prix*Quantité <= JSON_FICHE.Or){
+					JSON_FICHE.Or += -found.Prix;
+					JSON_FICHE.Inventaire.Autre.push(
+						{"Nom": nom,
+						"Effet": found.Effet,
+						"Poids": 0.5,
+						"Qtt": Quantité,
+						}
+					);
+					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
+				}else{
+					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
+				}
+			}else{
+				$('#P3_ACHAT3').html('<b>Erreur:</b> la potion '+nom+' est inconnu. Réessayer avec une potion du menu déroulant.');
+			}
+		}else{
+			var found = JSON_item.Item.find(x => x.Nom == nom);
+			if(found != undefined){
+				if(found.Prix*Quantité <= JSON_FICHE.Or){
+					JSON_FICHE.Or += -found.Prix;
+					JSON_FICHE.Inventaire.Autre.push(
+						{"Nom": nom,
+						"Effet": found.Effet,
+						"Poids": found.Poids,
+						"Qtt": Quantité,
+						}
+					);
+					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
+				}else{
+					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
+				}
+			}else{
+				$('#P3_ACHAT3').html('<b>Erreur:</b> L\objet '+nom+' est inconnu. Réessayer avec un objet du menu déroulant.');
+			}
+		}
+	}
+}
+</script>

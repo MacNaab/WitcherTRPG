@@ -1,0 +1,129 @@
+<div id="page_2">
+  <br>
+  <div id="P2_INFO">
+    <div>
+		<h3>Compétences :</h3>
+		<div class="grid-container6">
+			<div id="P2_INT">
+				<h5>Intelligence</h5>
+			</div>
+			<div id="P2_REF">
+				<h5>Réflexes</h5>
+			</div>
+			<div id="P2_DEX">
+				<h5>Dextérité</h5>
+			</div>
+			<div id="P2_EMP">
+				<h5>Empathie</h5>
+			</div>
+			<div id="P2_TEC">
+				<h5>Technique</h5>
+			</div>
+			<div id="P2_VOL">
+				<h5>Volonté</h5>
+			</div>
+			<div id="P2_PRO">
+				<h5>Compétence exclusive</h5>
+			</div>
+		</div>
+	</div>
+    <br>
+    <div id="P2_Magie">
+		<h3>Magie :</h3>
+		<div id="P2_Magie_aff" class="grid-container6">
+		</div>
+	</div>
+    <br>
+    <div id="P2_Cap">
+		<h3>Capacités</h3>
+	</div>
+    <br>
+  </div>
+  <div id="aff_talent_tracker">
+    <div>
+      <table class="table table-bordered table-hover table-responsive">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Branche</th>
+            <th scope="col">Description</th>
+            <th scope="col" style="display: none;">Profession</th>
+          </tr>
+        </thead>
+        <tbody id="tabloAtout">
+        </tbody>
+      </table>    
+    </div>
+  </div>
+  <div id="aff_magie_tracker">
+    <div>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a id="TêteTabloMagie1" class="nav-link" onclick="TableauAdminMagie('1')">Sorts</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTabloMagie2" class="nav-link" onclick="TableauAdminMagie('2')">Invocations</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTabloMagie3" class="nav-link" onclick="TableauAdminMagie('3')">Signes</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTabloMagie4" class="nav-link" onclick="TableauAdminMagie('4')">Rituels</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTabloMagie5" class="nav-link" onclick="TableauAdminMagie('5')">Envoûtements</a>
+        </li>
+        <li class="nav-item">
+          <a id="TêteTabloMagie6" class="nav-link" onclick="TableauAdminMagie('6')">Vampire</a>
+        </li>
+      </ul>
+      <div>
+        <div class="form-group center" style="width:250px">
+          <input class="form-control" id="myInput2" type="text" placeholder="Rechercher.." onkeyup="searchbar('2')">
+        </div>
+        <table class="table table-bordered table-hover table-responsive">
+          <thead class="thead-dark" id="tabloMagieT">
+            <tr>
+            </tr>
+          </thead>
+          <tbody id="tabloMagieC">
+          </tbody>
+        </table>    
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+JSON_FICHE.Compétences.forEach(function(e){
+	if(e.P == true){
+		$('#P2_PRO').append("<div>"+e.Nom+" - "+e.V+"</div>");
+	}else{
+		if(e.C == "INT"){$('#P2_INT').append("<div>"+e.Nom+" - "+e.V+"</div>");}
+		if(e.C == "REF"){$('#P2_REF').append("<div>"+e.Nom+" - "+e.V+"</div>");}
+		if(e.C == "DEX"){$('#P2_DEX').append("<div>"+e.Nom+" - "+e.V+"</div>");}
+		if(e.C == "EMP"){$('#P2_EMP').append("<div>"+e.Nom+" - "+e.V+"</div>");}
+		if(e.C == "TEC"){$('#P2_TEC').append("<div>"+e.Nom+" - "+e.V+"</div>");}
+		if(e.C == "VOL"){$('#P2_VOL').append("<div>"+e.Nom+" - "+e.V+"</div>");}
+	}
+});
+
+if(JSON_FICHE.Magie != undefined){
+	JSON_FICHE.Magie.forEach(function(e){
+		$('#P2_Magie_aff').append("<div>"+e.Nom+" ("+e.Type+")</div>");		
+	});
+}else{$('#P2_Magie_aff').remove();}
+
+if(JSON_CAPACITES.Race[JSON_FICHE.Race] != undefined){
+	$('#P2_Cap').append("<div>"+JSON_CAPACITES.Race[JSON_FICHE.Race]+"</div>");		
+}else{
+	if(JSON_FICHE.Race == "Humaine"){$('#P2_Cap').append("<div>"+JSON_CAPACITES.Race.Humain+"</div>");}
+	if(JSON_FICHE.Race == "Naine"){$('#P2_Cap').append("<div>"+JSON_CAPACITES.Race.Nain+"</div>");}
+	if(JSON_FICHE.Race == "Halfeline"){$('#P2_Cap').append("<div>"+JSON_CAPACITES.Race.Halfelin+"</div>");}
+}
+$('#P2_Cap').append("<div>"+JSON_CAPACITES.Profession[JSON_FICHE.Profession]+"</div>");		
+testerlamagie();
+    JSON_talent.A.forEach(function(f){$('#tabloAtout').append("<tr><th scope='row'>"+f.Nom+"</th><td>"+f.Branche+"</td><td>"+f.Description+"</td><td style='display:none'>"+f.Profession+"</td></tr>");});
+    var value = "|| "+JSON_FICHE.Profession.toLowerCase();
+    $("#tabloAtout tr").filter(function() {$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)});
+</script>
