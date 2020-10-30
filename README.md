@@ -16,11 +16,11 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
     + [Histoire](#Histoire)
     + [Journal](#Journal)
 - [MJ](#MJ)
+  * [Importer sa dtb](#Importer-sa-dtb)
   * [Interface](#Interface-1)
     + [Butin](#Butin)
     + [Wiki](#Wiki)
     + [Gestion](#Gestion)
-
 - [Fiche](#Fiche-1)
   * [template_min.json](#template_min.json)
   * [template.json](#template.json)
