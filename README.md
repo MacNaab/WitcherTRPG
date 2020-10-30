@@ -90,6 +90,7 @@ Dans cette section, vous avez la possibilité de prendre des notes, tenir un jou
 Pour cela, cliquez sur "Editer le journal". "Valider" enregistrera les modifications dans votre fiche de personnage, si vous cliquez sur Annuler, ces modifications ne seront pas enregistrées.
 
 ## MJ
+La page MJ.html est dédié au Maître du Jeu.
 ### Importer sa dtb
 Si vous utilisez la version hébergée sur Github, vous pouvez importer un fichier .json correspondant au "wiki". Si vous utilisez la version a héberger sur votre serveur, cette option est inutile puisque vous hébergez ce fichier.
 ### Interface
