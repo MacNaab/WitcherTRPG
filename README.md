@@ -56,7 +56,8 @@ Vous avez deux possibilitées :
 - Importer votre Fiche
 
 ### Importer sa fiche
-Vous pouvez importer votre fiche (format .json). Vous référez à [Fiche](#Fiche-1).
+Vous pouvez importer votre fiche (format .json). Vous référez à [Fiche](#Fiche-1).  
+Pour créer une fiche, reprenez un template ([template_min.json](https://raw.githubusercontent.com/MacNaab/WitcherTRPG/master/data/template_min.json) ou [template.json](https://raw.githubusercontent.com/MacNaab/WitcherTRPG/master/data/template.json)) en utilisant un éditeur de texte ou un [éditeur en ligne](https://jsoneditoronline.org/).
 
 ### Interface
 #### Fiche
