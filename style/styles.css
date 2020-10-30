@@ -1,10 +1,47 @@
 @media only screen and (max-width: 600px) {     /* Téléphone portable */
   body{margin-top: 5%;margin-bottom: 5%;}
+	.grid-container3, .grid-container4 {grid-template-columns: auto auto;}
+	.grid-container6 {grid-template-columns: auto auto auto;}
+
+  .log{height: 250px; background-color: beige;overflow: auto;}
+  #barre1{display: none;} 
+  #barre2{display: block;max-width: 75%;margin-left: auto;margin-right: auto;}   
+  #barre3{display: block;max-width: 75%;margin-left: auto;margin-right: auto;} 
+  #les_boutons_d_actions{border-radius: 5%;}
 }
 
 @media only screen and (min-width: 600px) {     /* Tablettes */
   body{margin-bottom: 5%; margin-top: 5%;margin-left: 10%;margin-right: 10%;}
+	.grid-container3 {grid-template-columns: auto auto auto;}
+	.grid-container4 {grid-template-columns: auto auto auto auto;}
+	.grid-container6 {grid-template-columns: auto auto auto auto auto auto;}
+  .P3TABLE{width: 75%;margin-left: auto;margin-right: auto;}
+
+  .log{height: 250px;max-width: 75%;margin-left: auto;margin-right: auto; background-color: beige;overflow: auto;}
+  #barre3{display: none;} 
+  #barre2{display: none;} 
+  #barre1{display: block;}  
+  .progress {
+    position: absolute;
+    width: 7.5%;
+    height: 250px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+  .progress-bar {
+    position: absolute;
+    top: 0%;  /* = PVmax - PV */
+    width: 100%;
+    height: 100%;  /* PV*/
+  }
+  #les_boutons_d_actions{border-radius: 2.5%;}
 }
 
 @media only screen and (min-width: 900px) {     /* PC */
 }
+
+.grid-container2, .grid-container3, .grid-container4, .grid-container6 {display: grid;}
+.grid-container2 {grid-template-columns: auto auto;}
+ul {cursor:pointer;}
+.img_cool{max-width: 100%;height: auto;margin-left: auto;margin-right: auto;}
+.adroite{right: 12.5%;}
