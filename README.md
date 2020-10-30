@@ -24,8 +24,8 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
     + [Liens](#Liens)
 
 - [Fiche](#Fiche-1)
-  * [template_min.json](#template_min.json)
-  * [template.json](#template.json)
+  * [template_min.json](#template_minjson)
+  * [template.json](#templatejson)
   * [Propriétés](#Propriétés)
     + [Nom](#Nom)
     + [Race](#Race)
