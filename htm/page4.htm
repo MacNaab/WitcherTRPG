@@ -172,8 +172,8 @@ if(JSON_FICHE.Inventaire.Armure != undefined){
         }
       }
 		});
-		VE += e.VE;
-		Poids += e.Poids;
+		VE += Number(e.VE);
+		Poids += Number(e.Poids);
 	});
 }
 function Superposition(e){
@@ -191,15 +191,15 @@ function Superposition(e){
 }
 if(JSON_FICHE.Inventaire.Arme != undefined){
 	JSON_FICHE.Inventaire.Arme.forEach(function(e){
-		Poids += e.Poids;
+		Poids += Number(e.Poids);
 		$('#P4_Armes').append('<option value="'+e.Nom+'">'+e.Nom+'</option>');		
 	});
 }
 if(JSON_FICHE.Inventaire.Autre != undefined){
-	JSON_FICHE.Inventaire.Autre.forEach(function(e){Poids += e.Poids;});
+	JSON_FICHE.Inventaire.Autre.forEach(function(e){Poids += Number(e.Poids);});
 }
 if(JSON_FICHE.Inventaire.Schéma != undefined){
-	JSON_FICHE.Inventaire.Schéma.forEach(function(e){Poids += e.Poids;});
+	JSON_FICHE.Inventaire.Schéma.forEach(function(e){Poids += Number(e.Poids);});
 }	
 
 $('#P4_Prot').append("<div>Tête: "+Prot_Tê+"</div>");
