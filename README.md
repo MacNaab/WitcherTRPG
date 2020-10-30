@@ -67,10 +67,10 @@ Si vous pratiquez la magie, vos sorts seront dans cette section ainsi qu'un tabl
 
 #### Inventaire
 Dans cette section, vous trouverez votre inventaire divisé en trois catégories:
-- [Armes](Arme)
-- [Armures](Armure)
-- [Inventaire](Autre)
-- [Schémas](Schéma)
+- [Armes](#Arme)
+- [Armures](#Armure)
+- [Inventaire](#Autre)
+- [Schémas](#Schéma)
 
 Vous trouverez également un gestionnaire d'achat d'objets communs (à prix fixe) ainsi qu'un tableau regroupant les différents items du jeu, ce tableau possède une fonction de recherche.
 
