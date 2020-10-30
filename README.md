@@ -21,6 +21,8 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
     + [Butin](#Butin)
     + [Wiki](#Wiki)
     + [Gestion](#Gestion)
+    + [Liens](#Liens)
+
 - [Fiche](#Fiche-1)
   * [template_min.json](#template_min.json)
   * [template.json](#template.json)
@@ -96,9 +98,22 @@ Dans cette section vous trouverez différents générateurs de butins.
 #### Wiki
 Dans cette section, vous avez la possibilité de rechercher un élément stocké dans votre fichier X.json (à la manière d'un wiki).
 #### Gestion
-Cette section n'est fonctionnelle que si vous intégrez le code sur votre serveur, github ne prenant pas en charge les scripts côté serveur (php).  
-Vous pouvez télécharger la version à installer sur votre ici.  
-Elle permet de modifier la fiche de PJ des différents joueurs de votre table.
+Cette section n'est fonctionnelle que si vous intégrez le code sur votre serveur, github ne prenant pas en charge les scripts côté serveur (php). Vous pouvez télécharger la version à installer sur votre ici.  
+Elle permet de modifier la fiche de PJ des différents joueurs de votre table:
+- Changer le lien URL du bouton TTS
+- Changer le lien URL de l'image de la section [Histoire](#Histoire)
+- Changer le texte d'accueil de l'historique de la section [Histoire](#Histoire)
+- Modifier une propriété de la fiche d'un PJ
+- Ajouter une objet dans l'inventaire d'un PJ
+- Explorer les fiches des PJ
+
+#### Liens
+Différents liens utilisés pour masteriser la partie:
+- [Random Table](https://macnaab.github.io/Random-Tables/): differentes Tables aléatoires 
+- [Rencontre](https://macnaab.github.io/Random-Tables/WTRPG/randomM.html): simulateur de rencontre aléatoire
+- [Combat](https://macnaab.github.io/Random-Tables/WTRPG/combat2.html): gestionnaire de combat
+- [Trajet](https://macnaab.github.io/Random-Tables/WTRPG/map.html): calculateur de trajet
+- [Communauté](http://www.the-witcher-jdr.fr/): site de la communauté
 
 ## Fiche
 La fiche de PJ doit être dans un format .json. Vous pouvez éditer votre fiche avec n'importe quel éditeur de texte (bloc-note, Notepad++, Visual Studio Code...) ou utiliser un éditeur en ligne ([jsoneditoronline](https://jsoneditoronline.org/) ...).
