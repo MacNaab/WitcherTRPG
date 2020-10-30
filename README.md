@@ -297,7 +297,7 @@ Ce sont les différentes armes que possède le PJ. Chaque arme possède comme pr
 ##### Armure
 Ce sont les différentes armures que possède le PJ. Chaque armure possède comme propriétés:
 - Nom: Nom de l'armure
-- Type: Type d'armure (Tête,Torse,Jambe)
+- Type: Type d'armure (Tête,Torse,Jambe,Bouclier)
 - PA: Pouvoir d'arrêt de l'armure
 - Fia: Fiabilité actuelle de l'armure
 - Effet: Effet de l'armure
