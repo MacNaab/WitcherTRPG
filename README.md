@@ -68,7 +68,7 @@ Dans cette section, vous aurez la liste de vos compétences (par caractéristiqu
 Si vous pratiquez la magie, vos sorts seront dans cette section ainsi qu'un tableau regroupant les différents formes de magie que vous pouvez pratiquer, ce tableau possède une fonction de recherche.
 
 #### Inventaire
-Dans cette section, vous trouverez votre inventaire divisé en trois catégories:
+Dans cette section, vous trouverez votre inventaire divisé en quatre catégories:
 - [Armes](#Arme)
 - [Armures](#Armure)
 - [Inventaire](#Autre)
@@ -276,10 +276,11 @@ Correspond à la réputation.
 "Réput": "Légende"
 ```
 #### Inventaire
-Correspond à l'inventaire du PJ. Il est divisé en trois catégories:
+Correspond à l'inventaire du PJ. Il est divisé en quatre catégories:
 - Arme
 - Armure
 - Autre
+- Schéma
 ##### Arme
 Ce sont les différentes armes que possède le PJ. Chaque arme possède comme propriétés:
 - Nom: Nom de l'arme
@@ -357,6 +358,13 @@ Ce sont les différents schémas et plans connu par le PJ. Chacun possède comme
           "Effet": "Détecte les monstre et la magie à 20m.",
           "Poids": 0.1,
           "Qtt": 1
+        }
+      ],
+      "Schéma": [
+        {
+          "Nom": "Schéma",
+          "Desc": "Armure Novice",
+          "Poids": 0.1,
         }
       ]
     }
