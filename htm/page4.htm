@@ -198,6 +198,9 @@ if(JSON_FICHE.Inventaire.Arme != undefined){
 if(JSON_FICHE.Inventaire.Autre != undefined){
 	JSON_FICHE.Inventaire.Autre.forEach(function(e){Poids += e.Poids;});
 }
+if(JSON_FICHE.Inventaire.Schéma != undefined){
+	JSON_FICHE.Inventaire.Schéma.forEach(function(e){Poids += e.Poids;});
+}	
 
 $('#P4_Prot').append("<div>Tête: "+Prot_Tê+"</div>");
 $('#P4_Prot').append("<div>Torse: "+Prot_To+"</div>");
