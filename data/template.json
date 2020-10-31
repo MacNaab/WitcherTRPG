@@ -31,7 +31,7 @@
 		"Inventaire": {
 			"Arme": [
 				{"Nom": "*Nom de l'arme*",
-				"Type": "Type de l'arme*",
+				"Type": "*Type de l'arme*",
 				"Pré": "Précision de l'arme*",
 				"Dég": "Dégâts de l'arme*",
 				"Fia": "Fiabilité actuelle de l'arme*",
@@ -46,7 +46,7 @@
 			],
 			"Armure": [
 				{"Nom": "*Nom de l'armure*",
-				"Type": "Type de l'armure*",
+				"Type": ["*Type de l'armure*"],
 				"PA": "Pouvoir d'arrêt de l'armure*",
 				"Fia": "Fiabilité actuelle de l'armure*",
 				"FiaMax": "Fiabilité maximale de l'armure*",
