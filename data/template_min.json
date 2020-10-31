@@ -62,7 +62,8 @@
 			],
                         "Schéma": [
                                 {"Nom": "", "Desc": "", "Poids": 0.1}
-		},
+                        ]
+                },
 		"Or": "*Nombre de couronnes*",
 		"HdV": "*Histoire de vie du personnage*",
 		"Event": "*Evénements de vie du personnage*",
