@@ -1,16 +1,4 @@
 function todtb(){
-    $.ajax({
-        url: "data/pj.php",
-        type: "POST",
-        data: {
-            nom: joueur,
-            dtb: JSON_FICHE,
-        },
-        cache: false,
-        success: function(data){
-            console.log(data)
-        }
-    });
 }
 
 function oncalculebien(){
