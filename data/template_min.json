@@ -44,10 +44,9 @@
 			],
 			"Armure": [
 				{"Nom": "*Nom de l'armure*",
-				"Type": "Type de l'armure*",
+				"Type": ["*Type de l'armure*"],
 				"PA": "Pouvoir d'arrêt de l'armure*",
 				"Fia": "Fiabilité actuelle de l'armure*",
-				"FiaMax": "Fiabilité maximale de l'armure*",
 				"Effet": "Effet de l'armure*",
 				"AM": "Améliorations de l'armure*",
 				"VE": "Valeur d'encombrement de l'armure*",
@@ -60,7 +59,9 @@
 				"Poids": "*Poids de l'item*",
 				"Qtt": "*Quantité de l'item*"
 				}
-			]
+			],
+                        "Schéma": [
+                                {"Nom": "", "Desc": "", "Poids": 0.1}
 		},
 		"Or": "*Nombre de couronnes*",
 		"HdV": "*Histoire de vie du personnage*",
