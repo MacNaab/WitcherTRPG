@@ -9,20 +9,9 @@ $.getJSON('data/wiki.json', function(jd) {
 });
 
 function todtb(e,f){
-    $.ajax({
-        url: "data/pj.php",
-        type: "POST",
-        data: {
-            nom: e,
-            dtb: f,
-        },
-        cache: false,
-        success: function(data){
-            $("#toast1_H").html("Mise à jour effectué");
-            $("#toast1_C").html(data);
-            $("#toast1").toast('show');
-        }
-    });
+	$("#toast1_H").html("Mise à jour effectué");
+	$("#toast1_C").html(data);
+	$("#toast1").toast('show');
 }
 
 function P4_Action(e){
