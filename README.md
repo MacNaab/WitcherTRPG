@@ -17,7 +17,7 @@ Utilitaire de jet de dé, inventaire etc pour le JdR The Witcher façon VTT.  Il
     + [Journal](#Journal)
 - [MJ](#MJ)
   * [Importer sa dtb](#Importer-sa-dtb)
-  * [Interface](#Interface-1)
+  * [Interface](#Interface-2)
     + [Butin](#Butin)
     + [Wiki](#Wiki)
     + [Gestion](#Gestion)
@@ -100,7 +100,7 @@ Dans cette section vous trouverez différents générateurs de butins.
 #### Wiki
 Dans cette section, vous avez la possibilité de rechercher un élément stocké dans votre fichier X.json (à la manière d'un wiki).
 #### Gestion
-Cette section n'est fonctionnelle que si vous intégrez le code sur votre serveur, github ne prenant pas en charge les scripts côté serveur (php). Vous pouvez télécharger la version à installer sur votre ici.  
+Cette section n'est fonctionnelle que si vous intégrez le code sur votre serveur, github ne prenant pas en charge les scripts côté serveur (php). Vous pouvez télécharger la version à installer sur votre [ici](https://github.com/MacNaab/WitcherTRPG/releases/).  
 Elle permet de modifier la fiche de PJ des différents joueurs de votre table:
 - Changer le lien URL du bouton TTS
 - Changer le lien URL de l'image de la section [Histoire](#Histoire)
@@ -236,8 +236,8 @@ Elle regroupe les différentes compétences du personnage. Chaque compétence po
       {"Nom": "Persuasion","V": 1,"C": "EMP","P": false},
       {"Nom": "Alchimie","V": 5,"C": "TEC","P": false},
       {"Nom": "Résistance à la magie","V": 6,"C": "VOL","P": false},
-      {"Nom": "Formation de sorceleur","V": 10,"C": "INT","P": true}
-      {"Nom": "Estomac de fer","V": 10,"C": "-","P": true}
+      {"Nom": "Formation de sorceleur","V": 10,"C": "INT","P": "true"}
+      {"Nom": "Estomac de fer","V": 10,"C": "-","P": "true"}
     ]
 ```
 #### Magie
