@@ -1,0 +1,139 @@
+<div id="page_2" style="margin-top: 10px;">
+<datalist id="wiki"></datalist>
+    <button class="accordionW3S">Ajouter</button>
+    <div class="panelW3S" style="margin:5px;">
+        <div class="grid-container2">
+            <input id="dtb_1" type="text" class="form-control" placeholder="Nom">
+            <input id="dtb_2" type="text" class="form-control" placeholder="Chapitre">
+        </div>
+        <textarea style="margin-top: 5px;" id="dtb_3" class="form-control" placeholder="Description"></textarea>
+        <div style="text-align: center;margin-top: 5px;">
+          <button id="dtb_ajout" type="button" class="btn btn-info">Ajouter</button>
+        </div>
+    </div>
+    <button style="margin-top:5px;" class="accordionW3S">Modifier</button>
+    <div class="panelW3S" style="margin:5px;">
+      <div class="grid-container2">
+        <div>
+          <input id="dtb_II" type="text" class="form-control" list="wiki" placeholder="Nom">
+        </div>
+        <div style="text-align: center;">
+          <button id="dtb_recherche2" type="button" class="btn btn-info">Rechercher</button>
+        </div>
+      </div>
+        <div class="grid-container2" style="margin-top: 5px;">
+          <div>
+            <input id="dtb_II_1" type="text" class="form-control" placeholder="Nom" disabled>
+          </div>
+          <div>
+            <input id="dtb_II_2" type="text" class="form-control" placeholder="Chapitre">
+          </div>
+        </div>
+        <div style="margin-top: 5px;">
+          <textarea id="dtb_II_3" class="form-control" placeholder="Description"></textarea>
+        </div>
+        <div style="text-align: center;margin-top: 5px;">
+          <button id="dtb_ajout2" type="button" class="btn btn-info">Ajouter</button>
+        </div>
+    </div>
+      <div class="grid-container2">
+        <div>
+          <input list="wiki" id="dtb_I" type="text" class="form-control" placeholder="Nom">
+        </div>
+        <div style="text-align: center;">
+          <button id="dtb_recherche" type="button" class="btn btn-info">Rechercher</button>
+        </div>
+      </div>
+    <div id="dtb_résultat"></div>
+</div>
+<script>
+    var acc = document.getElementsByClassName("accordionW3S");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("activeW3S");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+
+    $('#dtb_recherche').on('click', function() {
+        var nom = $('#dtb_I').val();
+        var found = JSON_wiki.find(x => x.Nom == nom);
+        if(found != undefined){
+            $('#dtb_résultat').html('<b>'+nom+'</b> - chapitre '+found.Chapitre+'<br>'+found.Description);
+        }else{
+            $('#dtb_résultat').html('Erreur: pas d\'information sur cette recherche.');
+        }
+    }); 
+    $('#dtb_recherche2').on('click', function() {
+        var nom = $('#dtb_II').val();
+        var found = JSON_wiki.find(x => x.Nom == nom);
+        if(found != undefined){
+            $('#dtb_II_1').val(found.Nom);
+            $('#dtb_II_2').val(found.Chapitre);
+            $('#dtb_II_3').val(found.Description);
+        }else{
+            $('#dtb_II_3').val('Erreur: pas d\'information sur cette recherche.');
+        }
+    });    
+    $('#dtb_ajout').on('click', function() {
+        var dtb_1 = $('#dtb_1').val();
+        var dtb_2 = $('#dtb_2').val();
+        var dtb_3 = $('#dtb_3').val();
+        if(dtb_1!="" && dtb_2!="" && dtb_3!=""){
+            dtb_3 = dtb_3.replace(/\n/gi, '<br>');
+          $.ajax({
+            url: "data/wiki.php",
+            type: "POST",
+            data: {
+                action: 'add',
+                nom: dtb_1,
+                chap: dtb_2,
+                description: dtb_3,
+            },
+            cache: false,
+            success: function(data){
+                $('#dtb_résultat').html(data);
+            }
+          });
+          JSON_wiki.push({
+            Nom: dtb_1, Chapitre: dtb_2, Description: dtb_3
+          });
+        }
+    });
+    $('#dtb_ajout2').on('click', function() {
+        var dtb_1 = document.getElementById('dtb_II_1').value;
+        var dtb_2 = $('#dtb_II_2').val();
+        var dtb_3 = $('#dtb_II_3').val();
+        if(dtb_1!="" && dtb_2!="" && dtb_3!=""){
+            dtb_3 = dtb_3.replace(/\n/gi, '<br>');
+          $.ajax({
+            url: "data/wiki.php",
+            type: "POST",
+            data: {
+                action: 'edit',
+                nom: dtb_1,
+                chap: dtb_2,
+                description: dtb_3,
+            },
+            cache: false,
+            success: function(data){
+                $('#dtb_résultat').html(data);
+            }
+          });
+          var found = JSON_dtb.find(x => x.Nom == dtb_1);
+          found.Chapitre = dtb_2;
+          found.Description = dtb_3;
+        }
+    });
+
+	JSON_wiki.forEach(function(e){
+    $("#wiki").append("<option value='"+e.Nom+"'>");
+  });
+</script>

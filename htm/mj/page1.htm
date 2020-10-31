@@ -1,0 +1,34 @@
+<div id="page_1" style="margin-top: 10px;">
+    <div><h2>Loot individuel</h2>cf Bestiaire</div>
+  <br>
+    <div style="display: inline;"><h2>Monstres Intelligent :</h2><input onchange="MI()" type="number" id="MI_nbre" placeholder="Nombre de Monstres">
+      <div id="MI_aff"></div>
+      <br>
+    </div>
+  <br>
+  <div><h2>Tanière :</h2>
+    <br>Nombre de Monstres : <input onchange="Tanière()" id="Tanière_M" type="number">
+    Nombre de Large : <input onchange="Tanière()" id="Tanière_L" type="number">
+    <br><div id="Tanière_aff"></div>
+  </div>
+  <br>
+  <div><h2>Humain :</h2><input type="number" onchange="Humain()" min="0" id="Humain_Nbre">
+    <br><div id="Humain_aff"></div>
+  </div>
+  <br>
+  <div><h2>Maison : <input id="Maison" onchange="Maison()" type="checkbox"></h2>
+    <div id="Maison_aff"></div>
+  </div>
+  <br>
+  <div><h2>Générateur :</h2>
+    <div>
+      <div>Généré des items : <input type="number" onchange="MI_item()" min="0" placeholder="Nombre d'items" id="MI_item"></div>
+      <div id="MI_item_aff"></div>
+    </div>
+    <br>
+    <div>
+      <div>Généré des couronnes : <input type="number" onchange="Couronnes()" min="0" placeholder="Couronnes max" id="Couronnes_max"></div>
+      <div id="Couronnes_aff"></div>
+    </div>
+  </div>
+  </div>

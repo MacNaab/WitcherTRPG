@@ -1,0 +1,24 @@
+<ul class="nav nav-tabs">
+	<li class="nav-item">
+      <a class="nav-link active" id="p1" onclick="page('1')">Butin</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="p2" onclick="page('2')">Wiki</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="p4" onclick="page('4')">Gestion</a>
+    </li>
+	<li class="nav-item">
+      <a class="nav-link" id="p3" onclick="page('3')">Fiche</a>
+    </li>
+</ul>
+
+<script>
+function page(e){
+	for (let i = 1; i <= 4; i++) {
+		document.getElementById('p'+i).className = "nav-link";
+	}
+	document.getElementById('p'+e).className = "nav-link active";
+	$('#app-content').load("htm/mj/page"+e+".htm");	
+}
+</script>

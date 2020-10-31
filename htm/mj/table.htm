@@ -1,0 +1,101 @@
+<br>
+<hr><hr>  
+<br>
+<button class="accordionW3S">Items</button>
+<div class="panelW3S" style="margin:5px;">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a id="TêteTablo1" class="nav-link" onclick="TableauAdmin('1')">Armes</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTablo2" class="nav-link" onclick="TableauAdmin('2')">Armures</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTablo3" class="nav-link" onclick="TableauAdmin('3')">Items</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTablo4" class="nav-link" onclick="TableauAdmin('4')">Composants</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTablo5" class="nav-link" onclick="TableauAdmin('5')">Schémas</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTablo6" class="nav-link" onclick="TableauAdmin('6')">Potions</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTablo7" class="nav-link" onclick="TableauAdmin('7')">Substances</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTablo8" class="nav-link" onclick="TableauAdmin('8')">Formules</a>
+    </li>
+  </ul>
+  <div>
+    <div class="form-group center" style="width:250px">
+      <input class="form-control" id="myInput" onkeyup="searchbar('1')" type="text" placeholder="Rechercher..">
+    </div>
+    <table class="table table-bordered table-hover table-responsive">
+      <thead class="thead-dark" id="tabloT">
+        <tr>
+        </tr>
+      </thead>
+      <tbody id="tabloC">
+      </tbody>
+    </table>    
+  </div>
+</div>
+
+<br>
+
+<button class="accordionW3S">Magie</button>
+<div class="panelW3S" style="margin:5px;">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a id="TêteTabloMagie1" class="nav-link" onclick="TableauAdminMagie('1')">Sorts</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTabloMagie2" class="nav-link" onclick="TableauAdminMagie('2')">Invocations</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTabloMagie3" class="nav-link" onclick="TableauAdminMagie('3')">Signes</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTabloMagie4" class="nav-link" onclick="TableauAdminMagie('4')">Rituels</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTabloMagie5" class="nav-link" onclick="TableauAdminMagie('5')">Envoûtements</a>
+    </li>
+    <li class="nav-item">
+      <a id="TêteTabloMagie6" class="nav-link" onclick="TableauAdminMagie('6')">Vampire</a>
+    </li>
+  </ul>
+  <div>
+    <div class="form-group center" style="width:250px">
+      <input class="form-control" id="myInput2" onkeyup="searchbar('2')" type="text" placeholder="Rechercher..">
+    </div>
+    <table class="table table-bordered table-hover table-responsive">
+      <thead class="thead-dark" id="tabloMagieT">
+        <tr>
+        </tr>
+      </thead>
+      <tbody id="tabloMagieC">
+      </tbody>
+    </table>    
+  </div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordionW3S");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("activeW3S");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
