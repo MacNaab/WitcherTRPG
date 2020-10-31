@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('#app').load("htm/log.htm");
+	$('#toast').load("htm/toast.htm");
 });
 
 var JSON_FICHE = "";
@@ -22,10 +23,12 @@ function loggin(){
 		JSON_FICHE = JSON_FICHE[joueur];
 		logged();FichePJ();
       }else{
-        alert('Mauvais mot de passe');
+		$("#toast2_C").html('Mauvais mot de passe');
+        $("#toast2").toast('show');
       }
     }else{
-      alert('Pas de joueur à ce nom');
+		$("#toast2_C").html('Pas de joueur à ce nom');
+        $("#toast2").toast('show');
     }
   }
 }

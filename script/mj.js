@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('#app-table').load("htm/mj/table.htm");	
     $('#app-footer').load("htm/mj/footer.htm");
     $("body").css("margin-bottom", "0");
+    $('#toast').load("htm/toast.htm");
 });
 
 function MI_item(){

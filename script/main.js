@@ -1,4 +1,18 @@
 function todtb(){
+    $.ajax({
+        url: "data/pj.php",
+        type: "POST",
+        data: {
+            nom: joueur,
+            dtb: JSON_FICHE,
+        },
+        cache: false,
+        success: function(data){
+            $("#toast1_H").html("Achat effectué");
+            $("#toast1_C").html(data);
+            $("#toast1").toast('show');
+        }
+    });
 }
 
 function oncalculebien(){
