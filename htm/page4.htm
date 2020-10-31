@@ -146,7 +146,7 @@ if(JSON_FICHE.Inventaire.Armure != undefined){
 		e.Type.forEach(function(f){
 			if(f == "Tête"){
         if(Prot_Tê == 0){
-          Prot_Tê += e.PA;
+          Prot_Tê += Number(e.PA);
         }else{
           if(e.PA > Prot_Tê){var N = e.PA;var N1 = Prot_Tê;}else{var N = Prot_Tê;var N1 = e.PA;}
           var B = Superposition(Number(Number(N)-Number(N1)));
@@ -155,7 +155,7 @@ if(JSON_FICHE.Inventaire.Armure != undefined){
       }
 			if(f == "Torse"){
         if(Prot_To == 0){
-          Prot_To += e.PA;
+          Prot_To += Number(e.PA);
         }else{
           if(e.PA > Prot_To){var N = e.PA;var N1 = Prot_To;}else{var N = Prot_To;var N1 = e.PA;}
           var B = Superposition(Number(Number(N)-Number(N1)));
@@ -164,7 +164,7 @@ if(JSON_FICHE.Inventaire.Armure != undefined){
       }
 			if(f == "Jambe"){
         if(Prot_J == 0){
-          Prot_J += e.PA;
+          Prot_J += Number(e.PA);
         }else{
           if(e.PA > Prot_J){var N = e.PA;var N1 = Prot_J;}else{var N = Prot_J;var N1 = e.PA;}
           var B = Superposition(Number(Number(N)-Number(N1)));
@@ -200,13 +200,13 @@ if(JSON_FICHE.Inventaire.Autre != undefined){
 }
 if(JSON_FICHE.Inventaire.Schéma != undefined){
 	JSON_FICHE.Inventaire.Schéma.forEach(function(e){Poids += Number(e.Poids);});
-}	
+}
 
 $('#P4_Prot').append("<div>Tête: "+Prot_Tê+"</div>");
 $('#P4_Prot').append("<div>Torse: "+Prot_To+"</div>");
 $('#P4_Prot').append("<div>Jambes: "+Prot_J+"</div>");
 
-$('#P4_EC').append("<div>Encombrement: "+Poids+"km /"+JSON_FICHE.Caractéristique.ENC+"</div>");
+$('#P4_EC').append("<div>Encombrement: "+Poids+"Kg /"+JSON_FICHE.Caractéristique.ENC+"</div>");
 $('#P4_EC').append("<div>Encombrement d'armure: "+VE+"</div>");
 
 if(JSON_FICHE.Bonus){
@@ -246,7 +246,7 @@ if(P4_Caract.value == "VOL"){ // VOL
 }
 if(P4_Caract.value == "10"){ // PRO
   JSON_FICHE.Compétences.forEach(function(e){
-	if(e.P == true){
+	if(e.P == "true"){
 		$('#P4_Compt').append('<option value="'+e.Nom+'">'+e.Nom+'</option>');
 	}
   });

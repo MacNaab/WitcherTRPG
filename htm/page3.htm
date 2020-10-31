@@ -217,7 +217,7 @@ function achat_f(){
 		var found = JSON_item.Arme.find(x => x.Nom == nom);
 		if(found != undefined){
 			if(found.Prix <= JSON_FICHE.Or){
-				JSON_FICHE.Or += -found.Prix;
+				JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 				JSON_FICHE.Inventaire.Arme.push(
 					{"Nom": nom,
 					"Type": found.Type,
@@ -233,6 +233,7 @@ function achat_f(){
 					"Poids": found.Poids
 					}
 				);
+				todtb();
 				$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' pour un prix de '+found.Prix+' couronnes.');
 			}else{
 				$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour l\'arme '+nom+'. Cette arme a un prix de '+found.Prix+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -244,7 +245,7 @@ function achat_f(){
 		var found = JSON_item.Armure.find(x => x.Nom == nom);
 		if(found != undefined){
 			if(found.Prix <= JSON_FICHE.Or){
-				JSON_FICHE.Or += -found.Prix;
+				JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 				JSON_FICHE.Inventaire.Armure.push(
 					{"Nom": nom,
 					"Type": found.Type,
@@ -256,6 +257,7 @@ function achat_f(){
 					"Poids": found.Poids
 					}
 				);
+				todtb();
 				$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' pour un prix de '+found.Prix+' couronnes.');
 			}else{
 				$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour l\'armure '+nom+'. Cette armure a un prix de '+found.Prix+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -270,7 +272,7 @@ function achat_f(){
 			var found = JSON_item.Composants.find(x => x.Nom == nom);
 			if(found != undefined){
 				if(found.Prix*Quantité <= JSON_FICHE.Or){
-					JSON_FICHE.Or += -found.Prix;
+					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 					JSON_FICHE.Inventaire.Autre.push(
 						{"Nom": nom,
 						"Effet": found.Effet,
@@ -278,6 +280,7 @@ function achat_f(){
 						"Qtt": Quantité,
 						}
 					);
+					todtb();
 					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
 				}else{
 					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -289,7 +292,7 @@ function achat_f(){
 			var found = JSON_item.Potion.find(x => x.Nom == nom);
 			if(found != undefined){
 				if(found.Prix*Quantité <= JSON_FICHE.Or){
-					JSON_FICHE.Or += -found.Prix;
+					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 					JSON_FICHE.Inventaire.Autre.push(
 						{"Nom": nom,
 						"Effet": found.Effet,
@@ -297,6 +300,7 @@ function achat_f(){
 						"Qtt": Quantité,
 						}
 					);
+					todtb();
 					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
 				}else{
 					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -308,7 +312,7 @@ function achat_f(){
 			var found = JSON_item.Item.find(x => x.Nom == nom);
 			if(found != undefined){
 				if(found.Prix*Quantité <= JSON_FICHE.Or){
-					JSON_FICHE.Or += -found.Prix;
+					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 					JSON_FICHE.Inventaire.Autre.push(
 						{"Nom": nom,
 						"Effet": found.Effet,
@@ -316,6 +320,7 @@ function achat_f(){
 						"Qtt": Quantité,
 						}
 					);
+					todtb();
 					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
 				}else{
 					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');

@@ -43,7 +43,8 @@ function saveS() {
   $(".toast").toast('show');
 };
 $("#saveJournal").on( "click", function() {
-	JSON_FICHE.Journal = $("#Journal_aff").html();
+  JSON_FICHE.Journal = $("#Journal_aff").html();
+  todtb();
 });
 $("#annulJournal").on( "click", function() {
 	$("#Journal_aff").html(backup);
