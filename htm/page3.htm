@@ -83,7 +83,7 @@
       <div class="grid-container4" >
         <div>
             <select class="custom-select" id="P3_ACHAT" onchange="achat(this.value)">
-              <option selected>Catégorie</option>
+              <option disabled selected>Catégorie</option>
               <option value="1">Equipement Général</option>
               <option value="2">Conteneur</option>
               <option value="3">Nourriture</option>
@@ -91,6 +91,7 @@
               <option value="8">Vêtements</option>
               <option value="9">Monture</option>
               <option value="5">Composants</option>
+              <option value="10">Potion</option>
               <option value="6">Arme</option>
               <option value="7">Armure</option>
             </select>
@@ -213,10 +214,25 @@ function achat(e){
 function achat_f(){
 	var type = $('#P3_ACHAT').val();
 	var nom = $('#P3_ACHAT2').val();
+	if(!JSON_FICHE.Inventaire){
+                JSON_FICHE.Inventaire = {"Arme":[],"Armure":[],"Autre":[],"Schéma":[]};
+    }
+    if(!JSON_FICHE.Inventaire.Arme){
+        JSON_FICHE.Inventaire.Arme = [];
+    }
+    if(!JSON_FICHE.Inventaire.Armure){
+        JSON_FICHE.Inventaire.Armure = [];
+    }
+    if(!JSON_FICHE.Inventaire.Autre){
+        JSON_FICHE.Inventaire.Autre = [];
+    }
+    if(!JSON_FICHE.Inventaire.Schéma){
+        JSON_FICHE.Inventaire.Schéma = [];
+    }
 	if(type=='6'){	// Arme
 		var found = JSON_item.Arme.find(x => x.Nom == nom);
 		if(found != undefined){
-			if(found.Prix <= JSON_FICHE.Or){
+			if(Number(found.Prix) <= Number(JSON_FICHE.Or)){
 				JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 				JSON_FICHE.Inventaire.Arme.push(
 					{"Nom": nom,
@@ -244,11 +260,11 @@ function achat_f(){
 	}else if(type=='7'){	// Armure
 		var found = JSON_item.Armure.find(x => x.Nom == nom);
 		if(found != undefined){
-			if(found.Prix <= JSON_FICHE.Or){
+			if(Number(found.Prix) <= Number(JSON_FICHE.Or)){
 				JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 				JSON_FICHE.Inventaire.Armure.push(
 					{"Nom": nom,
-					"Type": found.Type,
+					"Type": [found.Type],
 					"PA": found.PA,
 					"Fia": found.PA,
 					"Effet": found.Effet,
@@ -271,7 +287,7 @@ function achat_f(){
 		if(type=='5'){	// Compo
 			var found = JSON_item.Composants.find(x => x.Nom == nom);
 			if(found != undefined){
-				if(found.Prix*Quantité <= JSON_FICHE.Or){
+				if(Number(found.Prix*Quantité) <= Number(JSON_FICHE.Or)){
 					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 					JSON_FICHE.Inventaire.Autre.push(
 						{"Nom": nom,
@@ -291,7 +307,7 @@ function achat_f(){
 		}else if(type=='10'){	// Potion
 			var found = JSON_item.Potion.find(x => x.Nom == nom);
 			if(found != undefined){
-				if(found.Prix*Quantité <= JSON_FICHE.Or){
+				if(Number(found.Prix*Quantité) <= Number(JSON_FICHE.Or)){
 					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 					JSON_FICHE.Inventaire.Autre.push(
 						{"Nom": nom,
@@ -311,7 +327,7 @@ function achat_f(){
 		}else{
 			var found = JSON_item.Item.find(x => x.Nom == nom);
 			if(found != undefined){
-				if(found.Prix*Quantité <= JSON_FICHE.Or){
+				if(Number(found.Prix*Quantité) <= Number(JSON_FICHE.Or)){
 					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
 					JSON_FICHE.Inventaire.Autre.push(
 						{"Nom": nom,

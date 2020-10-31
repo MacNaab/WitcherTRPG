@@ -1,0 +1,27 @@
+<div>
+    <div class="grid-container2">
+        <select id="P4_Joueur" class="custom-select">
+            <option selected>Joueur</option>
+        </select>
+        <select onchange="A4_T(this.value)" class="custom-select">
+            <option disabled selected>Action</option>
+            <option value="1">PS</option>
+            <option value="2">END</option>
+            <option value="3">Couronnes</option>
+            <option value="4">PP</option>
+            <option value="5">Dé de relance</option>
+        </select>
+    </div>
+    <div id="P4-content">
+</div>
+
+<script>
+    var Joueurs = Object.keys(JSON_FICHE);
+    Joueurs.forEach(function(e){
+        $("#P4_Joueur").append("<option value='"+e+"'>"+e+"</option>");
+    });
+
+    function A4_T(e){
+        $('#P4-content').load("htm/mj/Actions/C"+e+".htm");
+    }
+</script>

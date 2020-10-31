@@ -75,7 +75,7 @@
 </div>
 
 <script>
-	$('#P1_INFO div img')[0].src = JSON_FICHE.Portrait;
+	if(JSON_FICHE.Portrait != undefined){$('#P1_INFO div img')[0].src = JSON_FICHE.Portrait;}
 	$('#P1_INFO h2').html(JSON_FICHE.Nom);
 	$('#P1_INFO h3').first().html(JSON_FICHE.Race+' - '+JSON_FICHE.Profession);
 	$('#P1_INFO div div').first().html(JSON_FICHE.HdV);
@@ -124,6 +124,7 @@ function saveS() {
 };
 $("#saveJournal").on( "click", function() {
 	JSON_FICHE.Description = $("#Description_aff").html();
+	todtb();
 });
 $("#annulJournal").on( "click", function() {
 	$("#Description_aff").html(backup);
