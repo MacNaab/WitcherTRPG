@@ -106,6 +106,7 @@ Elle permet de modifier la fiche de PJ des différents joueurs de votre table:
 - Changer le lien URL de l'image de la section [Histoire](#Histoire)
 - Changer le texte d'accueil de l'historique de la section [Histoire](#Histoire)
 - Ajouter une objet dans l'inventaire d'un PJ
+- Ajouter/Enlever: PS,END, Couronnes, PP, Relance
 #### Fiche
 - Explorer la fiche des PJ
 - Modifier la fiche des PJ
