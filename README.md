@@ -105,9 +105,10 @@ Elle permet de modifier la fiche de PJ des différents joueurs de votre table:
 - Changer le lien URL du bouton TTS
 - Changer le lien URL de l'image de la section [Histoire](#Histoire)
 - Changer le texte d'accueil de l'historique de la section [Histoire](#Histoire)
-- Modifier une propriété de la fiche d'un PJ
 - Ajouter une objet dans l'inventaire d'un PJ
-- Explorer les fiches des PJ
+#### Fiche
+- Explorer la fiche des PJ
+- Modifier la fiche des PJ
 
 #### Liens
 Différents liens utilisés pour masteriser la partie:
