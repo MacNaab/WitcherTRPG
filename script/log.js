@@ -82,6 +82,8 @@ function FichePJ(){
 	if(!JSON_FICHE.PS){JSON_FICHE.PS = ENDcalc;}
 	if(!JSON_FICHE.END){JSON_FICHE.END = ENDcalc;}
 	if(!JSON_FICHE.Relance){JSON_FICHE.Relance = JSON_FICHE.Caractéristique.CHA;}
+	if(!JSON_FICHE.Bonus){JSON_FICHE.Bonus = {}}
+	if(!JSON_FICHE.Malus){JSON_FICHE.Malus = {}}
 }
 
 function CoupPoings(e){

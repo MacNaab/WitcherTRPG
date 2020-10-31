@@ -1,4 +1,17 @@
-function todtb(){}
+function todtb(){
+    $.ajax({
+        url: "data/pj.php",
+        type: "POST",
+        data: {
+            nom: joueur,
+            dtb: JSON_FICHE,
+        },
+        cache: false,
+        success: function(data){
+            console.log(data)
+        }
+    });
+}
 
 function oncalculebien(){
     var A = document.getElementById('P4_Caract').value;
@@ -10,8 +23,8 @@ function oncalculebien(){
 	if(B != "rien"){
 		found = JSON_FICHE.Compétences.find(x => x.Nom == B);
 		if(found != undefined){
-			Compt = JSON_FICHE.Caractéristique[found.C];
-			Caract = found.V;
+			Caract = JSON_FICHE.Caractéristique[found.C];
+			Compt = found.V;
 		}else{
 			Caract = JSON_FICHE.Caractéristique[A];
 		}
