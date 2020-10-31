@@ -1,98 +1,1351 @@
 {
-  "test": {
-    "Nom": "Joueur",
-    "Race": "Humaine",
-    "Profession": "Homme d'armes",
-    "Caractéristique": {
-      "INT": 1,
-      "REF": 2,
-      "DEX": 3,
-      "COR": 4,
-      "VIT": 5,
-      "EMP": 6,
-      "TEC": 7,
-      "VOL": 8,
-      "CHA": 9,
-	  "VIG": 0
-    },
-    "Compétences": [
-      {"Nom": "Compétence 1","V": 1,"C": "INT","P": false},
-      {"Nom": "Compétence 1","V": 1,"C": "REF","P": false},
-      {"Nom": "Compétence 1","V": 1,"C": "DEX","P": false},
-      {"Nom": "Compétence 1","V": 1,"C": "EMP","P": false},
-      {"Nom": "Compétence 1","V": 1,"C": "TEC","P": false},
-      {"Nom": "Compétence 1","V": 1,"C": "VOL","P": false},
-      {"Nom": "Compétence 1","V": 1,"C": "INT","P": true}
-    ],
-    "Magie": [
-      {
-        "Nom": "Sort 1",
-        "Type": "Sort"
-      }
-    ],
-    "Réput": "Aucune",
-    "Inventaire": {
-      "Arme": [
+    "test": {
+      "Nom": "Michel Ange",
+      "Race": "Humaine",
+      "Profession": "Homme d'armes",
+      "Caractéristique": {
+        "INT": "1",
+        "REF": "2",
+        "DEX": "3",
+        "COR": "4",
+        "VIT": "5",
+        "EMP": "6",
+        "TEC": "7",
+        "VOL": "8",
+        "CHA": "9",
+        "VIG": "0",
+        "ETOU": "6",
+        "COU": "15",
+        "SAUT": "3",
+        "PS": "30",
+        "END": "30",
+        "ENC": "40",
+        "REC": "6",
+        "Pieds": "1d6+4",
+        "Poings": "1d6"
+      },
+      "Compétences": [
         {
-          "Nom": "Epée",
-          "Type": "C",
-          "Pré": 1,
-          "Dég": "3d6+2",
-          "Fia": 15,
-          "FiaMax": 15,
-          "Main": 2,
-          "Por": "-",
-          "Effet": "-",
-          "Diss": "-",
-          "AM": "-",
-          "Poids": 2.5
-        }
-      ],
-      "Armure": [
-        {
-          "Nom": "Plastron",
-          "Type": ["Torse"],
-          "PA": 12,
-          "Fia": 12,
-          "Effet": "-",
-          "AM": "-",
-          "VE": 1,
-          "Poids": 6
+          "Nom": "Vigilance",
+          "V": "1",
+          "C": "INT",
+          "P": "false"
         },
-		    {
-          "Nom": "Cotte de mailles gnome",
-          "Type": ["Tête","Torse","Jambe"],
-          "PA": 10,
-          "Fia": 9,
-          "Effet": "Résistance : tranchant",
-          "AM": "-",
-          "VE": 0,
-          "Poids": 5
+        {
+          "Nom": "Lames courtes",
+          "V": "1",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Furtivité",
+          "V": "1",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Physique",
+          "V": "5",
+          "C": "COR",
+          "P": "false"
+        },
+        {
+          "Nom": "Beaux-arts",
+          "V": "1",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Premiers soins",
+          "V": "1",
+          "C": "TEC",
+          "P": "false"
+        },
+        {
+          "Nom": "Résistance à la contrainte",
+          "V": "1",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "PyroBarbare",
+          "V": "1",
+          "C": "INT",
+          "P": "true"
         }
       ],
-      "Autre": [
+      "Magie": [
         {
-          "Nom": "Pièce d'échec",
-          "Effet": "<i>Souvenir du passé...</i>",
-          "Poids": 0.1,
-          "Qtt": 1
+          "Nom": "Sort 1",
+          "Type": "Sort"
         }
       ],
-      "Schéma": [
-        {
-          "Nom": "Schéma test",
-          "Desc": "Schéma test",
-          "Poids": 0.1
-        }
-      ]
+      "Réput": "Aucune",
+      "Inventaire": {
+        "Arme": [
+          {
+            "Nom": "Epée",
+            "Type": "C",
+            "Pré": "1",
+            "Dég": "3d6+2",
+            "Fia": "15",
+            "FiaMax": "15",
+            "Main": "2",
+            "Por": "-",
+            "Effet": "-",
+            "Diss": "-",
+            "AM": "-",
+            "Poids": "2.5"
+          },
+          {
+            "Nom": "Épée d'argent de sorceleur",
+            "Type": "T/P",
+            "Pré": "0",
+            "Dég": "1d6+2",
+            "Fia": "10",
+            "FiaMax": "10",
+            "Main": "2",
+            "Por": "-",
+            "Effet": "Argent (3d6)",
+            "Diss": "-",
+            "AM": "-",
+            "Poids": "1.5"
+          }
+        ],
+        "Armure": [
+          {
+            "Nom": "Plastron",
+            "Type": [
+              "Torse"
+            ],
+            "PA": "12",
+            "Fia": "12",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "1",
+            "Poids": "6"
+          },
+          {
+            "Nom": "Cotte de mailles gnome",
+            "Type": [
+              "Tête",
+              "Torse",
+              "Jambe"
+            ],
+            "PA": "10",
+            "Fia": "9",
+            "Effet": "Résistance : tranchant",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "5"
+          }
+        ],
+        "Autre": [
+          {
+            "Nom": "Pièce d'échec",
+            "Effet": "<i>Souvenir du passé...</i>",
+            "Poids": "0.1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Équipement de pêche",
+            "Effet": "+2 en Survie pour pêcher",
+            "Poids": "0.5",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Grappin",
+            "Effet": "+2 à l’Escalade",
+            "Poids": "0.5",
+            "Qtt": "1"
+          }
+        ],
+        "Schéma": [
+          {
+            "Nom": "Schéma test",
+            "Desc": "Schéma test",
+            "Poids": "0.1"
+          }
+        ]
+      },
+      "Or": "687",
+      "HdV": "Cet homme est un test. <br> Personne ne le connaît.",
+      "Event": "Il a bien vécu.",
+      "Description": "<h1>Enfance:</h1><p>Difficile, dans la misère et la haine.</p>",
+      "Portrait": "https://i.pinimg.com/474x/57/dd/8f/57dd8fcf2b8d0b4ee4f4a0ab6df999c9.jpg",
+      "PP": "0",
+      "PS": "30",
+      "END": "30",
+      "Relance": "9",
+      "Malus": {
+        "Encombrement": "false"
+      }
     },
-    "Bonus":{},
-    "Malus":{},
-    "Or": 700,
-    "HdV": "Cet homme est un test. <br> Personne ne le connaît.",
-    "Event": "Il a bien vécu.",
-    "Description": "Description sommaire.",
-    "Portrait": "https://i.pinimg.com/474x/57/dd/8f/57dd8fcf2b8d0b4ee4f4a0ab6df999c9.jpg",
-    "PP": 0
+    "Joueur 1": {
+      "Nom": "LUSKAR DE HAGGE",
+      "Race": "Sorceleur",
+      "Profession": "Sorceleur",
+      "Caractéristique": {
+        "INT": "5",
+        "REF": "11",
+        "DEX": "10",
+        "COR": "8",
+        "VIT": "6",
+        "EMP": "1",
+        "TEC": "5",
+        "VOL": "7",
+        "CHA": "3",
+        "VIG": "2"
+      },
+      "Compétences": [
+        {
+          "Nom": "Alchimie",
+          "V": "6",
+          "C": "TEC",
+          "P": "false"
+        },
+        {
+          "Nom": "Athlétisme",
+          "V": "14",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Bagarre",
+          "V": "12",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Connaissance de la rue",
+          "V": "6",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Déduction",
+          "V": "8",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Escrime",
+          "V": "17",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Esquive/Évasion",
+          "V": "16",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Furtivité",
+          "V": "13",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Incantation",
+          "V": "9",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Intimidation",
+          "V": "11",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Physique",
+          "V": "13",
+          "C": "COR",
+          "P": "false"
+        },
+        {
+          "Nom": "Résilience",
+          "V": "13",
+          "C": "COR",
+          "P": "false"
+        },
+        {
+          "Nom": "Survie",
+          "V": "9",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Vigilance",
+          "V": "12",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Formation de sorceleur",
+          "V": "11",
+          "C": "INT",
+          "P": "true"
+        }
+      ],
+      "Magie": [
+        {
+          "Nom": "Aard",
+          "Type": "Signe de base"
+        },
+        {
+          "Nom": "Axii",
+          "Type": "Signe de base"
+        },
+        {
+          "Nom": "Igni",
+          "Type": "Signe de base"
+        },
+        {
+          "Nom": "Quen",
+          "Type": "Signe de base"
+        },
+        {
+          "Nom": "Yrden",
+          "Type": "Signe de base"
+        }
+      ],
+      "Réput": "0",
+      "Inventaire": {
+        "Arme": [
+          {
+            "Nom": "Épée en argent",
+            "Type": "T/P",
+            "Pré": "0",
+            "Dég": "1d6+2",
+            "Fia": "10",
+            "FiaMax": "10",
+            "Main": "2",
+            "Por": "-",
+            "Effet": "Argent (3d6)",
+            "Diss": "-",
+            "AM": "-",
+            "Poids": "1"
+          },
+          {
+            "Nom": "Épée en acier",
+            "Type": "T/P",
+            "Pré": "0",
+            "Dég": "4d6+4",
+            "Fia": "15",
+            "FiaMax": "15",
+            "Main": "2",
+            "Por": "-",
+            "Effet": "Météorite, Perforation",
+            "Diss": "-",
+            "AM": "-",
+            "Poids": "2"
+          }
+        ],
+        "Armure": [
+          {
+            "Nom": "Capuche d’archer verdenien",
+            "Type": [
+              "Tête"
+            ],
+            "PA": "3",
+            "Fia": "3",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "0.5"
+          },
+          {
+            "Nom": "Gambison à tissage renforcé",
+            "Type": [
+              "Torse"
+            ],
+            "PA": "8",
+            "Fia": "8",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "2.5"
+          },
+          {
+            "Nom": "Pantalon matelassé",
+            "Type": [
+              "Jambe"
+            ],
+            "PA": "5",
+            "Fia": "5",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "1"
+          }
+        ],
+        "Autre": [
+          {
+            "Nom": "Ensemble d’alchimie",
+            "Effet": "L’ensemble d’alchimie vous permet de fabriquer des objets à partir de formules alchimiques.",
+            "Poids": "3",
+            "Qtt": "1"
+          }
+        ]
+      },
+      "Or": "15",
+      "HdV": "On vous a amené à devenir sorceleur quand vous étiez jeune, entre 4 et 6 ans. Vous aviez des souvenirs pour vous aider lors de l'épreuve des herbes. Vous avez été formé à Kaer Y Seren le long de la côte des montagnes du Dragon. Votre entraînement était fortement axé sur la lutte contre un nombre illimité d'adversaires et sur l'utilisation de votre pouvoir magique à son plus grand potentiel.\nMauvaise réaction aux mutagènes (–2 à l’Épreuve des Herbes): Vous avez fait une réaction allergique aux champignons mutagènes et aux composants chimiques que l’on vous a donnés au début de votre formation. L’Épreuve des Herbes n’en fut que plus difficile.",
+      "Event": "Après avoir aidé une ville avec un monstre, les gens ont eu peur et se sont tournés contre vous. Ils ont peut-être même essayé de vous tuer. Quoi qu'il en soit, vous avez vu quel type de récompense vous pouvez attendre des gens.\nTrahi : Un ami ou un amant vous a trahi.Il a dévoilé un de vos secrets.",
+      "Description": "Finalement, toute la négativité et les gens ingrats ont eu raison de vous - vous avez décidé qu'avec de moins en moins de monstres, il était temps de commencer à chasser les gens. Vous pouvez déterminer ce que vous faites pour survivre.",
+      "Portrait": "https://i.pinimg.com/474x/57/dd/8f/57dd8fcf2b8d0b4ee4f4a0ab6df999c9.jpg"
+    },
+    "Joueur 2": {
+      "Nom": "AISLINN VEIL",
+      "Race": "Humaine",
+      "Profession": "Mage",
+      "Caractéristique": {
+        "INT": 8,
+        "REF": 5,
+        "DEX": 6,
+        "COR": 4,
+        "VIT": 5,
+        "EMP": 7,
+        "TEC": 6,
+        "VOL": 10,
+        "CHA": 7,
+        "VIG": 5
+      },
+      "Compétences": [
+        {
+          "Nom": "Bâton/Lance",
+          "V": 8,
+          "C": "REF",
+          "P": false
+        },
+        {
+          "Nom": "Athlétisme",
+          "V": 14,
+          "C": "DEX",
+          "P": false
+        },
+        {
+          "Nom": "Duperie",
+          "V": 9,
+          "C": "EMP",
+          "P": false
+        },
+        {
+          "Nom": "Éducation",
+          "V": "INT",
+          "C": 11,
+          "P": false
+        },
+        {
+          "Nom": "Déduction",
+          "V": 12,
+          "C": "INT",
+          "P": false
+        },
+        {
+          "Nom": "Psychologie",
+          "V": 12,
+          "C": "EMP",
+          "P": false
+        },
+        {
+          "Nom": "Résistance à la magie",
+          "V": 13,
+          "C": "VOL",
+          "P": false
+        },
+        {
+          "Nom": "Furtivité",
+          "V": 8,
+          "C": "DEX",
+          "P": false
+        },
+        {
+          "Nom": "Incantation",
+          "V": 16,
+          "C": "VOL",
+          "P": false
+        },
+        {
+          "Nom": "Intimidation",
+          "V": 13,
+          "C": "VOL",
+          "P": false
+        },
+        {
+          "Nom": "Séduction",
+          "V": 11,
+          "C": "EMP",
+          "P": false
+        },
+        {
+          "Nom": "Stylisme",
+          "V": 8,
+          "C": "EMP",
+          "P": false
+        },
+        {
+          "Nom": "Vigilance",
+          "V": 10,
+          "C": "INT",
+          "P": false
+        },
+        {
+          "Nom": "Exercice de la magie",
+          "V": 15,
+          "C": "INT",
+          "P": "\"true\""
+        }
+      ],
+      "Magie": [
+        {
+          "Nom": "Brouillard de Dormyn",
+          "Type": "magie de l’eau"
+        },
+        {
+          "Nom": "Glamour",
+          "Type": "magie mixte"
+        },
+        {
+          "Nom": "Miroir d’Afan",
+          "Type": "magie mixte"
+        },
+        {
+          "Nom": "Pic terrestre",
+          "Type": "magie de la terre"
+        },
+        {
+          "Nom": "Poigne de Cadfan",
+          "Type": "magie du feu"
+        }
+      ],
+      "Réput": 0,
+      "Inventaire": {
+        "Arme": [
+          {
+            "Nom": "Bâton",
+            "Type": "C",
+            "Pré": 0,
+            "Dég": "1d6",
+            "Fia": 15,
+            "FiaMax": 15,
+            "Main": 2,
+            "Por": "-",
+            "Effet": "Allonge, Focus (1)",
+            "Diss": "-",
+            "AM": "-",
+            "Poids": 2.5
+          }
+        ],
+        "Armure": [
+          {
+            "Nom": "Gambison aedirnien",
+            "Type": [
+              "Torse"
+            ],
+            "PA": 5,
+            "Fia": 5,
+            "Effet": "-",
+            "AM": "-",
+            "VE": 0,
+            "Poids": 1.5
+          }
+        ],
+        "Autre": [
+          {
+            "Nom": "Encre invisible",
+            "Effet": "L’encre invisible vous permet d’écrire des messages qui ne pourront être lus qu’après avoir été exposés à la chaleur pendant 1 round.",
+            "Poids": 0.1,
+            "Qtt": 1
+          }
+        ]
+      },
+      "Or": 100,
+      "HdV": "Votre potentiel magique a été détecté très tôt car vous étiez particulièrement instable et sujet à vos émotions primaires. Vous avez commencé votre instruction entre 2 et 6 ans. Ban Ard (-1 de pénalité en VE). Vous avez été formé à l’école des Mages à Kaedwen. Votre éducation complète vous a permis d’acquérir une formation axée sur la possibilité que vous devrez vous servir d’une petite armure pour vous protéger des lames de soldats adverses ...\nTrauma Magique (-1 en Volonté). Un retour de magie vous a blessé et affaibli durant votre formation. Votre volonté s’en est retrouvée définitivement émoussée.\nFormation avec les honneurs (+1 en Volonté & +1 en Empathie). Vous avez parfaitement intégré vos cours et canalisé l’énergie du Chaos. Votre volontésans faille a payé et vous voici un membre distingué de votre confrérie.\nVous êtes entré au service d’un noble. La condition était bonne mais vous avez appris que beaucoup de secrets sombres rôdent et avez dû conspirer pour leur petit succès.",
+      "Event": "Alliée. Une prêtresse. Une amie, vous lui avez sauvé la vie. Elle est toujours en vie.\nMission. Récolter des Inforamtions dans un château abandonné. Vous n’avez pas ou peu eu de reconnaissance.\nAllié à des bandits. Vous avez dû au cours de vos obligation (ou pour un contrat) côtoyer un groupe de bandits ou même des Scoia’tael. Vous n’étiez pas d’accord avec leurs méthodes, mais il ne vous ont pas embêtés, ni eux par vous. Vous pouvez leur demander un service une fois par mois tant que c’est raisonnable (demandez au MJ).",
+      "Description": "Vous avez une place dans un village ou ville, êtes régulièrement en mission pour la Confrérie ou menez des recherches en son nom. Une vie somme toutes banale pour un mage si ce n’est que vous faîtes partie de vastes machinations."
+    },
+    "Joueur 3": {
+      "Nom": "ADA DE BAN ARD",
+      "Race": "Humaine",
+      "Profession": "Homme d'armes",
+      "Caractéristique": {
+        "INT": "4",
+        "REF": "10",
+        "DEX": "8",
+        "COR": "10",
+        "VIT": "6",
+        "EMP": "5",
+        "TEC": "4",
+        "VOL": "8",
+        "CHA": "5",
+        "ETOU": "9",
+        "COU": "18",
+        "SAUT": "3",
+        "PS": "45",
+        "END": "45",
+        "ENC": "100",
+        "REC": "9",
+        "Pieds": "1d6+10",
+        "Poings": "1d6+6"
+      },
+      "Compétences": [
+        {
+          "Nom": "Arbalète",
+          "V": "13",
+          "C": "Ref",
+          "P": "false"
+        },
+        {
+          "Nom": "Artisanat",
+          "V": "6",
+          "C": "TEC",
+          "P": "false"
+        },
+        {
+          "Nom": "Bagarre",
+          "V": "13",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Bâton/Lance",
+          "V": "14",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Courage",
+          "V": "14",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Mêlée",
+          "V": "16",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Esquive/Évasion",
+          "V": "13",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Tactique",
+          "V": "10",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Intimidation",
+          "V": "11",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Physique",
+          "V": "13",
+          "C": "COR",
+          "P": "false"
+        },
+        {
+          "Nom": "Résilience",
+          "V": "13",
+          "C": "COR",
+          "P": "false"
+        },
+        {
+          "Nom": "Survie",
+          "V": "6",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Vigilance",
+          "V": "8",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Dur à cuire",
+          "V": "16",
+          "C": "COR",
+          "P": "true"
+        }
+      ],
+      "Réput": "0",
+      "Or": "1804",
+      "HdV": "De Gemmery, dans l'Nilfgaard Issue d'une fratrie de 4: Un frère, plus jeune, dépressif qui est jaloux de vous, une soeur, plus jeune, sévère , un frère, plus jeune, agressif qui vous aime. Votre famille possède un sombre secret qui, s’il était découvert, détruirait votre vie et celle de votre parenté de fond en comble. Vous devez le protéger au péril de votre vie.. Possède pour influence: Un artisan. Un artisan vous a appris à apprécier le savoir-faire et la précision. Équipement: un objet que vous avez fabriqué.",
+      "Event": "Débauche : vous avez passé votre temps votre temps à coucher à droite à gauche et à vous payer les services de prostituées. Si vous n’avez pas fait attention, vous avez probablement semé une collection de bâtards dans votre sillage. Incapacité mentale ou physique : Vous souffrez de crises d'angoisse et devez effectuer des jets d'étourdissement (tous les 5 tours) en période de stress. Relation compliquée: Vous êtes des rivaux sur le plan professionnel. Vous ne cessez de vous voler mutuellement des clients.",
+      "Description": "...",
+      "PS": "45",
+      "END": "45",
+      "Relance": "5",
+      "Inventaire": {
+        "Arme": [
+          {
+            "Nom": "Hache de bataille",
+            "Type": "T",
+            "Pré": "0",
+            "Dég": "5d6",
+            "Fia": "15",
+            "FiaMax": "15",
+            "Main": "1",
+            "Por": "-",
+            "Effet": "-",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "2"
+          },
+          {
+            "Nom": "Arbalète",
+            "Type": "P",
+            "Pré": "2",
+            "Dég": "4d6+2",
+            "Fia": "5",
+            "FiaMax": "5",
+            "Main": "2",
+            "Por": "200m",
+            "Effet": "Rechargement lent, Perforation",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "3"
+          },
+          {
+            "Nom": "Lance",
+            "Type": "P",
+            "Pré": "0",
+            "Dég": "3d6",
+            "Fia": "10",
+            "FiaMax": "10",
+            "Main": "2",
+            "Por": "Corpsx2m",
+            "Effet": "Allonge",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "1"
+          },
+          {
+            "Nom": "Torche",
+            "Type": "C",
+            "Pré": "-1",
+            "Dég": "1d6",
+            "Fia": "5",
+            "FiaMax": "5",
+            "Main": "1",
+            "Por": "-",
+            "Effet": "Feu (25%) si allumée",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "1"
+          }
+        ],
+        "Armure": [
+          {
+            "Nom": "Camail",
+            "Type": [
+              "Tête"
+            ],
+            "PA": "12",
+            "Fia": "12",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "1.5"
+          },
+          {
+            "Nom": "Pantalon renforcé",
+            "Type": [
+              "Jambe"
+            ],
+            "PA": "12",
+            "Fia": "12",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "2.5"
+          },
+          {
+            "Nom": "Brigandine",
+            "Type": [
+              "Torse"
+            ],
+            "PA": "12",
+            "Fia": "12",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "1",
+            "Poids": "7"
+          },
+          {
+            "Nom": "Bouclier témérien",
+            "Type": [
+              "Bouclier"
+            ],
+            "PA": "8",
+            "Fia": "8",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "1.5"
+          }
+        ],
+        "Autre": [
+          {
+            "Nom": "Corne de brume",
+            "Effet": "Se fait entendre à plusieurs kilométres",
+            "Poids": "0.1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "20m de corde",
+            "Effet": "-",
+            "Poids": "1.5",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Grappin",
+            "Effet": "+2 à l’Escalade",
+            "Poids": "0.5",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Pierre à briquet",
+            "Effet": "-",
+            "Poids": "0.1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Outils d’artisan",
+            "Effet": "Permettent de fabriquer des armes et des armures",
+            "Poids": "5",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Sacoche",
+            "Effet": "peut contenir 30 kg de petits objets.",
+            "Poids": "1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Carreaux à tête large",
+            "Effet": "Il s’agit de munitions pour l’arbalète.\nLorsque vous infligez des dégâts avec un carreau à tête large, la cible saigne.",
+            "Qtt": "3",
+            "Poids": "0.1"
+          },
+          {
+            "Nom": "Carreaux d’arbalète",
+            "Effet": "Il s’agit de munitions pour l’arbalète.",
+            "Qtt": "2",
+            "Poids": "0.1"
+          }
+        ],
+        "Schéma": [
+          {
+            "Nom": "Schéma de carreau à tête large",
+            "Effet": "Ce schéma vous permet de fabriquer 10 carreaux à tête large avec un seul jet d’Artisanat. Vous disposez également des ingrédients nécessaires pour fabriquer 10 carreaux à tête large.",
+            "Poids": "0.1"
+          }
+        ]
+      }
+    },
+    "Joueur 4": {
+      "Nom": "ANDRAS LE ROUGE",
+      "Race": "Elfe",
+      "Profession": "Barde",
+      "Caractéristique": {
+        "INT": "8",
+        "REF": "5",
+        "DEX": "7",
+        "COR": "4",
+        "VIT": "7",
+        "EMP": "10",
+        "TEC": "5",
+        "VOL": "7",
+        "CHA": "8",
+        "ETOU": "5",
+        "COU": "21",
+        "SAUT": "4",
+        "PS": "25",
+        "END": "25",
+        "ENC": "40",
+        "REC": "5",
+        "Pieds": "1d6+4",
+        "Poings": "1d6"
+      },
+      "Compétences": [
+        {
+          "Nom": "Adresse",
+          "V": "11",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Archerie",
+          "V": "12",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Athlétisme",
+          "V": "10",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Beaux-arts",
+          "V": "14",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Charisme",
+          "V": "1",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Connaissance de la rue",
+          "V": "10",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Esquive/Évasion",
+          "V": "8",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Duperie",
+          "V": "16",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Intimidation",
+          "V": "10",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Étiquette",
+          "V": "12",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Persuasion",
+          "V": "13",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Psychologie",
+          "V": "15",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Représentation",
+          "V": "14",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Séduction",
+          "V": "15",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Prestation",
+          "V": "15",
+          "C": "EMP",
+          "P": "true"
+        }
+      ],
+      "Réput": "0",
+      "Inventaire": {
+        "Arme": [
+          {
+            "Nom": "Dague",
+            "Type": "T/P",
+            "Pré": "0",
+            "Dég": "1d6+2",
+            "Fia": "10",
+            "FiaMax": "10",
+            "Main": "1",
+            "Por": "-",
+            "Effet": "-",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "1"
+          },
+          {
+            "Nom": "Arc court",
+            "Type": "P",
+            "Pré": "0",
+            "Dég": "3d6+3",
+            "Fia": "10",
+            "FiaMax": "10",
+            "Main": "2",
+            "Por": "100m",
+            "Effet": "-",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "1"
+          }
+        ],
+        "Armure": [
+          {
+            "Nom": "Chaperon d'archet verdenien",
+            "Type": [
+              "Tête"
+            ],
+            "PA": "3",
+            "Fia": "3",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "0.5"
+          },
+          {
+            "Nom": "Gambison Aedirnien",
+            "Type": [
+              "Torse"
+            ],
+            "PA": "5",
+            "Fia": "5",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "1.5"
+          },
+          {
+            "Nom": "Pantalon matelassé",
+            "Type": [
+              "Jambe"
+            ],
+            "PA": "5",
+            "Fia": "5",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "1"
+          }
+        ],
+        "Autre": [
+          {
+            "Nom": "Instrument",
+            "Effet": "-",
+            "Poids": "1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Miroir de poche",
+            "Effet": "-",
+            "Poids": "0.5",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Piste de dés",
+            "Effet": "-",
+            "Poids": "0.5",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Sacoche",
+            "Effet": "peut contenir 30 kg de petits objets.",
+            "Poids": "1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Adhésif alchimique",
+            "Effet": "L’adhésif alchimique peut être lancé ou répandu sur une surface ou une personne. Après 2 rounds, la solution va durcir, coller les objets ensemble et coller les gens à d’autres ou à des objets. Les objets peuvent être décollés avec un jet de Physique (SD 16). Pour le lancer, il faut réaliser une attaque sous Athlétisme avec une portée égale à votre COR x 2 m.",
+            "Qtt": "1",
+            "Poids": "0.1"
+          },
+          {
+            "Nom": "Feu zerrikanien",
+            "Effet": "Le feu zerrikanien met le feu à tout ce qu’il touche. Il faut faire une attaque sous Athlétisme avec une portée égale à votre COR x 2 m et le liquide éclabousse un cône de 2 m depuis la zone où il atterrit, enflammant tout ce qui se trouve dedans.",
+            "Qtt": "1",
+            "Poids": "0.1"
+          },
+          {
+            "Nom": "Flèches",
+            "Effet": "Il s’agit de munitions pour l’arc court.",
+            "Qtt": "20",
+            "Poids": "0.1"
+          },
+          {
+            "Nom": "Liqueur",
+            "Effet": "-",
+            "Poids": "1",
+            "Qtt": "1"
+          }
+        ]
+      },
+      "Or": "1021",
+      "HdV": "De Maecht, dans l'Nilfgaard Issue d'une fratrie de 6: Une soeur, plus jeune, romantique , Un frère, jumeau, bizarre , Une soeur, plus jeune, romantique , Une soeur, plus jeune, bizarre qui vous admire, Un frère, plus jeune, agressif qui veut votre mort. Votre famille a été assassinée. Cette tragédie faisait peut-être partie d’une machination, ou alors vos proches s’en sont pris à plus fort qu’eux. Quoi qu’il en soit, tout le monde est mort.. Possède pour influence: Un artisan. Un artisan vous a appris à apprécier le savoir-faire et la précision. Équipement: un objet que vous avez fabriqué. Possède pour influence: Un artisan. Un artisan vous a appris à apprécier le savoir-faire et la précision. Équipement: un objet que vous avez fabriqué.",
+      "Event": "Relation compliquée: L’un de vous est un humain, l’autre est un non-humain, ce qui vous complique la vie. Relation compliquée: Votre famille ou vos amis détestent votre amant et désapprouvent votre relation. Ennemie : Un ancien amour à qui vous avez déjoué ses plans. Attention, son pouvoir est de 4/10.",
+      "Description": "...",
+      "PS": "25",
+      "END": "25",
+      "Relance": "8"
+    },
+    "Joueur 5": {
+      "Nom": "KASKA TORMA",
+      "Race": "Nain",
+      "Profession": "Docteur",
+      "Caractéristique": {
+        "INT": "9",
+        "REF": "6",
+        "DEX": "6",
+        "COR": "5",
+        "VIT": "8",
+        "EMP": "7",
+        "TEC": "10",
+        "VOL": "5",
+        "CHA": "4",
+        "ETOU": "5",
+        "COU": "24",
+        "SAUT": "4",
+        "PS": "25",
+        "END": "25",
+        "ENC": "75",
+        "REC": "5",
+        "Pieds": "1d6+6",
+        "Poings": "1d6+2"
+      },
+      "Compétences": [
+        {
+          "Nom": "Alchimie",
+          "V": "13",
+          "C": "TEC",
+          "P": "false"
+        },
+        {
+          "Nom": "Arbalète",
+          "V": "8",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Athlétisme",
+          "V": "8",
+          "C": "DEX",
+          "P": "false"
+        },
+        {
+          "Nom": "Courage",
+          "V": "10",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Charisme",
+          "V": "11",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Déduction",
+          "V": "14",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Esquive/Évasion",
+          "V": "10",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Étiquette",
+          "V": "11",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Lames courtes",
+          "V": "10",
+          "C": "REF",
+          "P": "false"
+        },
+        {
+          "Nom": "Négoce",
+          "V": "13",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Physique",
+          "V": "7",
+          "C": "COR",
+          "P": "false"
+        },
+        {
+          "Nom": "Psychologie",
+          "V": "12",
+          "C": "EMP",
+          "P": "false"
+        },
+        {
+          "Nom": "Résistance à la contrainte",
+          "V": "12",
+          "C": "VOL",
+          "P": "false"
+        },
+        {
+          "Nom": "Vigilance",
+          "V": "15",
+          "C": "INT",
+          "P": "false"
+        },
+        {
+          "Nom": "Mains thérapeutiques",
+          "V": "16",
+          "C": "TEC",
+          "P": "true"
+        }
+      ],
+      "Réput": "0",
+      "Inventaire": {
+        "Arme": [
+          {
+            "Nom": "Dague",
+            "Type": "T/P",
+            "Pré": "0",
+            "Dég": "1d6+2",
+            "Fia": "10",
+            "FiaMax": "10",
+            "Main": "1",
+            "Por": "-",
+            "Effet": "-",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "1"
+          },
+          {
+            "Nom": "Arbalète de poing",
+            "Type": "P",
+            "Pré": "1",
+            "Dég": "2d6+2",
+            "Fia": "10",
+            "FiaMax": "10",
+            "Main": "1",
+            "Por": "100m",
+            "Effet": "Rechargement lent, Perforation",
+            "Diss": "?",
+            "AM": "-",
+            "Poids": "1"
+          }
+        ],
+        "Armure": [
+          {
+            "Nom": "Chaperon d'archet verdenien",
+            "Type": [
+              "Tête"
+            ],
+            "PA": "3",
+            "Fia": "3",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "0.5"
+          },
+          {
+            "Nom": "Gambison",
+            "Type": [
+              "Torse"
+            ],
+            "PA": "3",
+            "Fia": "3",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "1"
+          },
+          {
+            "Nom": "Pantalon de cavalier",
+            "Type": [
+              "Jambe"
+            ],
+            "PA": "3",
+            "Fia": "3",
+            "Effet": "-",
+            "AM": "-",
+            "VE": "0",
+            "Poids": "0.5"
+          }
+        ],
+        "Autre": [
+          {
+            "Nom": "Ensemble d’alchimie",
+            "Effet": "Permet de fabriquer des articles alchimiques",
+            "Poids": "3",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Tente grande",
+            "Effet": "-",
+            "Poids": "8",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Instruments chirurgicaux",
+            "Effet": "Permet de pratiquer la chirurgie.",
+            "Poids": "1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Lanterne",
+            "Effet": "Augmente la luminosité de 2m dans un rayon de 3m.",
+            "Poids": "1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Sacoche",
+            "Effet": "peut contenir 30 kg de petits objets.",
+            "Poids": "1",
+            "Qtt": "1"
+          },
+          {
+            "Nom": "Carreaux d’arbalète",
+            "Effet": "Il s’agit de munitions pour l’arbalète de poing.",
+            "Qtt": "20",
+            "Poids": "0.1"
+          },
+          {
+            "Nom": "Élixir de Pantagran",
+            "Effet": "Boire une gorgée d’élixir de Pantagran provoque une joie délirante. Cet effet dure 1d6/2 heures et laisse le consommateur incroyablement sensible au Charisme, à la Persuasion et à la Séduction, lui infligeant un malus moyen (–3) à la Résistance à la contrainte.",
+            "Qtt": "1",
+            "Poids": "0.1"
+          },
+          {
+            "Nom": "Poudre de coagulation",
+            "Effet": "Appliquer la poudre de coagulation sur une blessure permet d’arrêter l’effet de saignement pendant 2d10 rounds. Après la fin du délai, la blessure recommence à saigner. Il est possible d’appliquer une autre dose.",
+            "Qtt": "3",
+            "Poids": "0.1"
+          },
+          {
+            "Nom": "Sels de pâmoison",
+            "Effet": "Les sels de pâmoison peuvent être mis sous le nez d’une personne ou d’une créature inconsciente ou étourdie afin de la sortir immédiatement de son état d’étourdissement. Les sels de pâmoison peuvent être utilisés 25 fois.",
+            "Qtt": "1",
+            "Poids": "0.1"
+          }
+        ]
+      },
+      "Or": "1117",
+      "HdV": "Des montagnes naines de Mahakam. Issue d'une fratrie de 2: Une soeur, jumeau, gentil. Votre famille est accusée de soutenir les humains et n’est donc pas particulièrement appréciée dans votre village natal.. Possède pour influence: Un chasseur. Vous avez connu un chasseur qui vous a montré comment survivre dans les contrées sauvages. Équipement: un trophée de chasse.",
+      "Event": "Chevalier : vous avez été fait chevalier pour acte valeureux dans votre royaume. Dans ce royaume, vous gagnez +2 en réputation et êtes reconnu comme chevalier. Débauche : vous avez passé votre temps votre temps à coucher à droite à gauche et à vous payer les services de prostituées. Si vous n’avez pas fait attention, vous avez probablement semé une collection de bâtards dans votre sillage. Allier : Une vieille ennemie qui vous a engagé pour quelque chose, vous êtes des amis, il/elle est actuellement dans les Terres Ancestrales.",
+      "Description": "...",
+      "PS": "25",
+      "END": "25",
+      "Relance": "4"
+    }
   }
-}
