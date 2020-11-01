@@ -170,11 +170,11 @@ function testerlamagie(){
   if(pro == "Mage" || pro == "Prêtre" || pro == "Sorceleur" || pro == "Vampire"){
     if(pro == "Mage"){
       var e = [2,3,6];
-      e.forEach(function(f){document.getElementById(f).parentNode;});
+      e.forEach(function(f){document.getElementById('TêteTabloMagie'+f).parentNode.style.display = "none";});
     }
     if(pro == "Prêtre"){
       var e = [1,3,6];
-      e.forEach(function(f){document.getElementById(f).parentNode;});
+      e.forEach(function(f){document.getElementById('TêteTabloMagie'+f).parentNode.style.display = "none";});
     }
     if(pro == "Sorceleur"){
       var e = [1,2,4,5,6];
