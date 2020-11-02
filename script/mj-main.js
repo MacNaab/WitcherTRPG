@@ -36,7 +36,7 @@ function P4_A(e,f){
     if(e=='1'||e=='2'){
         var url = $("#P4_1").val();
         if(e == '1'){var A = "tts";}else{var A = "image";}
-        $.ajax({
+/*        $.ajax({
             url: "data/data.php",
             type: "POST",
             data: {
@@ -45,9 +45,12 @@ function P4_A(e,f){
             },
             cache: false,
             success: function(data){
+*/
                 $('#P4_aff').append("<div>"+data+"</div>");
+/*
             }
         });    
+*/
     } else{
         var joueur = $("#P4_Joueur").val();
         if(e=='3'){// Ajout Inventaire
