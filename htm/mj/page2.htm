@@ -88,6 +88,7 @@
         var dtb_3 = $('#dtb_3').val();
         if(dtb_1!="" && dtb_2!="" && dtb_3!=""){
             dtb_3 = dtb_3.replace(/\n/gi, '<br>');
+/*
           $.ajax({
             url: "data/wiki.php",
             type: "POST",
@@ -102,6 +103,7 @@
                 $('#dtb_résultat').html(data);
             }
           });
+*/
           JSON_wiki.push({
             Nom: dtb_1, Chapitre: dtb_2, Description: dtb_3
           });
@@ -113,6 +115,7 @@
         var dtb_3 = $('#dtb_II_3').val();
         if(dtb_1!="" && dtb_2!="" && dtb_3!=""){
             dtb_3 = dtb_3.replace(/\n/gi, '<br>');
+/*
           $.ajax({
             url: "data/wiki.php",
             type: "POST",
@@ -127,6 +130,7 @@
                 $('#dtb_résultat').html(data);
             }
           });
+*/
           var found = JSON_wiki.find(x => x.Nom == dtb_1);
           found.Chapitre = dtb_2;
           found.Description = dtb_3;
