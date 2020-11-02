@@ -3,6 +3,16 @@ $(document).ready(function(){
 	$('#toast').load("htm/toast.htm");
 });
 
+function Reload_PJ(){
+	$.getJSON('data/pj.json', function(jd) {
+		JSON_FICHE = jd;
+		JSON_FICHE = JSON_FICHE[joueur];
+		$("#toast1_H").html("Rechargement de la Fiche du PJ");
+    	$("#toast1_C").html(joueur);
+		$("#toast1").toast('show');
+	});
+}
+
 var JSON_FICHE = "";
 var joueur = "";
 $.getJSON('data/pj.json', function(jd) {

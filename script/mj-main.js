@@ -9,9 +9,20 @@ $.getJSON('data/wiki.json', function(jd) {
 });
 
 function todtb(e,f){
-	$("#toast1_H").html("Mise à jour effectué");
-	$("#toast1_C").html(data);
-	$("#toast1").toast('show');
+    $.ajax({
+        url: "data/pj.php",
+        type: "POST",
+        data: {
+            nom: e,
+            dtb: f,
+        },
+        cache: false,
+        success: function(data){
+            $("#toast1_H").html("Mise à jour effectué");
+            $("#toast1_C").html(data);
+            $("#toast1").toast('show');
+        }
+    });
 }
 
 function P4_Action(e){
@@ -97,7 +108,7 @@ function P4_A(e,f){
                 JSON_FICHE[joueur].Inventaire.Schéma.push(
                     {
                         "Nom": $("#P4_1").val(),
-                        "Effet": $("#P4_3").val(),
+                        "Desc": $("#P4_3").val(),
                         "Poids": $("#P4_2").val()
                     }
                 )
