@@ -11,7 +11,7 @@ function todtb(e){
         success: function(data){
 */
             $("#toast1_H").html(e);
-            $("#toast1_C").html(data);
+//            $("#toast1_C").html(data);
             $("#toast1").toast('show');
 /*
         }
