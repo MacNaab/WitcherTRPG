@@ -21,7 +21,7 @@ function todtb(e,f){
         success: function(data){
 */
             $("#toast1_H").html("Mise à jour effectué");
-            $("#toast1_C").html(data);
+//            $("#toast1_C").html(data);
             $("#toast1").toast('show');
 /*
         }
