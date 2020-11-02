@@ -1,4 +1,5 @@
 function todtb(e){
+/*
     $.ajax({
         url: "data/pj.php",
         type: "POST",
@@ -8,11 +9,14 @@ function todtb(e){
         },
         cache: false,
         success: function(data){
+*/
             $("#toast1_H").html(e);
             $("#toast1_C").html(data);
             $("#toast1").toast('show');
+/*
         }
     });
+*/
 }
 var JSON_data = ""
 $.getJSON('data/data.json', function(jd) {
