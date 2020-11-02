@@ -34,7 +34,7 @@
   </div>
   
   <div class="log">
-    <div id="P4_LOG"><i>Début de l'aventure...</i></div>
+    <div id="P4_LOG"></div>
   </div>
     <br>
     <div id="barre2" class="progress">
@@ -94,8 +94,8 @@
               Corps à corps
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" onclick="oncalculebien3()">Coup de poing</a>
-              <a class="dropdown-item" onclick="oncalculebien4()">Coup de pied</a>
+              <a class="dropdown-item" style="cursor: pointer;" onclick="oncalculebien3()">Coup de poing</a>
+              <a class="dropdown-item" style="cursor: pointer;" onclick="oncalculebien4()">Coup de pied</a>
             </div>
           </div>
         </div>
@@ -213,15 +213,17 @@ $('#P4_Prot').append("<div>Tête: "+Prot_Tê+"</div>");
 $('#P4_Prot').append("<div>Torse: "+Prot_To+"</div>");
 $('#P4_Prot').append("<div>Jambes: "+Prot_J+"</div>");
 
-$('#P4_EC').append("<div>Encombrement: "+Poids+"Kg /"+JSON_FICHE.Caractéristique.ENC+"</div>");
+$('#P4_EC').append("<div>Encombrement: "+Poids.toFixed(2)+"Kg /"+JSON_FICHE.Caractéristique.ENC+"</div>");
 $('#P4_EC').append("<div>Encombrement d'armure: "+VE+"</div>");
 
 if(JSON_FICHE.Bonus){
-	if(JSON_FICHE.Bonus.Desc){$('#P4_Bonus').append(JSON_FICHE.Inventaire.Bonus.Desc);}
+	if(JSON_FICHE.Bonus.Desc != undefined){$('#P4_Bonus').append(JSON_FICHE.Bonus.Desc);}
 }
 if(JSON_FICHE.Malus){
-	if(JSON_FICHE.Malus.Desc){$('#P4_Malus').append(JSON_FICHE.Inventaire.Malus.Desc);}
+	if(JSON_FICHE.Malus.Desc != undefined){$('#P4_Malus').append(JSON_FICHE.Malus.Desc);}
 }
+
+$("#P4_LOG").html(log_backup);
 
 function caract(){
 $('#P4_Compt').empty().append('<option selected="selected" value="0">Aucune compétence</option>');
@@ -260,6 +262,6 @@ if(P4_Caract.value == "10"){ // PRO
 }
 }
 
-
+var Effet = {};
 effets();
 </script>

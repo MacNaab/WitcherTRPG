@@ -244,12 +244,12 @@ function achat_f(){
 					"Main": found.Mains,
 					"Por": found.Portée,
 					"Effet": found.Effet,
-					"Diss": "?",
+					"Diss": found.Taille,
 					"AM": "-",
 					"Poids": found.Poids
 					}
 				);
-				todtb();
+				todtb('Achat');
 				$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' pour un prix de '+found.Prix+' couronnes.');
 			}else{
 				$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour l\'arme '+nom+'. Cette arme a un prix de '+found.Prix+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -273,7 +273,7 @@ function achat_f(){
 					"Poids": found.Poids
 					}
 				);
-				todtb();
+				todtb('Achat');
 				$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' pour un prix de '+found.Prix+' couronnes.');
 			}else{
 				$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour l\'armure '+nom+'. Cette armure a un prix de '+found.Prix+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -296,7 +296,7 @@ function achat_f(){
 						"Qtt": Quantité,
 						}
 					);
-					todtb();
+					todtb('Achat');
 					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
 				}else{
 					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -316,7 +316,7 @@ function achat_f(){
 						"Qtt": Quantité,
 						}
 					);
-					todtb();
+					todtb('Achat');
 					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
 				}else{
 					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
@@ -336,7 +336,7 @@ function achat_f(){
 						"Qtt": Quantité,
 						}
 					);
-					todtb();
+					todtb('Achat');
 					$('#P3_ACHAT3').html('<b>Achat:</b>'+nom+' x'+Quantité+' pour un prix de '+found.Prix*Quantité+' couronnes.');
 				}else{
 					$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour '+nom+'. Cet objet a un prix de '+found.Prix*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');

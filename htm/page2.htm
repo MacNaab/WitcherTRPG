@@ -112,7 +112,7 @@ if(JSON_FICHE.Magie != undefined){
 	JSON_FICHE.Magie.forEach(function(e){
 		$('#P2_Magie_aff').append("<div>"+e.Nom+" ("+e.Type+")</div>");		
 	});
-}else{$('#P2_Magie_aff').remove();}
+}else{$('#P2_Magie').remove();}
 
 if(JSON_CAPACITES.Race[JSON_FICHE.Race] != undefined){
 	$('#P2_Cap').append("<div>"+JSON_CAPACITES.Race[JSON_FICHE.Race]+"</div>");		

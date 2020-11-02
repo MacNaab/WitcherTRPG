@@ -40,11 +40,10 @@ function saveS() {
   document.getElementById('editJournal').style.display = "block";
   document.getElementById('saveJournal').style.display = "none";
   document.getElementById('annulJournal').style.display = "none";
-  $(".toast").toast('show');
 };
 $("#saveJournal").on( "click", function() {
   JSON_FICHE.Journal = $("#Journal_aff").html();
-  todtb();
+  todtb('Mise à jour du journal');
 });
 $("#annulJournal").on( "click", function() {
 	$("#Journal_aff").html(backup);

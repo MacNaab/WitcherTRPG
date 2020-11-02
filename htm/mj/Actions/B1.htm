@@ -1,6 +1,6 @@
 <div style="margin: 5px;">
     <div class="grid-container3">
-        <input class="form-control M5" type="text" id="P4_1" placeholder="Nom de l'arme">
+        <input list="Items" class="form-control M5" type="text" id="P4_1" placeholder="Nom de l'arme">
         <input class="form-control M5" type="text" id="P4_2" placeholder="Type de l'arme">
         <input class="form-control M5" type="text" id="P4_3" placeholder="Précision de l'arme">
         <input class="form-control M5" type="text" id="P4_4" placeholder="Dégâts de l'arme">
@@ -12,6 +12,31 @@
     </div>
         <textarea class="form-control M5" type="text" id="P4_8" placeholder="Effet de l'arme"></textarea>
     <div style="text-align: center;">
+        <input type="button" class="btn btn-secondary" id="P4_reini" value="Réinitialiser">
         <input type="button" class="btn btn-info" onclick="P4_A('3','1')" value="Ajouter">
     </div>
 </div>
+<datalist id="Items"></datalist>
+
+<script>
+JSON_item.Arme.forEach(function(e){
+    $('#Items').append('<option value="'+e.Nom+'">');
+});
+$("#P4_1").on( "change", function() {
+    var found = JSON_item.Arme.find(x => x.Nom == this.value);
+    if(found != undefined || found != "undefined"){
+        $("#P4_2").val(found.Type);
+        $("#P4_3").val(found.Précision);
+        $("#P4_4").val(found.Dégats);
+        $("#P4_5").val(found.Fia);
+        $("#P4_6").val(found.Mains);
+        $("#P4_7").val(found.Portée);
+        $("#P4_8").val(found.Effet);
+        $("#P4_9").val(found.Taille);
+        $("#P4_10").val(found.Poids);
+    }
+});
+$("#P4_reini").on( "click", function() {
+    $(".M5").val("");
+});
+</script>

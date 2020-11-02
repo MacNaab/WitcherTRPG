@@ -1,11 +1,41 @@
 <div style="margin: 5px;">
     <div class="grid-container3">
-        <input class="form-control M5" type="text" id="P4_1" placeholder="Nom de l'objet">
+        <input list="Items"  class="form-control M5" type="text" id="P4_1" placeholder="Nom de l'objet">
         <input class="form-control M5" type="text" id="P4_2" placeholder="Quantité">
         <input class="form-control M5" type="text" id="P4_3" placeholder="Poids de l'objet">
     </div>
         <textarea class="form-control M5" type="text" id="P4_4" placeholder="Effet de l'objet"></textarea>
     <div style="text-align: center;">
+        <input type="button" class="btn btn-secondary" id="P4_reini" value="Réinitialiser">
         <input type="button" class="btn btn-info" onclick="P4_A('3','3')" value="Ajouter">
     </div>
 </div>
+<datalist id="Items"></datalist>
+
+<script>
+JSON_item.Item.forEach(function(e){$('#Items').append('<option value="'+e.Nom+'">');});
+JSON_item.Potion.forEach(function(e){$('#Items').append('<option value="'+e.Nom+'">');});
+JSON_item.Composants.forEach(function(e){$('#Items').append('<option value="'+e.Nom+'">');});
+$("#P4_1").on( "change", function() {
+    var found = JSON_item.Item.find(x => x.Nom == this.value);
+    if(found != undefined || found != "undefined"){
+        $("#P4_4").val(found.Effet);
+        $("#P4_3").val(found.Poids);
+        return;
+    }
+    var found = JSON_item.Potion.find(x => x.Nom == this.value);
+    if(found != undefined || found != "undefined"){
+        $("#P4_4").val(found.Effet);
+        $("#P4_3").val('0.5');
+        return;
+    }
+    var found = JSON_item.Composants.find(x => x.Nom == this.value);
+    if(found != undefined || found != "undefined"){
+        $("#P4_3").val(found.Poids);
+        return;
+    }
+});
+$("#P4_reini").on( "click", function() {
+    $(".M5").val("");
+});
+</script>

@@ -1,41 +1,51 @@
 <div id="page_1">
   <br><br>
   <div id="P1_INFO">  
-    <div style="width: 25%; float: right;">
+	<div style="width: 25%; float: right;">
+		<span data-toggle="modal" data-target="#myModal" title="Editer l'image" class="badge badge-secondary" >
+			<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+				<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+			</svg>
+		</span><br>
       <img style="max-width: 100%;height: auto;" src="https://i.pinimg.com/564x/c0/76/0f/c0760f53aaa01f5dd970931eefe8d68f.jpg">
     </div>
     <h2><b>Nom</b></h2>
     <h3>JSON_FICHE.Race - JSON_FICHE.Profession</h3>
     <br>
     <div>
-		<h3>Histoire :</h3>
-		<div>...</div>
-	</div>
-    <br><br>
-    <div>
-		<h3>Evénements :</h3>
-		<div>...</div>
-	</div>
-    <br><br>
-    <div>
 		<h3>
-			Description : 
-			<span title="Editer la description" class="badge badge-secondary" id='editJournal' onclick="editS()">
+			Histoire :
+			<span data-toggle="modal" data-target="#myModal" title="Editer l'histoire" class="badge badge-secondary" >
 				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 					<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
 					<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 				</svg>
 			</span>
-			<span id='annulJournal' class="badge badge-danger" style="visibility: hidden;" onclick="saveS()" type="button" title="Annuler les modifications">
-				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-					<path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+		</h3>
+		<div id="HdV_aff">...</div>
+	</div>
+    <br><br>
+    <div>
+		<h3>
+			Evénements :
+			<span data-toggle="modal" data-target="#myModal" title="Editer les événements" class="badge badge-secondary" >
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+					<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 				</svg>
 			</span>
-			<span id='saveJournal' class="badge badge-success" style="visibility: hidden;" onclick="saveS()" type="button" title='Sauvegarder les modifications'>
-				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-					<path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+		</h3>
+		<div id="Event_aff">...</div>
+	</div>
+    <br><br>
+    <div>
+		<h3>
+			Description : 
+			<span data-toggle="modal" data-target="#myModal" title="Editer la description" class="badge badge-secondary" >
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+					<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 				</svg>
 			</span>
 		</h3>
@@ -73,13 +83,46 @@
 	</div>
   </div>
 </div>
-
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edition</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div  class="modal-body">
+			<select id="edit-pj-select" onchange="edit_pj(this.value)" class="custom-select">
+				<option disabled selected>Element à éditer</option>
+				<option value="1">Portrait</option>
+				<option value="2">Histoire</option>
+				<option value="3">Evénements</option>
+				<option value="4">Description</option>
+			</select>
+			<br>
+			<div id="edit-pj">
+			</div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="edit-pj-annul" type="button" class="btn btn-danger">Annuler</button>
+          <button id="edit-pj-valid" type="button" class="btn btn-success">Sauvegarder</button>
+        </div>
+        
+      </div>
+    </div>
+</div>
 <script>
 	if(JSON_FICHE.Portrait != undefined){$('#P1_INFO div img')[0].src = JSON_FICHE.Portrait;}
 	$('#P1_INFO h2').html(JSON_FICHE.Nom);
 	$('#P1_INFO h3').first().html(JSON_FICHE.Race+' - '+JSON_FICHE.Profession);
-	$('#P1_INFO div div').first().html(JSON_FICHE.HdV);
-	$('#P1_INFO div div')[1].innerHTML = JSON_FICHE.Event;
+	$('#HdV_aff').html(JSON_FICHE.HdV);
+	$('#Event_aff').html(JSON_FICHE.Event);
 	$('#Description_aff').html(JSON_FICHE.Description);
 
 	$('#P1_INFO div.grid-container3 div')[0].innerHTML = 'Intelligence: '+JSON_FICHE.Caractéristique.INT;
@@ -104,30 +147,38 @@
 	$('#P1_INFO div.grid-container3 div')[16].innerHTML = 'Coup de poings: '+JSON_FICHE.Caractéristique.Poings;
 	$('#P1_INFO div.grid-container3 div')[17].innerHTML = 'Coup de pied: '+JSON_FICHE.Caractéristique.Pieds;	
 
-
-var backup = ""
-function editS() {
-	backup = $("#Description_aff").html();
-  $('.click2edit').summernote({focus: true});
-  document.getElementById('editJournal').style.visibility = "hidden";
-  document.getElementById('saveJournal').style.visibility = "visible";
-  document.getElementById('annulJournal').style.visibility = "visible";
-};
-
-function saveS() {
-  var markup = $('.click2edit').summernote('code');
-  $('.click2edit').summernote('destroy');
-  document.getElementById('editJournal').style.visibility = "visible";
-  document.getElementById('saveJournal').style.visibility = "hidden";
-  document.getElementById('annulJournal').style.visibility = "hidden";
-  $(".toast").toast('show');
-};
-$("#saveJournal").on( "click", function() {
-	JSON_FICHE.Description = $("#Description_aff").html();
-	todtb();
+function edit_pj(e){
+	$('#edit-pj').summernote('destroy');
+	if(e == '1'){$("#edit-pj").html('<small class="form-text text-muted">Changer le portrait:</small><input placeholder="url" type="text" class="form-control" value="">');}
+	if(e == '2'){$("#edit-pj").html(JSON_FICHE.HdV);}
+	if(e == '3'){$("#edit-pj").html(JSON_FICHE.Event);}
+	if(e == '4'){$("#edit-pj").html(JSON_FICHE.Description);}
+	if(e != '1'){$('#edit-pj').summernote({focus: true});}
+}
+$("#edit-pj-annul").on( "click", function() {
+	$('#edit-pj').summernote('destroy');
 });
-$("#annulJournal").on( "click", function() {
-	$("#Description_aff").html(backup);
+$("#edit-pj-valid").on( "click", function() {
+	var e = $("#edit-pj-select").val();
+	if(e == '1'){
+		JSON_FICHE.Portrait = $("#edit-pj input")[0].value;
+		$('#P1_INFO div img')[0].src = JSON_FICHE.Portrait;
+	}else{
+		$('#edit-pj').summernote('destroy');
+	}
+	if(e == '2'){
+		JSON_FICHE.HdV = $('#edit-pj').html();
+		$('#HdV_aff').html(JSON_FICHE.HdV);
+	}
+	if(e == '3'){
+		JSON_FICHE.Event = $('#edit-pj').html();
+		$('#Event_aff').html(JSON_FICHE.Event);
+	}
+	if(e == '4'){
+		JSON_FICHE.Description = $('#edit-pj').html();
+		$('#Description_aff').html(JSON_FICHE.Description);
+	}
+	todtb('Mise à jour');
 });
 
 </script>
