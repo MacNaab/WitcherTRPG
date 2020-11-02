@@ -45,9 +45,7 @@ function P4_A(e,f){
             },
             cache: false,
             success: function(data){
-*/
                 $('#P4_aff').append("<div>"+data+"</div>");
-/*
             }
         });    
 */
