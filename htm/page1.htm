@@ -118,6 +118,7 @@
     </div>
 </div>
 <script>
+	effets();
 	if(JSON_FICHE.Portrait != undefined){$('#P1_INFO div img')[0].src = JSON_FICHE.Portrait;}
 	$('#P1_INFO h2').html(JSON_FICHE.Nom);
 	$('#P1_INFO h3').first().html(JSON_FICHE.Race+' - '+JSON_FICHE.Profession);
@@ -125,25 +126,123 @@
 	$('#Event_aff').html(JSON_FICHE.Event);
 	$('#Description_aff').html(JSON_FICHE.Description);
 
-	$('#P1_INFO div.grid-container3 div')[0].innerHTML = 'Intelligence: '+JSON_FICHE.Caractéristique.INT;
-	$('#P1_INFO div.grid-container3 div')[1].innerHTML = 'Réflexes: '+JSON_FICHE.Caractéristique.REF;
-	$('#P1_INFO div.grid-container3 div')[2].innerHTML = 'Dextérité: '+JSON_FICHE.Caractéristique.DEX;
-	$('#P1_INFO div.grid-container3 div')[3].innerHTML = 'Corps: '+JSON_FICHE.Caractéristique.COR;
-	$('#P1_INFO div.grid-container3 div')[4].innerHTML = 'Vitesse: '+JSON_FICHE.Caractéristique.VIT;
-	$('#P1_INFO div.grid-container3 div')[5].innerHTML = 'Empathie: '+JSON_FICHE.Caractéristique.EMP;
-	$('#P1_INFO div.grid-container3 div')[6].innerHTML = 'Technique: '+JSON_FICHE.Caractéristique.TEC;
-	$('#P1_INFO div.grid-container3 div')[7].innerHTML = 'Volonté: '+JSON_FICHE.Caractéristique.VOL;
+	var INT = JSON_FICHE.Caractéristique.INT;
+		if(Effet.INT){
+			INT = Number(INT)+Number(Effet.INT);
+			$('#P1_INFO div.grid-container3 div')[0].innerHTML = 'Intelligence: '+INT+" ("+JSON_FICHE.Caractéristique.INT+" + "+Effet.INT+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[0].innerHTML = 'Intelligence: '+JSON_FICHE.Caractéristique.INT;
+		}
+	var REF = JSON_FICHE.Caractéristique.REF;
+		if(Effet.REF){
+			REF = Number(REF)+Number(Effet.REF);
+			$('#P1_INFO div.grid-container3 div')[1].innerHTML = 'Réflexes: '+REF+" ("+JSON_FICHE.Caractéristique.REF+" + "+Effet.REF+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[1].innerHTML = 'Réflexes: '+JSON_FICHE.Caractéristique.REF;
+		}
+	var DEX = JSON_FICHE.Caractéristique.DEX;
+		if(Effet.DEX){
+			DEX = Number(DEX)+Number(Effet.DEX);
+			$('#P1_INFO div.grid-container3 div')[2].innerHTML = 'Dextérité: '+DEX+" ("+JSON_FICHE.Caractéristique.DEX+" + "+Effet.DEX+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[2].innerHTML = 'Dextérité: '+JSON_FICHE.Caractéristique.DEX;
+		}
+	var COR = JSON_FICHE.Caractéristique.COR;
+		if(Effet.COR){
+			COR = Number(COR)+Number(Effet.COR);
+			$('#P1_INFO div.grid-container3 div')[3].innerHTML = 'Corps: '+COR+" ("+JSON_FICHE.Caractéristique.COR+" + "+Effet.COR+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[3].innerHTML = 'Corps: '+JSON_FICHE.Caractéristique.COR;
+		}
+	var VIT = JSON_FICHE.Caractéristique.VIT;
+		if(Effet.VIT){
+			VIT = Number(VIT)+Number(Effet.VIT);
+			$('#P1_INFO div.grid-container3 div')[4].innerHTML = 'Vitesse: '+VIT+" ("+JSON_FICHE.Caractéristique.VIT+" + "+Effet.VIT+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[4].innerHTML = 'Vitesse: '+JSON_FICHE.Caractéristique.VIT;
+		}
+	var EMP = JSON_FICHE.Caractéristique.EMP;
+		if(Effet.EMP){
+			EMP = Number(EMP)+Number(Effet.EMP);
+			$('#P1_INFO div.grid-container3 div')[5].innerHTML = 'Empathie: '+EMP+" ("+JSON_FICHE.Caractéristique.EMP+" + "+Effet.EMP+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[5].innerHTML = 'Empathie: '+JSON_FICHE.Caractéristique.EMP;
+		}
+	var TEC = JSON_FICHE.Caractéristique.TEC;
+		if(Effet.TEC){
+			TEC = Number(TEC)+Number(Effet.TEC);
+			$('#P1_INFO div.grid-container3 div')[6].innerHTML = 'Technique: '+TEC+" ("+JSON_FICHE.Caractéristique.TEC+" + "+Effet.TEC+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[6].innerHTML = 'Technique: '+JSON_FICHE.Caractéristique.TEC;
+		}
+	var VOL = JSON_FICHE.Caractéristique.VOL;
+		if(Effet.VOL){
+			VOL = Number(VOL)+Number(Effet.VOL);
+			$('#P1_INFO div.grid-container3 div')[7].innerHTML = 'Volonté: '+VOL+" ("+JSON_FICHE.Caractéristique.VOL+" + "+Effet.VOL+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[7].innerHTML = 'Volonté: '+JSON_FICHE.Caractéristique.VOL;
+		}
+	
 	$('#P1_INFO div.grid-container3 div')[8].innerHTML = 'Chance: '+JSON_FICHE.Caractéristique.CHA;
 	if(JSON_FICHE.Caractéristique.VIG != undefined){
-		$('#P1_INFO div.grid-container3')[1].prepend("Vigeur: "+JSON_FICHE.Caractéristique.VIG);
+		var VIG = JSON_FICHE.Caractéristique.VIG;
+			if(Effet.VIG){
+				VIG = Number(VIG)+Number(Effet.VIG);
+				$('#P1_INFO div.grid-container3')[1].prepend("Vigeur: "+VIG+" ("+JSON_FICHE.Caractéristique.VIG+" + "+Effet.VIG+")");
+			}else{
+				$('#P1_INFO div.grid-container3')[1].prepend("Vigeur: "+JSON_FICHE.Caractéristique.VIG);
+			}
 	}
-	$('#P1_INFO div.grid-container3 div')[9].innerHTML = 'Étourdissement: '+JSON_FICHE.Caractéristique.ETOU;
-	$('#P1_INFO div.grid-container3 div')[10].innerHTML = 'Course: '+JSON_FICHE.Caractéristique.COU;
-	$('#P1_INFO div.grid-container3 div')[11].innerHTML = 'Saut: '+JSON_FICHE.Caractéristique.SAUT;
-	$('#P1_INFO div.grid-container3 div')[12].innerHTML = 'Points de santé (max): '+JSON_FICHE.Caractéristique.PS;
-	$('#P1_INFO div.grid-container3 div')[13].innerHTML = 'Endurance (max): '+JSON_FICHE.Caractéristique.END;
-	$('#P1_INFO div.grid-container3 div')[14].innerHTML = 'Encombrement: '+JSON_FICHE.Caractéristique.ENC;
-	$('#P1_INFO div.grid-container3 div')[15].innerHTML = 'Récupération: '+JSON_FICHE.Caractéristique.REC;
+
+	var ETOU = JSON_FICHE.Caractéristique.ETOU;
+		if(Effet.ETOU){
+			ETOU = Number(ETOU)+Number(Effet.ETOU);
+			$('#P1_INFO div.grid-container3 div')[9].innerHTML = 'Étourdissement: '+ETOU+" ("+JSON_FICHE.Caractéristique.ETOU+" + "+Effet.ETOU+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[9].innerHTML = 'Étourdissement: '+JSON_FICHE.Caractéristique.ETOU;
+		}
+	var COU = JSON_FICHE.Caractéristique.COU;
+		if(Effet.COU){
+			COU = Number(COU)+Number(Effet.COU);
+			$('#P1_INFO div.grid-container3 div')[10].innerHTML = 'Course: '+COU+" ("+JSON_FICHE.Caractéristique.COU+" + "+Effet.COU+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[10].innerHTML = 'Course: '+JSON_FICHE.Caractéristique.COU;
+		}
+	var SAUT = JSON_FICHE.Caractéristique.SAUT;
+		if(Effet.SAUT){
+			SAUT = Number(SAUT)+Number(Effet.SAUT);
+			$('#P1_INFO div.grid-container3 div')[11].innerHTML = 'Saut: '+SAUT+" ("+JSON_FICHE.Caractéristique.SAUT+" + "+Effet.SAUT+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[11].innerHTML = 'Saut: '+JSON_FICHE.Caractéristique.SAUT;
+		}
+	var PS = JSON_FICHE.Caractéristique.PS;
+		if(Effet.PS){
+			PS = Number(PS)+Number(Effet.PS);
+			$('#P1_INFO div.grid-container3 div')[12].innerHTML = 'Points de santé (max): '+PS+" ("+JSON_FICHE.Caractéristique.PS+" + "+Effet.PS+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[12].innerHTML = 'Points de santé (max): '+JSON_FICHE.Caractéristique.PS;
+		}
+	var END = JSON_FICHE.Caractéristique.END;
+		if(Effet.END){
+			END = Number(END)+Number(Effet.END);
+			$('#P1_INFO div.grid-container3 div')[13].innerHTML = 'Endurance (max): '+END+" ("+JSON_FICHE.Caractéristique.END+" + "+Effet.END+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[13].innerHTML = 'Endurance (max): '+JSON_FICHE.Caractéristique.END;
+		}
+	var ENC = JSON_FICHE.Caractéristique.ENC;
+		if(Effet.ENC){
+			ENC = Number(ENC)+Number(Effet.ENC);
+			$('#P1_INFO div.grid-container3 div')[14].innerHTML = 'Encombrement: '+ENC+" ("+JSON_FICHE.Caractéristique.ENC+" + "+Effet.ENC+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[14].innerHTML = 'Encombrement: '+JSON_FICHE.Caractéristique.ENC;
+		}
+	var REC = JSON_FICHE.Caractéristique.REC;
+		if(Effet.REC){
+			REC = Number(REC)+Number(Effet.REC);
+			$('#P1_INFO div.grid-container3 div')[15].innerHTML = 'Récupération: '+REC+" ("+JSON_FICHE.Caractéristique.REC+" + "+Effet.REC+")";
+		}else{
+			$('#P1_INFO div.grid-container3 div')[15].innerHTML = 'Récupération: '+JSON_FICHE.Caractéristique.REC;
+		}
 	$('#P1_INFO div.grid-container3 div')[16].innerHTML = 'Coup de poings: '+JSON_FICHE.Caractéristique.Poings;
 	$('#P1_INFO div.grid-container3 div')[17].innerHTML = 'Coup de pied: '+JSON_FICHE.Caractéristique.Pieds;	
 

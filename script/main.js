@@ -1,5 +1,4 @@
 function todtb(e){
-/*
     $.ajax({
         url: "data/pj.php",
         type: "POST",
@@ -9,18 +8,19 @@ function todtb(e){
         },
         cache: false,
         success: function(data){
-*/
             $("#toast1_H").html(e);
-//            $("#toast1_C").html(data);
+            $("#toast1_C").html(data);
             $("#toast1").toast('show');
-/*
         }
     });
-*/
 }
 var JSON_data = ""
 $.getJSON('data/data.json', function(jd) {
 	JSON_data = jd;
+});
+var JSON_effet = ""
+$.getJSON('data/effet.json', function(jd) {
+	JSON_effet = jd;
 });
 
 var log_backup = "<i>Début de l'aventure...</i>";
@@ -37,16 +37,14 @@ function oncalculebien(){
 		found = JSON_FICHE.Compétences.find(x => x.Nom == B);
 		if(found != undefined){
             Caract = JSON_FICHE.Caractéristique[found.C];
+            if(Effet[B]){C += Effet[B];}
             if(Effet[found.C]){C += Effet[found.C];}
             Compt = found.V;
-            if(B == "Résistance à la contrainte"){
-                if(Effet.Contrainte){C += Effet.Contrainte;}
-            }else if(Effet[B]){C += Effet[B];}
-            console.log(Effet);
-            console.log(B);
+            if(Effet[B]){C += Effet[B];}
             if(Compt == "-"){Compt = 0;}
 		}else{
-			Caract = JSON_FICHE.Caractéristique[A];
+            Caract = JSON_FICHE.Caractéristique[A];
+            if(Effet[B]){C += Effet[B];}
             if(Effet[A]){C += Effet[A];}
 		}
 	}else{
@@ -180,115 +178,41 @@ function oncalculebien5(){
     log_backup = $("#P4_LOG").html();
 }
 
+var Effet = {};
 function effets(){
-    if(Poids > JSON_FICHE.Caractéristique.ENC){
-        JSON_FICHE.Malus.Encombrement = true;
-    }else{JSON_FICHE.Malus.Encombrement = false;}
-    if(JSON_FICHE.Malus.Encombrement == true){
-        var Malus = Math.trunc((Number(Poids)-Number(JSON_FICHE.Caractéristique.ENC))/5)+1;
-        $("#P4_Malus").append("<div><b>Encombrement:</b> -"+Malus+" RÉF, DEX et VIT</div>");
-        if(!Effet.REF){Effet.REF = -Malus;}else{Effet.REF += -Malus;}
-        if(!Effet.DEX){Effet.DEX = -Malus;}else{Effet.DEX += -Malus;}
-        if(!Effet.VIT){Effet.VIT = -Malus;}else{Effet.VIT += -Malus;}
-    }
-    if(VE > 0){
-        JSON_FICHE.Malus.Encombrement = true;
-        $("#P4_Malus").append("<div><b>Encombrement d'armure:</b> -"+VE+" RÉF, DEX</div>");
-        if(!Effet.REF){Effet.REF = -Malus;}else{Effet.REF += -Malus;}
-        if(!Effet.DEX){Effet.DEX = -Malus;}else{Effet.DEX += -Malus;}
-    }else{JSON_FICHE.Malus.Encombrement = false;}
+    Effet = {};    
     if(JSON_FICHE.Origine){
-        if(JSON_FICHE.Origine == "Rédanie"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Éducation</div>");
-            if(!Effet.Éducation){Effet.Éducation = 1;}else{Effet.Éducation += 1;}
-        }
-        if(JSON_FICHE.Origine == "Kaedwen"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Résilience</div>");
-            if(!Effet.Résilience){Effet.Résilience = 1;}else{Effet.Résilience += 1;}
-        }
-        if(JSON_FICHE.Origine == "Témérie"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Charisme</div>");
-            if(!Effet.Charisme){Effet.Charisme = 1;}else{Effet.Charisme += 1;}
-        }
-        if(JSON_FICHE.Origine == "Aedirn"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Artisanat</div>");
-            if(!Effet.Artisanat){Effet.Artisanat = 1;}else{Effet.Artisanat += 1;}
-        }
-        if(JSON_FICHE.Origine == "Lyrie et Rivie"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Résistance à la contrainte</div>");
-            if(!Effet.Contrainte){Effet.Contrainte = 1;}else{Effet.Contrainte += 1;}
-        }
-        if(JSON_FICHE.Origine == "Kovir et Poviss"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Négoce</div>");
-            if(!Effet.Négoce){Effet.Négoce = 1;}else{Effet.Négoce += 1;}
-        }
-        if(JSON_FICHE.Origine == "Skellige"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Courage</div>");
-            if(!Effet.Courage){Effet.Courage = 1;}else{Effet.Courage += 1;}
-        }
-        if(JSON_FICHE.Origine == "Cidaris"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Navigation</div>");
-            if(!Effet.Navigation){Effet.Navigation = 1;}else{Effet.Navigation += 1;}
-        }
-        if(JSON_FICHE.Origine == "Verden"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Survie</div>");
-            if(!Effet.Survie){Effet.Survie = 1;}else{Effet.Survie += 1;}
-        }
-        if(JSON_FICHE.Origine == "Cintra"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Psychologie</div>");
-            if(!Effet.Psychologie){Effet.Psychologie = 1;}else{Effet.Psychologie += 1;}
-        }
-        if(JSON_FICHE.Origine == "Coeur de l’Empire"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Duperie</div>");
-            if(!Effet.Duperie){Effet.Duperie = 1;}else{Effet.Duperie += 1;}
-        }
-        if(JSON_FICHE.Origine == "Vicovaro"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Éducation</div>");
-            if(!Effet.Éducation){Effet.Éducation = 1;}else{Effet.Éducation += 1;}
-        }
-        if(JSON_FICHE.Origine == "Angren"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Survie</div>");
-            if(!Effet.Survie){Effet.Survie = 1;}else{Effet.Survie += 1;}
-        }
-        if(JSON_FICHE.Origine == "Nazair"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Bagarre</div>");
-            if(!Effet.Bagarre){Effet.Bagarre = 1;}else{Effet.Bagarre += 1;}
-        }
-        if(JSON_FICHE.Origine == "Metinna"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Équitation</div>");
-            if(!Effet.Équitation){Effet.Équitation = 1;}else{Effet.Équitation += 1;}
-        }
-        if(JSON_FICHE.Origine == "Mag Turga"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Résilience</div>");
-            if(!Effet.Résilience){Effet.Résilience = 1;}else{Effet.Résilience += 1;}
-        }
-        if(JSON_FICHE.Origine == "Geso"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Furtivité</div>");
-            if(!Effet.Furtivité){Effet.Furtivité = 1;}else{Effet.Furtivité += 1;}
-        }
-        if(JSON_FICHE.Origine == "Ebbing"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Déduction</div>");
-            if(!Effet.Déduction){Effet.Déduction = 1;}else{Effet.Déduction += 1;}
-        }
-        if(JSON_FICHE.Origine == "Maecht"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Charisme</div>");
-            if(!Effet.Charisme){Effet.Charisme = 1;}else{Effet.Charisme += 1;}
-        }
-        if(JSON_FICHE.Origine == "Gemmery"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Intimidation</div>");
-            if(!Effet.Intimidation){Effet.Intimidation = 1;}else{Effet.Intimidation += 1;}
-        }
-        if(JSON_FICHE.Origine == "Étolie"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Courage</div>");
-            if(!Effet.Courage){Effet.Courage = 1;}else{Effet.Courage += 1;}
-        }
-        if(JSON_FICHE.Origine == "Dol Blathanna"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Étiquette</div>");
-            if(!Effet.Étiquette){Effet.Étiquette = 1;}else{Effet.Étiquette += 1;}
-        }
-        if(JSON_FICHE.Origine == "Mahakam"){
-            $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 Artisanat</div>");
-            if(!Effet.Artisanat){Effet.Artisanat = 1;}else{Effet.Artisanat += 1;}
+        var found = JSON_effet.Origine.find(x => x.Nom == JSON_FICHE.Origine);
+        if(found != undefined || found!="undefined"){
+                $("#P4_Bonus").append("<div><b>Origine:</b> "+JSON_FICHE.Origine+", +1 "+found.V+"</div>");
+                if(Effet[found.V]){Effet[found.V] += 1;}else{Effet[found.V] = 1;}
         }
     }
+    if(JSON_FICHE.Race){
+        var R = JSON_FICHE.Race;if(R == "Humaine"){R = "Humain";}if(R == "Naine"){R = "Naine";}if(R == "Halfeline"){R = "Halfeline";}
+        var found = JSON_effet.Raciaux.find(x => x.Nom == R);
+        if(found != undefined){
+            found.V.forEach(function(e){
+                if(Effet[e.Nom]){Effet[e.Nom] += e.V;}else{Effet[e.Nom] = e.V;}
+            });
+        }
+    }
+
+    // A la fin pour avoir les modification d'ENC
+    var ENC = JSON_FICHE.Caractéristique.ENC;if(Effet.ENC){ENC = Number(ENC)+Number(Effet.ENC);}
+    try{
+        if(Poids > ENC){
+            var Malus = Math.trunc((Number(Poids)-Number(JSON_FICHE.Caractéristique.ENC))/5)+1;
+            $("#P4_Malus").append("<div><b>Encombrement:</b> -"+Malus+" RÉF, DEX et VIT</div>");
+            if(!Effet.REF){Effet.REF = -Malus;}else{Effet.REF += -Malus;}
+            if(!Effet.DEX){Effet.DEX = -Malus;}else{Effet.DEX += -Malus;}
+            if(!Effet.VIT){Effet.VIT = -Malus;}else{Effet.VIT += -Malus;}
+        }
+        if(VE > 0){
+            $("#P4_Malus").append("<div><b>Encombrement d'armure:</b> -"+VE+" RÉF, DEX</div>");
+            if(!Effet.REF){Effet.REF = -Malus;}else{Effet.REF += -Malus;}
+            if(!Effet.DEX){Effet.DEX = -Malus;}else{Effet.DEX += -Malus;}
+        }
+    } catch {}
+    FichePJ();
 }

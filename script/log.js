@@ -31,7 +31,7 @@ function loggin(){
     if(JSON_FICHE.hasOwnProperty(joueur) == true){
       if(JSON_FICHE[joueur].Race == mdp){
 		JSON_FICHE = JSON_FICHE[joueur];
-		logged();FichePJ();
+		logged();effets();
       }else{
 		$("#toast2_C").html('Mauvais mot de passe');
         $("#toast2").toast('show');
@@ -50,7 +50,7 @@ function loggin2(e){
     var r = JSON.parse(f.target.result);
 		joueur = Object.keys(r)[0];
 		JSON_FICHE = r[joueur];
-		logged();FichePJ();
+		logged();effets();
 		$('#app').append("<div id='content-footer'></div>");	
 		$('#content-footer').load("htm/footer.htm");
 		$("body").css("margin-bottom", "0");
@@ -77,26 +77,29 @@ function page(e){
 
 function FichePJ(){
 	// Caractéristiques secondaires:
-		var tablecorps = Math.floor((Number(JSON_FICHE.Caractéristique.COR)+Number(JSON_FICHE.Caractéristique.VOL))/2);
+	var COR = Number(JSON_FICHE.Caractéristique.COR);if(Effet.COR){COR = Number(COR)+Number(Effet.COR);}
+	var VOL = Number(JSON_FICHE.Caractéristique.VOL);if(Effet.VOL){COR = Number(VOL)+Number(Effet.VOL);}
+	var VIT = Number(JSON_FICHE.Caractéristique.VIT);if(Effet.VIT){COR = Number(VIT)+Number(Effet.VIT);}
+		var tablecorps = Math.floor((Number(COR)+Number(VOL))/2);
 		var ETOUcalculé = tablecorps;if(ETOUcalculé > "10"){ETOUcalculé = '10';}
-		var RUNcalc = JSON_FICHE.Caractéristique.VIT*3;
+		var RUNcalc = VIT*3;
 		var SAUTcalc = Math.floor(RUNcalc/5);
 		var ENDcalc = tablecorps*5;
-		var ENCcalc = JSON_FICHE.Caractéristique.COR*10;if(JSON_FICHE.Race == "Nain" || JSON_FICHE.Race == "Naine"){ENCcalc = Number(ENCcalc)+25;}
-	if(!JSON_FICHE.Caractéristique.ETOU){JSON_FICHE.Caractéristique.ETOU = ETOUcalculé;}
-	if(!JSON_FICHE.Caractéristique.COU){JSON_FICHE.Caractéristique.COU = RUNcalc;}
-	if(!JSON_FICHE.Caractéristique.SAUT){JSON_FICHE.Caractéristique.SAUT = SAUTcalc;}
-	if(!JSON_FICHE.Caractéristique.PS){JSON_FICHE.Caractéristique.PS = ENDcalc;}
-	if(!JSON_FICHE.Caractéristique.END){JSON_FICHE.Caractéristique.END = ENDcalc;}
-	if(!JSON_FICHE.Caractéristique.ENC){JSON_FICHE.Caractéristique.ENC = ENCcalc;}
-	if(!JSON_FICHE.Caractéristique.REC){JSON_FICHE.Caractéristique.REC = tablecorps;}
-	if(!JSON_FICHE.Caractéristique.Pieds){JSON_FICHE.Caractéristique.Pieds = CoupPieds(JSON_FICHE.Caractéristique.COR);}
-	if(!JSON_FICHE.Caractéristique.Poings){JSON_FICHE.Caractéristique.Poings = CoupPoings(JSON_FICHE.Caractéristique.COR);}
-	if(!JSON_FICHE.PS){JSON_FICHE.PS = ENDcalc;}
-	if(!JSON_FICHE.END){JSON_FICHE.END = ENDcalc;}
-	if(!JSON_FICHE.Relance){JSON_FICHE.Relance = JSON_FICHE.Caractéristique.CHA;}
-	if(!JSON_FICHE.Bonus){JSON_FICHE.Bonus = {}}
-	if(!JSON_FICHE.Malus){JSON_FICHE.Malus = {}}
+		var ENCcalc = COR*10;
+		//if(JSON_FICHE.Race == "Nain" || JSON_FICHE.Race == "Naine"){ENCcalc = Number(ENCcalc)+25;}
+	JSON_FICHE.Caractéristique.ETOU = ETOUcalculé;
+	JSON_FICHE.Caractéristique.COU = RUNcalc;
+	JSON_FICHE.Caractéristique.SAUT = SAUTcalc;
+	JSON_FICHE.Caractéristique.PS = ENDcalc;
+	JSON_FICHE.Caractéristique.END = ENDcalc;
+	JSON_FICHE.Caractéristique.ENC = ENCcalc;
+	JSON_FICHE.Caractéristique.REC = tablecorps;
+	JSON_FICHE.Caractéristique.Pieds = CoupPieds(COR);
+	JSON_FICHE.Caractéristique.Poings = CoupPoings(COR);
+	JSON_FICHE.PS = ENDcalc;
+	JSON_FICHE.END = ENDcalc;
+	JSON_FICHE.Relance = JSON_FICHE.Caractéristique.CHA;
+	if(!JSON_FICHE.Effet){JSON_FICHE.Effet = {};}
 }
 
 function CoupPoings(e){

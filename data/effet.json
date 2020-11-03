@@ -1,0 +1,100 @@
+{
+    "Raciaux": [
+        {"Nom": "Humain","V":[{"Nom":"Déduction", "V":1}]},
+        {"Nom": "Nain","V":[{"Nom":"PA","V":2},{"Nom":"Physique","V":1},{"Nom":"ENC","V":25},{"Nom":"Négoce","V":1}]},
+        {"Nom": "Elfe","V":[{"Nom":"Beaux-arts","V":1},{"Nom":"Archerie","V":2}]},
+        {"Nom": "Sorceleur","V":[{"Nom":"Vigilance","V":1},{"Nom":"EMP","V":-4}]},
+        {"Nom": "Halfelin","V":[{"Nom":"Athlétisme","V":1},{"Nom":"Survie","V":2},{"Nom":"Résistance à la magie","V":1}]},
+        {"Nom": "Gnome","V":[{"Nom":"TEC", "V":2},{"Nom":"REF", "V":-1}]}
+    ],
+    "Origine": [
+        {"Nom": "Rédania","V":"Éducation"},
+        {"Nom": "Kaedwen","V":"Résilience"},
+        {"Nom": "Téméria","V":"Charisme"},
+        {"Nom": "Aedirn","V":"Artisanat"},
+        {"Nom": "Lyrie et Rivie","V":"Résistance à la contrainte"},
+        {"Nom": "Kovir et Poviss","V":"Négoce"},
+        {"Nom": "Skellige","V":"Courage"},
+        {"Nom": "Cidaris","V":"Navigation"},
+        {"Nom": "Verden","V":"Survie"},
+        {"Nom": "Cintra","V":"Psychologie"},
+        {"Nom": "Coeur de l’Empire","V":"Duperie"},
+        {"Nom": "Vicovaro","V":"Éducation"},
+        {"Nom": "Angren","V":"Survie"},
+        {"Nom": "Nazair","V":"Bagarre"},
+        {"Nom": "Metinna","V":"Équitation"},
+        {"Nom": "Mag Turga","V":"Résilience"},
+        {"Nom": "Geso","V":"Furtivité"},
+        {"Nom": "Ebbing","V":"Déduction"},
+        {"Nom": "Maecht","V":"Charisme"},
+        {"Nom": "Gemmery","V":"Intimidation"},
+        {"Nom": "Étolie","V":"Courage"},
+        {"Nom": "Dol Blathanna","V":"Étiquette"},
+        {"Nom": "Mahakam","V":"Artisanat"}
+    ],
+    "Critique": [
+        {"Nom": "Mâchoire fêlée","V": [
+            {"V":1,"E": [{"Nom":"Charisme", "V":-2},{"Nom":"Persuasion", "V":-2},{"Nom":"Séduction", "V":-2},{"Nom":"Commandement", "V":-2},{"Nom":"Duperie", "V":-2},{"Nom":"Étiquette", "V":-2},{"Nom":"Intimidation", "V":-2},{"Nom":"Envoûtement", "V":-2},{"Nom":"Incantation", "V":-2},{"Nom":"Rituels", "V":-2}]},
+            {"V":2,"E": [{"Nom":"Charisme", "V":-1},{"Nom":"Persuasion", "V":-1},{"Nom":"Séduction", "V":-1},{"Nom":"Commandement", "V":-1},{"Nom":"Duperie", "V":-1},{"Nom":"Étiquette", "V":-1},{"Nom":"Intimidation", "V":-1},{"Nom":"Envoûtement", "V":-1},{"Nom":"Incantation", "V":-1},{"Nom":"Rituels", "V":-1}]},
+            {"V":3,"E": [{"Nom":"Envoûtement", "V":-1},{"Nom":"Incantation", "V":-1},{"Nom":"Rituels", "V":-1}]}
+        ]},
+        {"Nom": "Cicatrice défigurante","V":[
+            {"V":1,"E": [{"Nom":"Charisme","V":-3},{"Nom":"Persuasion","V":-3},{"Nom":"Séduction","V":-3},{"Nom":"Étiquette", "V":-3},{"Nom":"Duperie","V":-3},{"Nom":"Commandement","V":-3}]},
+            {"V":2,"E": [{"Nom":"Charisme","V":-1},{"Nom":"Persuasion","V":-1},{"Nom":"Séduction","V":-1},{"Nom":"Étiquette", "V":-1},{"Nom":"Duperie","V":-1},{"Nom":"Commandement","V":-1}]},
+            {"V":3,"E": [{"Nom":"Séduction", "V":-1}]}
+        ]},
+        {"Nom": "Côtes fêlées","V": [
+            {"V":1,"E": [{"Nom":"COR", "V":-2}]},
+            {"V":2,"E": [{"Nom":"COR", "V":-1}]},
+            {"V":3,"E": [{"Nom":"ENC", "V":-10}]}
+        ]},
+        {"Nom": "Entorse du bras","V": [
+            {"V":3,"E": [{"Nom":"Physique", "V":-1}]}
+        ]},
+        {"Nom": "Entorse de la jambe", "V": [
+            {"V":1,"E": [{"Nom":"VIT", "V":-2},{"Nom":"Esquive/Évasion", "V":-2},{"Nom":"Athlétisme", "V":-2}]},
+            {"V":2,"E": [{"Nom":"VIT", "V":-1},{"Nom":"Esquive/Évasion", "V":-1},{"Nom":"Athlétisme", "V":-1}]},
+            {"V":3,"E": [{"Nom":"VIT", "V":-1}]}
+        ]},      
+        {"Nom": "Blessure mineure à la tête", "V": [
+            {"V":1,"E": [{"Nom":"VOL", "V":-1},{"Nom":"INT", "V":-1},{"Nom":"ETOU", "V":-1}]},
+            {"V":1,"E": [{"Nom":"VOL", "V":-1},{"Nom":"INT", "V":-1}]},
+            {"V":1,"E": [{"Nom":"VOL", "V":-1}]}
+        ]}, 
+        {"Nom": "Dents perdues", "V": [
+            {"V":1,"E": [{"Nom":"Charisme", "V":-3},{"Nom":"Persuasion", "V":-3},{"Nom":"Séduction", "V":-3},{"Nom":"Commandement", "V":-3},{"Nom":"Duperie", "V":-3},{"Nom":"Étiquette", "V":-3},{"Nom":"Intimidation", "V":-3},{"Nom":"Envoûtement", "V":-3},{"Nom":"Incantation", "V":-3},{"Nom":"Rituels", "V":-3}]},
+            {"V":2,"E": [{"Nom":"Charisme", "V":-2},{"Nom":"Persuasion", "V":-2},{"Nom":"Séduction", "V":-2},{"Nom":"Commandement", "V":-2},{"Nom":"Duperie", "V":-2},{"Nom":"Étiquette", "V":-2},{"Nom":"Intimidation", "V":-2},{"Nom":"Envoûtement", "V":-2},{"Nom":"Incantation", "V":-2},{"Nom":"Rituels", "V":-2}]},
+            {"V":3,"E": [{"Nom":"Charisme", "V":-1},{"Nom":"Persuasion", "V":-1},{"Nom":"Séduction", "V":-1},{"Nom":"Commandement", "V":-1},{"Nom":"Duperie", "V":-1},{"Nom":"Étiquette", "V":-1},{"Nom":"Intimidation", "V":-1},{"Nom":"Envoûtement", "V":-1},{"Nom":"Incantation", "V":-1},{"Nom":"Rituels", "V":-1}]}
+        ]},
+        {"Nom": "Rupture de la rate", "V": [
+            {"V":3,"E": [{"Nom":"ETOU", "V":-2}]}
+        ]},
+        {"Nom": "Côtes brisées", "V":[
+            {"V":1,"E": [{"Nom":"COR", "V":-2}]},
+            {"V":2,"E": [{"Nom":"COR", "V":-2}]},
+            {"V":3,"E": [{"Nom":"COR", "V":-2}]}
+        ]},
+        {"Nom": "Jambe fracturée", "V":[
+            {"V":1,"E": [{"Nom":"VIT", "V":-3},{"Nom":"Esquive/Évasion","V":-3},{"Nom":"Athlétisme","V":-3}]},
+            {"V":2,"E": [{"Nom":"VIT", "V":-2},{"Nom":"Esquive/Évasion","V":-2},{"Nom":"Athlétisme","V":-2}]},
+            {"V":3,"E": [{"Nom":"VIT", "V":-1},{"Nom":"Esquive/Évasion","V":-1},{"Nom":"Athlétisme","V":-1}]}
+        ]},
+        {"Nom": "Fracture du crâne", "V":[
+            {"V":1,"E": [{"Nom":"INT", "V":-1},{"Nom":"DEX", "V":-1}]},
+            {"V":2,"E": [{"Nom":"INT", "V":-1},{"Nom":"DEX", "V":-1}]}
+        ]},
+        {"Nom": "Commotion", "V":[
+            {"V":1,"E": [{"Nom":"INT", "V":-2},{"Nom":"DEX", "V":-2},{"Nom":"REF", "V":-2}]},
+            {"V":2,"E": [{"Nom":"INT", "V":-1},{"Nom":"DEX", "V":-1},{"Nom":"REF", "V":-1}]},
+            {"V":3,"E": [{"Nom":"INT", "V":-1},{"Nom":"DEX", "V":-1}]}
+        ]},
+        {"Nom": "Plaie aspirante au thorax", "V":[
+            {"V":1,"E": [{"Nom":"COR", "V":-3},{"Nom":"VIT", "V":-3}]},
+            {"V":2,"E": [{"Nom":"COR", "V":-2},{"Nom":"VIT", "V":-2}]},
+            {"V":3,"E": [{"Nom":"COR", "V":-1},{"Nom":"VIT", "V":-1}]}
+        ]},
+        {"Nom": "Plaie aspirante au thorax", "V":[
+            {"V":1,"E": [{"Nom":"Esquive/Évasion", "V":-2},{"Nom":"Athlétisme", "V":-2},{"Nom":"VIT", "V":-2}]}
+        ]}  
+    ]
+}

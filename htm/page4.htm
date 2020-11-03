@@ -131,6 +131,7 @@
 </div>
 
 <script>
+  effets();
   if(JSON_data){
     if(JSON_data.TTS != undefined){document.getElementById("P4_TTS").onclick = 'window.open("'+JSON_data.TTS+'")';}
     if(JSON_data.image != undefined){document.getElementById("P4_img").src = JSON_data.image;}
@@ -143,6 +144,19 @@ $('#P4_Stat').append("<div>Réputation: "+JSON_FICHE.Réput+"</div>");
 $('#P4_Stat').append("<div>PP: "+JSON_FICHE.PP+"</div>");
 $('#P4_Stat').append("<div>PS: "+JSON_FICHE.PS+"/"+JSON_FICHE.Caractéristique.PS+"</div>");
 $('#P4_Stat').append("<div>END: "+JSON_FICHE.END+"/"+JSON_FICHE.Caractéristique.END+"</div>");
+if(JSON_FICHE.Caractéristique.VIG != undefined){
+		var VIG = Number(JSON_FICHE.Caractéristique.VIG);
+      if(Effet.VIG){VIG = Number(VIG)+Number(Effet.VIG);}
+      JSON_FICHE.Inventaire.Arme.forEach(function(v){
+        let split = v.Effet.split('Focus');
+        if(split.length > 1){
+          let sp1 = split[1].split(')');
+          let sp2 = sp1[0].split('(');
+            VIG += Number(sp2[1]);
+        }
+      });
+		$('#P4_Stat').append("Vigeur: "+VIG);
+	}
 	var Prot_Tê = 0;
 	var Prot_To = 0;
 	var Prot_J = 0;
@@ -209,6 +223,12 @@ if(JSON_FICHE.Inventaire.Schéma != undefined){
 	JSON_FICHE.Inventaire.Schéma.forEach(function(e){Poids += Number(e.Poids);});
 }
 
+if(Effet.PA){
+  Prot_Tê += Number(Effet.PA);
+	Prot_To += Number(Effet.PA);
+	Prot_J += Number(Effet.PA);
+}
+
 $('#P4_Prot').append("<div>Tête: "+Prot_Tê+"</div>");
 $('#P4_Prot').append("<div>Torse: "+Prot_To+"</div>");
 $('#P4_Prot').append("<div>Jambes: "+Prot_J+"</div>");
@@ -216,11 +236,9 @@ $('#P4_Prot').append("<div>Jambes: "+Prot_J+"</div>");
 $('#P4_EC').append("<div>Encombrement: "+Poids.toFixed(2)+"Kg /"+JSON_FICHE.Caractéristique.ENC+"</div>");
 $('#P4_EC').append("<div>Encombrement d'armure: "+VE+"</div>");
 
-if(JSON_FICHE.Bonus){
-	if(JSON_FICHE.Bonus.Desc != undefined){$('#P4_Bonus').append(JSON_FICHE.Bonus.Desc);}
-}
-if(JSON_FICHE.Malus){
-	if(JSON_FICHE.Malus.Desc != undefined){$('#P4_Malus').append(JSON_FICHE.Malus.Desc);}
+if(JSON_FICHE.Effet){
+  if(JSON_FICHE.Effet.Bonus != undefined){$('#P4_Bonus').append(JSON_FICHE.Effet.Bonus);}
+	if(JSON_FICHE.Effet.Malus != undefined){$('#P4_Malus').append(JSON_FICHE.Effet.Malus);}
 }
 
 $("#P4_LOG").html(log_backup);
@@ -261,7 +279,4 @@ if(P4_Caract.value == "10"){ // PRO
   });
 }
 }
-
-var Effet = {};
-effets();
 </script>
