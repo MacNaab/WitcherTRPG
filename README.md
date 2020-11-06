@@ -34,8 +34,7 @@ Lien du [wiki](https://github.com/MacNaab/WitcherTRPG/wiki):
     + [Description](#Description)
     + [Portrait](#Portrait)
     + [Relance](#Relance)
-    + [Bonus](#Bonus)
-    + [Malus](#Malus)
+    + [Effet](#Effet)
     + [Journal](#Journal)
     + [PP](#PP)
     + [Origine](#Origine)
@@ -341,30 +340,27 @@ Correspond aux dé de relance restant.
 ```JSON
 "Relance": 1
 ```
-#### Bonus
+#### Effet
+Regroupe les différents effets du PJ. Elle peut prendre comme propriété :
+- Bonus
+- Malus 
+##### Bonus
 Regroupe les bonus du PJ. Elle peut prendre comme propriété :
-- Toute caractéristique
-- Toute compétence
 - Certain état
 - Desc: valeur affiché dans "Histoire" 
-##### Exemple
-```JSON
-"Bonus": {
-	"Desc": "Détection des Monstres",
-	"INT": 2
-}
-```
-#### Malus
+##### Malus
 Regroupe les malus du PJ. Elle peut prendre comme propriété :
-- Toute caractéristique
-- Toute compétence
 - Certain état
 - Desc: valeur affiché dans "Histoire" 
 ##### Exemple
 ```JSON
-"Malus": {
-	"Desc": "",
-	"Encombrement": true
+Effet: {
+	"Bonus": {
+		"Desc": "Détection des Monstres",
+	},
+	"Malus": {
+		"Desc": "Vulnérabilité au Feu",
+	}
 }
 ```
 #### Journal
