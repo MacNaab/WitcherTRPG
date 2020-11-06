@@ -8,9 +8,8 @@ $.getJSON('data/wiki.json', function(jd) {
 	JSON_wiki = jd;
 });
 
-function todtb(e,f){
-/*
-	$.ajax({
+function todtb(e,f){/*
+    $.ajax({
         url: "data/pj.php",
         type: "POST",
         data: {
@@ -18,15 +17,29 @@ function todtb(e,f){
             dtb: f,
         },
         cache: false,
-        success: function(data){
-*/
+        success: function(data){*/
             $("#toast1_H").html("Mise à jour effectué");
-//            $("#toast1_C").html(data);
-            $("#toast1").toast('show');
-/*
+            $("#toast1_C").html(data);
+            $("#toast1").toast('show');/*
         }
-    });
-*/
+    });*/
+}
+function tomap(e){/*
+    $.ajax({
+        url: "data/data.php",
+        type: "POST",
+        data: {
+            nom: 'groupe',
+            action: "map",
+            url: JSON_data.map.groupe,
+        },
+        cache: false,
+        success: function(data){*/
+            $("#toast1_H").html(e);
+            $("#toast1_C").html(data);
+            $("#toast1").toast('show');/*
+        }
+    });*/
 }
 
 function P4_Action(e){
@@ -36,7 +49,7 @@ function P4_A(e,f){
     if(e=='1'||e=='2'){
         var url = $("#P4_1").val();
         if(e == '1'){var A = "tts";}else{var A = "image";}
-/*        $.ajax({
+        $.ajax({
             url: "data/data.php",
             type: "POST",
             data: {
@@ -48,7 +61,6 @@ function P4_A(e,f){
                 $('#P4_aff').append("<div>"+data+"</div>");
             }
         });    
-*/
     } else{
         var joueur = $("#P4_Joueur").val();
         if(e=='3'){// Ajout Inventaire

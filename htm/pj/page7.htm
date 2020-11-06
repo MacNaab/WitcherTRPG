@@ -1,0 +1,312 @@
+<br>
+<div>
+    <div>
+        <h3>
+            • P.P. <span id="P7_PP" class="badge badge-secondary">0</span>
+        </h3>
+        <div id="P7_PP2">
+            Choississez une caractéristique ou une compétence à améliorer:
+            <div class="grid-container3">
+                <div>
+                    <select class="custom-select" id="P7_Caract" onchange="caract()">
+                        <option value="" disabled selected>Caractéristique</option>
+                        <option value="INT">Intelligence</option>
+                        <option value="REF">Réflexes</option>
+                        <option value="DEX">Dextérité</option>
+                        <option value="COR">Corps</option>
+                        <option value="VIT">Vitesse</option>
+                        <option value="EMP">Empathie</option>
+                        <option value="TEC">Technique</option>
+                        <option value="VOL">Volonté</option>
+                        <option value="CHA">Chance</option>
+                        <option value="10">Compt.exclusive</option>
+                    </select>
+                </div>
+                <div>
+                    <select class="custom-select" id="P7_Compt">
+                        <option value="0" selected>Compétence</option>
+                    </select>
+                </div>
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-black" onclick="P7()">
+                        Rechercher
+                    </button>
+                </div>
+            </div>
+            <div id="P7_R" style="margin-top: 15px;" class="grid-container2">
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 30px;">
+        <h3>
+            • Télécharger la fiche en pdf
+            <button type="button" class="btn btn-light" disabled style="cursor: not-allowed;">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+            </button>
+        </h3>
+    </div>
+
+</div>
+
+<script>
+    $("#P7_PP").html(JSON_FICHE.PP);
+//    if(JSON_FICHE.PP == 0){$("#P7_PP").remove();}
+var CoûtPP = 0;
+    function P7(){
+        if($('#P7_Caract').val()!=null){
+            $("#P7_R").html("");
+            if($('#P7_Compt').val() != 0){
+                var found = JSON_FICHE.Compétences.find(x => x.Nom == $('#P7_Compt').val());
+                var dble = ["Connaissance des monstres","Langue ancienne","Langue commune","Langue naine","Tactique","Alchimie","Artisanat","Fabrication de pièges","Envoûtement","Incantation","Résistance à la magie","Rituels"];
+                var found2 = dble.find(element => element == $('#P7_Compt').val());
+                if(found2!=undefined){
+                    if(found != undefined){CoûtPP = Number(found.V)*2;}else{CoûtPP = 2;}
+                }else{
+                    if(found != undefined){CoûtPP = Number(found.V) + 1;}else{CoûtPP = 1;}
+                }
+                $("#P7_R").append("<div><b>Amélioration de Compétence:</b> "+$("#P7_Compt option:selected").text()+" pour un coût de "+CoûtPP+" P.P.</div>");
+            }else{
+                CoûtPP = JSON_FICHE.Caractéristique[$('#P7_Caract').val()]*10;
+                $("#P7_R").append("<div><b>Amélioration de Caractéristique:</b> "+$("#P7_Caract option:selected").text()+" pour un coût de "+CoûtPP+" P.P.</div>");
+            }
+            $("#P7_R").append('<div style="text-align: center;"><button type="button" class="btn btn-black" onclick="P7_2()">Améliorer</button></div>');
+        }else{
+            $("#P7_R").html("<div><b>Erreur:</b> Aucune caractéristique sélectionné.</div>");
+        }
+    }
+    
+    function P7_2(){
+        if(!JSON_FICHE.PP){JSON_FICHE.PP=0;}
+        if(CoûtPP > JSON_FICHE.PP){
+            $("#P7_R").html("<div><b>Erreur:</b> le coût d'amélioration ("+CoûtPP+") est supérieur à vos P.P. ("+JSON_FICHE.PP+").</div>");
+        }else{
+            if($('#P7_Compt').val() != 0){
+                var found = JSON_FICHE.Compétences.find(x => x.Nom == $('#P7_Compt').val());
+                if(found != undefined){
+                    var X = Number(found.V)+1;
+                    var found2 = JSON_FICHE.Compétences.findIndex(x => x.Nom == $('#P7_Compt').val());
+                    JSON_FICHE.Compétences[found2].V = X;
+                    if(found.P == "true" && X == 5){P7_pro($('#P7_Compt').val())}
+                }else{
+                    var X = 1;
+                    JSON_FICHE.Compétences.push({
+                        "Nom":$('#P7_Compt').val(),
+                        "V":"1",
+                        "C":$('#P7_Caract').val(),
+                        "P":"false"
+                    });
+                }
+                var Xaff = $("#P7_Compt option:selected").text();
+            }else{
+                var X = Number(JSON_FICHE.Caractéristique[$('#P7_Caract').val()])+1;
+                var Xaff = $("#P7_Caract option:selected").text();
+                JSON_FICHE.Caractéristique[$('#P7_Caract').val()] = X;
+            }
+            JSON_FICHE.PP = Number(JSON_FICHE.PP)-Number(CoûtPP);
+            $("#P7_R").html("<div>Amélioration de "+Xaff+" à "+X+", il vous reste "+JSON_FICHE.PP+" P.P.</div>");
+            todtb('Amélioration');
+        }
+
+    }
+
+    function P7_pro(e){
+            // A: Compt pré | B: Compt suivante, C: Caract de la compt
+        if(JSON_FICHE.Profession=="Vampire"){
+            var Suite = [
+                {A: "Incognito", B: "Repaire", C:"INT"},
+                {A: "Repaire", B: "À travers les Âges", C:"-"},
+                {A: "Invisibilité", B: "Puissance Vampirique", C:"-"},
+                {A: "Puissance Vampirique", B: "Seigneur de la Nuit", C:"VOL"},
+                {A: "Charme", B: "Goule", C:"EMP"},
+                {A: "Goule", B: "Appel de la Nuit", C:"EMP"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Artisan"){
+            var Suite = [
+                {A: "Catalogue étendu", B: "Compagnon", C:"TEC"},
+                {A: "Compagnon", B: "Maître compagnon", C:"TEC"},
+                {A: "Pharmacie mentale", B: "Double dose", C:"TEC"},
+                {A: "Double dose", B: "Adaptation", C:"TEC"},
+                {A: "Amélioration", B: "Plaqué argent", C:"TEC"},
+                {A: "Plaqué argent", B: "Déceler", C:"TEC"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Barde"){
+            var Suite = [
+                {A: "Notoriété", B: "Captiver la foule", C:"EMP"},
+                {A: "Captiver la foule", B: "Bon ami", C:"EMP"},
+                {A: "Disparition", B: "Ragots", C:"INT"},
+                {A: "Ragots", B: "Acclimatation", C:"INT"},
+                {A: "Empoisonner le puits", B: "Pique", C:"EMP"},
+                {A: "Pique", B: "Suspicion", C:"EMP"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Criminel"){
+            var Suite = [
+                {A: "Plan mental", B: "Clé mentale", C:"INT"},
+                {A: "Clé mentale", B: "Planque", C:"INT"},
+                {A: "Point faible", B: "Marquage", C:"VOL"},
+                {A: "Marquage", B: "Recrutement", C:"VOL"},
+                {A: "Visée précise", B: "Pique aux yeux", C:"DEX"},
+                {A: "Pique aux yeux", B: "Frappe assassine", C:"DEX"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Docteur"){
+            var Suite = [
+                {A: "Diagnostic", B: "Analyse", C:"INT"},
+                {A: "Analyse", B: "Chirurgie miraculeuse", C:"TEC"},
+                {A: "Espace de soins", B: "Improvisation", C:"INT"},
+                {A: "Improvisation", B: "Remède naturel", C:"TEC"},
+                {A: "Plaie ouverte", B: "Carnage", C:"INT"},
+                {A: "Carnage", B: "Blessure incapacitante", C:"INT"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Homme d'armes"){
+            var Suite = [
+                {A: "Portée extrême", B: "Double tir", C:"DEX"},
+                {A: "Double tir", B: "Trait précis", C:"DEX"},
+                {A: "Limier", B: "Chausse-trappe", C:"TEC"},
+                {A: "Chausse-trappe", B: "Sens du combat", C:"INT"},
+                {A: "Fureur", B: "Zweihand", C:"COR"},
+                {A: "Zweihand", B: "Même pas mal !", C:"COR"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Mage"){
+            var Suite = [
+                {A: "Intrigue", B: "Commérage", C:"INT"},
+                {A: "Commérage", B: "Atout", C:"INT"},
+                {A: "Rétro-ingénierie", B: "Distillation", C:"TEC"},
+                {A: "Distillation", B: "Mutation", C:"INT"},
+                {A: "Contact magique", B: "Immuable", C:"VOL"},
+                {A: "Immuable", B: "Magie étendue", C:"VOL"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Marchand"){
+            var Suite = [
+                {A: "Choix", B: "Dur en affaires", C:"EMP"},
+                {A: "Dur en affaires", B: "Promesse", C:"EMP"},
+                {A: "Gueusaille", B: "Espion", C:"INT"},
+                {A: "Espion", B: "Carte aux trésors", C:"INT"},
+                {A: "Bonne réputation", B: "Receleur", C:"INT"},
+                {A: "Receleur", B: "Débiteur martial", C:"EMP"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Prêtre"){
+            var Suite = [
+                {A: "Puissance divine", B: "Autorité divine", C:"EMP"},
+                {A: "Autorité divine", B: "Précognition", C:"VOL"},
+                {A: "Harmonisation naturelle", B: "Déchiffrer la nature", C:"INT"},
+                {A: "Déchiffrer la nature", B: "Pacte animal", C:"VOL"},
+                {A: "Rituels sanglants", B: "Ferveur", C:"EMP"},
+                {A: "Ferveur", B: "Émissaire des dieux", C:"EMP"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Sorceleur"){
+            var Suite = [
+                {A: "Méditation", B: "Source magique", C:"-"},
+                {A: "Source magique", B: "Héliotrope", C:"VOL"},
+                {A: "Estomac de fer", B: "Frénésie", C:"-"},
+                {A: "Frénésie", B: "Transmutation", C:"COR"},
+                {A: "Déviation de flèches", B: "Frappe rapide", C:"REF"},
+                {A: "Frappe rapide", B: "Tourbillon", C:"REF"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Noble"){
+            var Suite = [
+                {A: "Dilettante", B: "Esbroufe", C:"EMP"},
+                {A: "Esbroufe", B: "Réception", C:"EMP"},
+                {A: "Ordres", B: "Serviteurs", C:"-"},
+                {A: "Serviteurs", B: "Domaine", C:"-"},
+                {A: "Détermination", B: "Cavalier", C:"EMP"},
+                {A: "Cavalier", B: "Harnois de qualité", C:"REF"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Paysan"){
+            var Suite = [
+                {A: "Temps de récolte", B: "Murmure animal", C:"EMP"},
+                {A: "Murmure animal", B: "Sagesse agricole", C:"TEC"},
+                {A: "Boucherie", B: "Panacée", C:"TEC"},
+                {A: "Panacée", B: "Ragoût de Mamie", C:"TEC"},
+                {A: "Fossoyeur", B: "Grog", C:"TEC"},
+                {A: "Grog", B: "Mordre l'oreille", C:"COR"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Fanatique"){
+            var Suite = [
+                {A: "Frappe vertueuse", B: "Marque d'hérésie", C:"VOL"},
+                {A: "Marque d'hérésie", B: "Guidance divine", C:"REF"},
+                {A: "Conversion", B: "Dîme", C:"EMP"},
+                {A: "Dîme", B: "Confraternité", C:"-"},
+                {A: "Pieux", B: "Volonté focalisée", C:"VOL"},
+                {A: "Volonté focalisée", B: "Intervention divine", C:"VOL"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Hors-la-loi"){
+            var Suite = [
+                {A: "Contre toute attente", B: "Akimbo", C:"DEX"},
+                {A: "Akimbo", B: "Aguerri", C:"COR"},
+                {A: "Lien", B: "Routine habituelle", C:"VOL"},
+                {A: "Routine habituelle", B: "Coexistence", C:"VOL"},
+                {A: "Aiguisage", B: "Améliorer", C:"TEC"},
+                {A: "Améliorer", B: "Improviser", C:"TEC"},
+            ]
+        }
+        if(JSON_FICHE.Profession=="Nomade"){
+            var Suite = [
+                {A: "Agilité", B: "Coupures profondes", C:"-"},
+                {A: "Coupures profondes", B: "Toujours prêt", C:"REF"},
+                {A: "Action d'Initiative", B: "Cris de guerre", C:"VOL"},
+                {A: "Cris de guerre", B: "Provocation", C:"EMP"},
+                {A: "Habitude", B: "Volonté de tuer", C:"DEX"},
+                {A: "Volonté de tuer", B: "Salve", C:"DEX"},
+            ]
+        }
+        var f = Suite.find(x => x.A == e);
+        JSON_FICHE.Compétences.push({
+            "Nom":f.B,
+            "V":0,
+            "C":f.C,
+            "P":"true"
+        });
+    }
+
+    function caract(){
+$('#P7_Compt').empty().append('<option selected="selected" value="0">Aucune compétence</option>');
+if(P7_Caract.value == "INT"){ // INT
+  $('#P7_Compt')
+  .append('<option value="Connaissance de la rue">Connaissance de la rue</option><option value="Connaissance des monstres">Connaissance des monstres</option><option value="Déduction">Déduction</option><option value="Éducation">Éducation</option><option value="Enseignement">Enseignement</option><option value="Étiquette">Étiquette</option><option value="Langue ancienne">Langue ancienne</option><option value="Langue commune">Langue commune</option><option value="Langue naine">Langue naine</option><option value="Négoce">Négoce</option><option value="Survie">Survie</option><option value="Tactique">Tactique</option><option value="Vigilance">Vigilance</option>');
+}
+if(P7_Caract.value == "REF"){ // REF
+  $('#P7_Compt')
+  .append('<option value="Bagarre">Bagarre</option><option value="Bâton/Lance">Bâton/Lance</option><option value="Équitation">Équitation</option><option value="Escrime">Escrime</option><option value="Esquive/Évasion">Esquive/Évasion</option><option value="Lames courtes">Lames courtes</option><option value="Mêlée">Mêlée</option><option value="Navigation">Navigation</option>');
+}
+if(P7_Caract.value == "DEX"){ // DEX
+  $('#P7_Compt')
+  .append('<option value="Adresse">Adresse</option><option value="Arbalète">Arbalète</option><option value="Archerie">Archerie</option><option value="Athlétisme">Athlétisme</option><option value="Furtivité">Furtivité</option>');
+}
+if(P7_Caract.value == "COR"){ // Corps
+  $('#P7_Compt')
+  .append('<option value="Physique">Physique</option><option value="Résilience">Résilience</option>');
+}
+if(P7_Caract.value == "EMP"){ // EMP
+  $('#P7_Compt').append('<option value="Beaux-arts">Beaux-arts</option><option value="Charisme">Charisme</option><option value="Commandement">Commandement</option><option value="Duperie">Duperie</option><option value="Jeu">Jeu</option><option value="Persuasion">Persuasion</option><option value="Psychologie">Psychologie</option><option value="Représentation">Représentation</option><option value="Séduction">Séduction</option><option value="Stylisme">Stylisme</option>');
+}
+if(P7_Caract.value == "TEC"){ // TEC
+  $('#P7_Compt').append('<option value="Alchimie">Alchimie</option><option value="Artisanat">Artisanat</option><option value="Contrefaçon">Contrefaçon</option><option value="Crochetage">Crochetage</option><option value="Déguisement">Déguisement</option><option value="Fabrication de pièges">Fabrication de pièges</option><option value="Premiers soins">Premiers soins</option>');
+}
+if(P7_Caract.value == "VOL"){ // VOL
+  $('#P7_Compt')
+  .append('<option value="Courage">Courage</option><option value="Envoûtement">Envoûtement</option><option value="Incantation">Incantation</option><option value="Intimidation">Intimidation</option><option value="Résistance à la contrainte">Résistance à la contrainte</option><option value="Résistance à la magie">Résistance à la magie</option><option value="Rituels">Rituels</option>');
+}
+if(P7_Caract.value == "10"){ // PRO
+  JSON_FICHE.Compétences.forEach(function(e){
+	if(e.P == "true"){
+		$('#P7_Compt').append('<option value="'+e.Nom+'">'+e.Nom+'</option>');
+	}
+  });
+}
+    }
+</script>

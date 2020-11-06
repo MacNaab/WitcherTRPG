@@ -10,6 +10,10 @@ var JSON_talent = ""
 $.getJSON('data/dtb/talent.json', function(jd) {
     JSON_talent = jd;
 });
+var JSON_data = ""
+$.getJSON('data/data.json', function(jd) {
+	JSON_data = jd;
+});
 
 function searchbar(e){
     if(e == '1'){

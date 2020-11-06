@@ -1,4 +1,11 @@
 {
     "TTS": "https://www.owlbear.rodeo/",
-    "image": "https://cdn.discordapp.com/attachments/697703780510203954/751147796178141275/The_Witcher_TRPG.png"
+    "image": "https://cdn.discordapp.com/attachments/697703780510203954/751147796178141275/The_Witcher_TRPG.png",
+	"map":{
+		"groupe":[
+			{"x":"59","y":"10","T":"<b>Wyzima<\/b><br>Capitale de la T\u00e9m\u00e9rie, lieu de d\u00e9part de notre aventure."},
+			{"x":"57.704147","y":"9.84375","T":"<b>Ruines elfiques<\/b><br> Ruines nous ayant permis de sortir discr\u00e8tement de la ville."},
+			{"x":"58.743483","y":"18.01763","T":"<b>Ecriture<\/b><br>Porte avec des inscriptions \u00e9tranges..."}
+		]
+	}
 }

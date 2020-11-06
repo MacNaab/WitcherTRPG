@@ -1,0 +1,169 @@
+<br>
+<div id="map" style="width: 80vw; height: 80vh; background: #12a0ac;"></div>
+<br>
+<div>
+  <h6>Gestion des marqueurs:</h6>
+  <div>
+    <select class="custom-select" id="P6-select">
+      <option value="0" selected>Ne rien faire</option>
+      <option value="1">Ajouter un marqueur</option>
+      <option value="2">Editer un marqueur</option>
+    </select>
+  </div>
+  <div id="P6_aff" style="margin:15px;display: none;">
+    <div id="P6_aff_1">
+      <small class="form-text text-muted">Déplacer le marqueur noir où vous souhaitez placer votre marqueur</small>
+    </div>
+    <div id="P6_aff_2">
+      <select class="custom-select" id="P6-mark">
+        <option value="" disabled selected>Marqueur à éditer</option>
+      </select>
+    </div>
+    <div class="grid-container3">
+      <div>
+        <small class="form-text text-muted">Coordonnées:</small>
+        <input class="form-control" type="texte" id="P6-coord" placeholder="x,y">
+      </div>
+      <div>
+        <small class="form-text text-muted">Titre du marqueur:</small>
+        <input class="form-control" type="texte" id="P6-titre" placeholder="Titre">
+      </div>
+      <div>
+        <small class="form-text text-muted">Couleur du marqueur:</small>
+        <select class="custom-select" id="P6-couleur">
+        <option value="0" selected>Or</option>
+        <option value="1">Violet</option>
+        <option value="2">Rouge</option>
+        <option value="3">Vert</option>
+        <option value="4">Orange</option>
+        <option value="5">Jaune</option>
+        <option value="6">Gris</option>
+      </select>
+      </div>
+    </div>
+    <div>
+      <small class="form-text text-muted">Description du marqueur:</small>
+      <textarea class="form-control" id="P6-texte" placeholder="Description"></textarea>
+    </div>
+    <div style="text-align: center;">
+      <button class="btn btn-success" onclick="MarKMe()" type="button">Valider</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  //Creating the Map
+    var map = L.map('map').setView([60, 0], 0);
+    // edit: (map/{z}/{x}/{y})
+    L.tileLayer('htm/map/{z}/{x}/{y}.png', {
+      continuousWorld: false,
+      noWrap: true,  
+      minZoom: 3,
+      maxZoom: 5,
+    }).addTo(map);
+  
+  var mg_aventure = L.layerGroup();
+  
+  JSON_data.map.groupe.forEach(e => {
+    L.marker([e.x,e.y]).bindPopup(e.T).addTo(mg_aventure);    
+  });
+  mg_aventure.addTo(map);
+
+        // https://github.com/pointhi/leaflet-color-markers
+        var GoldIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+        var VioletIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+        var RougeIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+        var VertIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+        var OrangeIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+        var JauneIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+        var GrisIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+        var NoirIcon = new L.Icon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',iconSize: [25, 41],iconAnchor: [12, 41],popupAnchor: [1, -34],shadowSize: [41, 41]});
+
+    var IconColor = [GoldIcon,VioletIcon,RougeIcon,VertIcon,OrangeIcon,JauneIcon,GrisIcon,NoirIcon]
+  var mg_perso = L.layerGroup();
+  try{
+    JSON_data.map[joueur].forEach(e => {
+      L.marker([e.x,e.y],{icon:IconColor[e.I]}).bindPopup(e.T).addTo(mg_perso);    
+    });
+    mg_perso.addTo(map);
+  } catch(err){
+    console.log(err);
+  }
+
+  var overlays = {
+    "Points d'intérêts de l'aventure": mg_aventure,
+    "Points d'intérêts personnel": mg_perso,
+  }               
+
+  //Marker Group Control
+  L.control.layers(null, overlays).addTo(map);
+
+  //Coordinate Finder
+  var marker = L.marker([60, 0],{draggable: true,icon:NoirIcon});
+    marker.bindPopup('LatLng Marker').openPopup();
+    marker.on('dragend', function(e) {
+      marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
+      $("#P6-coord").val(marker.getLatLng().toString());
+    });
+
+  try{
+    var i= 0;
+    JSON_data.map[joueur].forEach(function(e){
+      let split = e.T.split('</b>');
+        let text = split[0].replace('<b>','');
+      $("#P6-mark").append("<option value='"+i+"'>"+text+"</option>");
+      i += 1;
+    });
+  } catch (error) {}
+
+  $("#P6-select").on( "change", function() {
+    if(this.value == '1'){
+      marker.addTo(map);
+      document.getElementById('P6_aff').style.display = "block";
+      document.getElementById('P6_aff_1').style.display = "block";
+      document.getElementById('P6_aff_2').style.display = "none";
+    }else{
+      try {map.removeLayer(marker);} catch (error) {console.log(error);}
+      if(this.value == '0'){
+        document.getElementById('P6_aff').style.display = "none";
+      }else{
+        document.getElementById('P6_aff').style.display = "block";
+        document.getElementById('P6_aff_2').style.display = "block";
+        document.getElementById('P6_aff_1').style.display = "none";
+      }
+    }
+  });
+
+  $("#P6-mark").on( "change", function() {
+    $('#P6-coord').val(JSON_data.map[joueur][this.value].x+", "+JSON_data.map[joueur][this.value].y);
+    $('#P6-couleur').val(JSON_data.map[joueur][this.value].I);
+    let split = JSON_data.map[joueur][this.value].T.split("</b>");
+      var t = split[0].replace('<b>','');
+      var tt = split[1].replace('<br>','');
+    $('#P6-titre').val(t);
+    $('#P6-texte').val(tt);
+  });
+  function MarKMe(){
+    if($('#P6-coord').val()=="" || $('#P6-titre').val()==""){
+      var err = "";
+      if($('#P6-coord').val()==""){err = "Vous devez indiquer les coordonnées du marqueur."}
+      if($('#P6-titre').val()==""){err += "<br>Vous devez donner un nom au marqueur."}
+      $("#toast2_C").html(err);
+      $("#toast2").toast('show');
+    }else{
+      var e = $('#P6-select').val();
+      var c = $('#P6-coord').val();
+      let split = c.split(',');
+        var a = split[0].replace('LatLng(','');
+      var MarkCoord = {x:parseFloat(a),y:parseFloat(split[1]),I:$('#P6-couleur').val(),T:"<b>"+$('#P6-titre').val()+"</b><br>"+$('#P6-texte').val()};
+      if($("#P6-select").val() == '1'){
+        if(!JSON_data.map[joueur]){JSON_data.map[joueur] = [];}
+        JSON_data.map[joueur].push({'x':parseFloat(a),'y':parseFloat(split[1]),'I':$('#P6-couleur').val(),'T':"<b>"+$('#P6-titre').val()+"</b><br>"+$('#P6-texte').val()});
+      }else{
+        JSON_data.map[joueur][$("#P6-mark").val()] = MarkCoord;
+      }
+      tomap('Mise à jour de la carte');
+    }
+  }
+
+</script>

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#app').load("htm/log.htm");
+	$('#app').load("htm/pj/log.htm");
 	$('#toast').load("htm/toast.htm");
 });
 
@@ -52,7 +52,7 @@ function loggin2(e){
 		JSON_FICHE = r[joueur];
 		logged();effets();
 		$('#app').append("<div id='content-footer'></div>");	
-		$('#content-footer').load("htm/footer.htm");
+		$('#content-footer').load("htm/pj/footer.htm");
 		$("body").css("margin-bottom", "0");
 		$("content-footer").css("margin-top", "75px");
   } 
@@ -63,16 +63,8 @@ function logged(){
 	$('#app').html('');
 	$('#app').append("<div id='content-nav'></div>");	
 	$('#app').append("<div id='content-page'></div>");	
-	$('#content-nav').load("htm/nav.htm");	
-	$('#content-page').load("htm/page1.htm");	
-}
-
-function page(e){
-	for (let i = 1; i < 6; i++) {
-		document.getElementById('p'+i).className = "nav-link";
-	}
-	document.getElementById('p'+e).className = "nav-link active";
-	$('#content-page').load("htm/page"+e+".htm");	
+	$('#content-nav').load("htm/pj/nav.htm");	
+	$('#content-page').load("htm/pj/page1.htm");	
 }
 
 function FichePJ(){

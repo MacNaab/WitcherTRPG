@@ -1,10 +1,44 @@
 function todtb(e){
-    $.ajax({
+/*    $.ajax({
         url: "data/pj.php",
         type: "POST",
         data: {
             nom: joueur,
             dtb: JSON_FICHE,
+        },
+        cache: false,
+        success: function(data){*/
+            $("#toast1_H").html(e);
+            $("#toast1_C").html(data);
+            $("#toast1").toast('show');/*
+        }
+    });*/
+}
+function tojournal(e){/*
+    $.ajax({
+        url: "data/data.php",
+        type: "POST",
+        data: {
+            nom: joueur,
+            action: "journal",
+            url: JSON_data[joueur].Journal,
+        },
+        cache: false,
+        success: function(data){*/
+            $("#toast1_H").html(e);
+            $("#toast1_C").html(data);
+            $("#toast1").toast('show');/*
+        }
+    });*/
+}
+function tomap(e){
+    $.ajax({
+        url: "data/data.php",
+        type: "POST",
+        data: {
+            nom: joueur,
+            action: "map",
+            url: JSON_data.map[joueur],
         },
         cache: false,
         success: function(data){
@@ -14,10 +48,7 @@ function todtb(e){
         }
     });
 }
-var JSON_data = ""
-$.getJSON('data/data.json', function(jd) {
-	JSON_data = jd;
-});
+
 var JSON_effet = ""
 $.getJSON('data/effet.json', function(jd) {
 	JSON_effet = jd;
