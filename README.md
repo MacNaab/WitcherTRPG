@@ -284,7 +284,7 @@ Ce sont les différents schémas et plans connu par le PJ. Chacun possède comme
           "Nom": "Projectile Standard",
           "Type": "P",
           "Por": "-",
-          "Dég"": "-",
+          "Dég": "-",
           "Effet": "-",
           "Qtt": 5,
           "Poids": 0.05
