@@ -221,6 +221,7 @@ Ce sont les différentes armes que possède le PJ. Chaque arme possède comme pr
 - Nom: Nom de l'arme
 - Type: Type d'arme
 - Pré: Précision de l'arme
+- Dég: Dégâts de l'arme
 - Fia: Fiabilité actuelle de l'arme
 - FiaMax: Fiabilité maximale de  l'arme
 - Main: Combien de mains libres sont nécessaire par manier l'arme
@@ -229,6 +230,15 @@ Ce sont les différentes armes que possède le PJ. Chaque arme possède comme pr
 - Diss: Dissimulation de l'arme
 - AM: Amélioration de l'arme
 - Poids: Poids de l'arme
+##### Projectile
+Ce sont les munitions, bombes et pièges que possède le PJ. Chaque projectile possède comme propriétés:
+- Nom: Nom du projectile
+- Type: Type projectile
+- Por: Portée du projectile
+- Dég: Dégâts du projectile
+- Effet: Effet du projectile
+- Poids: Poids du projectile
+- Qtt: Quantité d'unitée du projectile
 ##### Armure
 Ce sont les différentes armures que possède le PJ. Chaque armure possède comme propriétés:
 - Nom: Nom de l'armure
@@ -267,6 +277,17 @@ Ce sont les différents schémas et plans connu par le PJ. Chacun possède comme
           "Diss": "G",
           "AM": "-",
           "Poids": 0.5
+        }
+      ],
+      "Projectile": [
+        {
+          "Nom": "Projectile Standard",
+          "Type": "P",
+          "Por": "-",
+          "Dég"": "-",
+          "Effet": "-",
+          "Qtt": 5,
+          "Poids": 0.05
         }
       ],
       "Armure": [
