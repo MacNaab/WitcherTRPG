@@ -6,7 +6,6 @@
   #barre1{display: none;} 
   #barre2{display: block;max-width: 75%;margin-left: auto;margin-right: auto;}   
   #barre3{display: block;max-width: 75%;margin-left: auto;margin-right: auto;} 
-  #les_boutons_d_actions{border-radius: 25px;}
 }
 
 @media only screen and (min-width: 600px) {     /* Tablettes */
@@ -21,20 +20,6 @@
   #barre3{display: none;} 
   #barre2{display: none;} 
   #barre1{display: block;}  
-  .progress {
-    position: absolute;
-    width: 7.5%;
-    height: 250px;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-  }
-  .progress-bar {
-    position: absolute;
-    top: 0%;  /* = PVmax - PV */
-    width: 100%;
-    height: 100%;  /* PV*/
-  }
-  #les_boutons_d_actions{border-radius: 25px;}
 }
 
 @media only screen and (min-width: 900px) {     /* PC */
@@ -47,3 +32,4 @@ ul {cursor:pointer;}
 .img_cool{max-width: 100%;height: auto;margin-left: auto;margin-right: auto;}
 .adroite{right: 12.5%;}
 .badge{cursor: pointer;}
+  #les_boutons_d_actions{border-radius: 25px;}

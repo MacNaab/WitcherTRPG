@@ -1,3 +1,5 @@
+var Intrigue = new Object();
+
 var JSON_FICHE = "";
 var joueur = "";
 $.getJSON('data/pj.json', function(jd) {
@@ -8,8 +10,8 @@ $.getJSON('data/wiki.json', function(jd) {
 	JSON_wiki = jd;
 });
 
-function todtb(e,f){/*
-    $.ajax({
+function todtb(e,f){
+/*    $.ajax({
         url: "data/pj.php",
         type: "POST",
         data: {
@@ -17,15 +19,15 @@ function todtb(e,f){/*
             dtb: f,
         },
         cache: false,
-        success: function(data){*/
-            $("#toast1_H").html("Mise à jour effectué");
-            $("#toast1_C").html(data);
-            $("#toast1").toast('show');/*
-        }
+        success: function(data){
+/*            $("#toast1_H").html("Mise à jour effectué");
+/*            $("#toast1_C").html(data);
+*/            $("#toast1").toast('show');
+/*        }
     });*/
 }
-function tomap(e){/*
-    $.ajax({
+function tomap(e){
+/*    $.ajax({
         url: "data/data.php",
         type: "POST",
         data: {
@@ -35,8 +37,8 @@ function tomap(e){/*
         },
         cache: false,
         success: function(data){*/
-            $("#toast1_H").html(e);
-            $("#toast1_C").html(data);
+            $("#toast1_H").html(e);/*
+            $("#toast1_C").html(data);*/
             $("#toast1").toast('show');/*
         }
     });*/

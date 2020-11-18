@@ -1,0 +1,60 @@
+<div id="page_2" style="margin-top: 10px;">
+  <div class="grid-container3">
+    <div>
+      <select id="P6_Joueur" class="custom-select">
+          <option disabled selected>Joueur</option>
+      </select>
+    </div>
+    <div>
+      <small class="form-text text-muted">Valeur a retirer ou gagner</small>
+      <input type="number" class="form-control" id="P6_I">
+      <div style="text-align: center;">
+        <button type="button" class="btn btn-outline-secondary" onclick="P6_A(0)">Editer</button>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="btn btn-secondary btn-lg" onclick="P6_A(1)">Reinitialiser</button>
+    </div>
+  </div>
+
+  <div id="P6_aff" class="grid-container2">
+  </div>
+</div>
+<script>
+Object.keys(JSON_FICHE).forEach(function(e){
+  if(Intrigue[e] == undefined){
+    var INT = Number(JSON_FICHE[e].Caractéristique.INT);var VOL = Number(JSON_FICHE[e].Caractéristique.VOL);
+    Intrigue[e] = {};
+    Intrigue[e].Concentration = Math.floor(Number(VOL+INT)/2)*3;
+    Intrigue[e].Actuel = Intrigue[e].Concentration;
+  }
+  $("#P6_Joueur").append("<option value='"+e+"'>"+e+"</option>");
+  $("#P6_aff").append(
+    '<div><b>'+e+':</b><div class="progress" style="max-width:75%;margin-left:auto;margin-right:auto;"><div class="progress-bar bg-success" role="progressbar" id="P6 '+e+'" style="width: 100%">'+Intrigue[e].Actuel+"/"+Intrigue[e].Concentration+'</div></div></div>'
+  )
+  ccbarre(e);
+});
+
+function ccbarre(e){
+  var a = Intrigue[e].Actuel;
+  var b = Intrigue[e].Concentration;
+    var c = Math.round(Number(a)/Number(b)*100);
+      if(c<0){c=0;}if(c>100){c=100;}
+  document.getElementById('P6 '+e).style.width = c+"%";
+}
+
+function P6_A(Z){
+  var e = $('#P6_Joueur').val();
+  if(Z==0){
+    var a = $('#P6_I').val();
+    var r = Number(Number(Intrigue[e].Actuel)+Number(a));if(r < 0){r=0;}
+    Intrigue[e].Actuel = r;
+    document.getElementById('P6 '+e).innerHTML = r+'/'+Intrigue[e].Concentration;
+    ccbarre(e);
+  }else{
+    Intrigue[e].Actuel = Intrigue[e].Concentration;
+    document.getElementById('P6 '+e).style.width = "100%";
+    document.getElementById('P6 '+e).innerHTML = Intrigue[e].Concentration+'/'+Intrigue[e].Concentration;
+  }
+}
+</script>

@@ -9,16 +9,19 @@
       <a class="nav-link" id="p4" onclick="page('4')">Gestion</a>
     </li>
 	  <li class="nav-item">
-      <a class="nav-link" id="p3" onclick="page('3')">Fiche</a>
+      <a class="nav-link" id="p6" onclick="page('6')">Investigation</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="p5" onclick="page('5')">Carte</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="p3" onclick="page('3')">Fiche</a>
     </li>
 </ul>
 
 <script>
 function page(e){
-	for (let i = 1; i <= 5; i++) {
+	for (let i = 1; i <= 6; i++) {
 		document.getElementById('p'+i).className = "nav-link";
 	}
 	document.getElementById('p'+e).className = "nav-link active";
