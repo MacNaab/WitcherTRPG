@@ -22,7 +22,26 @@
           </tbody>
         </table>
       </div>
-    </div>
+	</div>
+	<div id="P3_Projectile">
+		<h3>Inventaire :</h3>
+		  <div class="table-responsive">
+			<table class="table table-striped table-dark P3TABLE" >
+			  <thead>
+				<tr>
+				  <th scope="col">Nom</th>
+				  <th scope="col">Type</th>
+				  <th scope="col">Portée</th>
+				  <th scope="col">Dégâts</th>
+				  <th scope="col">Effet</th>
+				  <th scope="col">Poids</th>
+				</tr>
+			  </thead>
+			  <tbody id="P3_Projectiles">
+			  </tbody>
+			</table>
+		  </div>
+		</div>
     <div id="P3_Armure">
 		<h3>Armures :</h3>
       <div class="table-responsive">
@@ -93,6 +112,7 @@
               <option value="5">Composants</option>
               <option value="10">Potion</option>
               <option value="6">Arme</option>
+              <option value="11">Projectile</option>
               <option value="7">Armure</option>
             </select>
         </div>
@@ -119,7 +139,10 @@
       <ul class="nav nav-pills">
         <li class="nav-item">
           <a id="TêteTablo1" class="nav-link" onclick="TableauAdmin('1')">Armes</a>
-        </li>
+		</li>
+		<li class="nav-item">
+			<a id="TêteTablo9" class="nav-link" onclick="TableauAdmin('9')">Projectile</a>
+		</li>
         <li class="nav-item">
           <a id="TêteTablo2" class="nav-link" onclick="TableauAdmin('2')">Armures</a>
         </li>
@@ -173,7 +196,7 @@ if(JSON_FICHE.Inventaire.Armure != undefined){
 
 if(JSON_FICHE.Inventaire.Autre != undefined){
 	JSON_FICHE.Inventaire.Autre.forEach(function(e){
-		$("#P3_Items").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Effet+"</td><td>"+e.Qtt+"</td><td>"+e.Poids*e.Qtt+"</td></tr>")
+		$("#P3_Items").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Effet+"</td><td>"+e.Qtt+"</td><td>"+Number(Number(e.Poids)*Number(e.Qtt)).toFixed(2)+"</td></tr>")
 	});
 }else{$("#P3_Inv").remove();}
 
@@ -182,6 +205,12 @@ if(JSON_FICHE.Inventaire.Schéma != undefined){
 		$("#P3_Dias").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Desc+"</td><td>"+e.Poids+"</td></tr>")
 	});
 }else{$("#P3_Dia").remove();}
+
+if(JSON_FICHE.Inventaire.Projectile != undefined){
+	JSON_FICHE.Inventaire.Projectile.forEach(function(e){
+		$("#P3_Projectiles").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Type+"</td><td>"+e.Por+"</td><td>"+e.Dég+"</td><td>"+e.Effet+"</td><td>"+Number(Number(e.Poids)*Number(e.Qtt)).toFixed(2)+"</td></tr>")
+	});
+}else{$("#P3_Projectile").remove();}
 
 function achat(e){
 	$('#P3_ACHAT2_2').empty();
@@ -200,6 +229,8 @@ function achat(e){
 		JSON_item.Armure.forEach(function(f){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')});
 	}else if(e == '10'){ // Potions
 		JSON_item.Potion.forEach(function(f){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')});
+	}else if(e == '11'){ // Projectile
+		JSON_item.Projectile.forEach(function(f){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')});
 	}else{
 		JSON_item.Item.forEach(function(f){
 			if(e=='4' && f.Catégorie == 'Outils'){$('#P3_ACHAT2_2').append('<option value="'+f.Nom+'">')}
@@ -215,7 +246,7 @@ function achat_f(){
 	var type = $('#P3_ACHAT').val();
 	var nom = $('#P3_ACHAT2').val();
 	if(!JSON_FICHE.Inventaire){
-                JSON_FICHE.Inventaire = {"Arme":[],"Armure":[],"Autre":[],"Schéma":[]};
+                JSON_FICHE.Inventaire = {"Arme":[],"Projectile":[],"Armure":[],"Autre":[],"Schéma":[]};
     }
     if(!JSON_FICHE.Inventaire.Arme){
         JSON_FICHE.Inventaire.Arme = [];
@@ -228,6 +259,9 @@ function achat_f(){
     }
     if(!JSON_FICHE.Inventaire.Schéma){
         JSON_FICHE.Inventaire.Schéma = [];
+	}
+	if(!JSON_FICHE.Inventaire.Projectile){
+        JSON_FICHE.Inventaire.Projectile = [];
     }
 	if(type=='6'){	// Arme
 		var found = JSON_item.Arme.find(x => x.Nom == nom);
@@ -281,6 +315,31 @@ function achat_f(){
 		}else{
 			$('#P3_ACHAT3').html('<b>Erreur:</b> l\'armure '+nom+' est inconnue. Réessayer avec une armure du menu déroulant.');
 		}
+	}else if(type=='11'){	// Projectile
+		var found = JSON_item.Projectile.find(x => x.Nom == nom);
+		if(found != undefined){
+			var Quantité = $('#P3_ACHAT4').val();
+			if(Quantité == '' || Quantité == undefined){Quantité = 1;}
+			if(Number(Number(found.Prix)*Quantité) <= Number(JSON_FICHE.Or)){
+				JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(Number(found.Prix)*Quantité);
+				JSON_FICHE.Inventaire.Projectile.push(
+					{"Nom": nom,
+					"Type": [found.Type],
+					"Por": found.Portée,
+					"Dég": found.Dégats,
+					"Effet": found.Effet,
+					"Qtt": Quantité,
+					"Poids": found.Poids
+					}
+				);
+				todtb('Achat');
+				$('#P3_ACHAT3').html('<b>Achat:</b> '+nom+' x'+Quantité+' pour un prix de '+Number(found.Prix)*Quantité+' couronnes.');
+			}else{
+				$('#P3_ACHAT3').html('<b>Erreur:</b> vous n\'avez pas assez de couronnes pour le projectile '+nom+'. Ce projectile a un prix de '+Number(found.Prix)*Quantité+' et vous avez '+JSON_FICHE.Or+' couronnes.');
+			}
+		}else{
+			$('#P3_ACHAT3').html('<b>Erreur:</b> le projectile '+nom+' est inconnu. Réessayer avec un projectile du menu déroulant.');
+		}
 	}else{
 		var Quantité = $('#P3_ACHAT4').val();
 		if(Quantité == '' || Quantité == undefined){Quantité = 1;}
@@ -288,7 +347,7 @@ function achat_f(){
 			var found = JSON_item.Composants.find(x => x.Nom == nom);
 			if(found != undefined){
 				if(Number(found.Prix*Quantité) <= Number(JSON_FICHE.Or)){
-					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix);
+					JSON_FICHE.Or = Number(JSON_FICHE.Or)-Number(found.Prix*Quantité);
 					JSON_FICHE.Inventaire.Autre.push(
 						{"Nom": nom,
 						"Effet": found.Effet,

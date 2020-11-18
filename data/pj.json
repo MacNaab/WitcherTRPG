@@ -177,6 +177,7 @@
       "PS": "30",
       "END": "30",
       "Relance": "9",
+	  "Origine": "Cintra",
       "Malus": {
         "Encombrement": "false"
       }
@@ -391,6 +392,7 @@
         ]
       },
       "Or": "15",
+	  "Origine": "Maecht",
       "HdV": "On vous a amené à devenir sorceleur quand vous étiez jeune, entre 4 et 6 ans. Vous aviez des souvenirs pour vous aider lors de l'épreuve des herbes. Vous avez été formé à Kaer Y Seren le long de la côte des montagnes du Dragon. Votre entraînement était fortement axé sur la lutte contre un nombre illimité d'adversaires et sur l'utilisation de votre pouvoir magique à son plus grand potentiel.\nMauvaise réaction aux mutagènes (–2 à l’Épreuve des Herbes): Vous avez fait une réaction allergique aux champignons mutagènes et aux composants chimiques que l’on vous a donnés au début de votre formation. L’Épreuve des Herbes n’en fut que plus difficile.",
       "Event": "Après avoir aidé une ville avec un monstre, les gens ont eu peur et se sont tournés contre vous. Ils ont peut-être même essayé de vous tuer. Quoi qu'il en soit, vous avez vu quel type de récompense vous pouvez attendre des gens.\nTrahi : Un ami ou un amant vous a trahi.Il a dévoilé un de vos secrets.",
       "Description": "Finalement, toute la négativité et les gens ingrats ont eu raison de vous - vous avez décidé qu'avec de moins en moins de monstres, il était temps de commencer à chasser les gens. Vous pouvez déterminer ce que vous faites pour survivre.",
@@ -562,6 +564,7 @@
         ]
       },
       "Or": 100,
+	  "Origine": "Cintra",
       "HdV": "Votre potentiel magique a été détecté très tôt car vous étiez particulièrement instable et sujet à vos émotions primaires. Vous avez commencé votre instruction entre 2 et 6 ans. Ban Ard (-1 de pénalité en VE). Vous avez été formé à l’école des Mages à Kaedwen. Votre éducation complète vous a permis d’acquérir une formation axée sur la possibilité que vous devrez vous servir d’une petite armure pour vous protéger des lames de soldats adverses ...\nTrauma Magique (-1 en Volonté). Un retour de magie vous a blessé et affaibli durant votre formation. Votre volonté s’en est retrouvée définitivement émoussée.\nFormation avec les honneurs (+1 en Volonté & +1 en Empathie). Vous avez parfaitement intégré vos cours et canalisé l’énergie du Chaos. Votre volontésans faille a payé et vous voici un membre distingué de votre confrérie.\nVous êtes entré au service d’un noble. La condition était bonne mais vous avez appris que beaucoup de secrets sombres rôdent et avez dû conspirer pour leur petit succès.",
       "Event": "Alliée. Une prêtresse. Une amie, vous lui avez sauvé la vie. Elle est toujours en vie.\nMission. Récolter des Inforamtions dans un château abandonné. Vous n’avez pas ou peu eu de reconnaissance.\nAllié à des bandits. Vous avez dû au cours de vos obligation (ou pour un contrat) côtoyer un groupe de bandits ou même des Scoia’tael. Vous n’étiez pas d’accord avec leurs méthodes, mais il ne vous ont pas embêtés, ni eux par vous. Vous pouvez leur demander un service une fois par mois tant que c’est raisonnable (demandez au MJ).",
       "Description": "Vous avez une place dans un village ou ville, êtes régulièrement en mission pour la Confrérie ou menez des recherches en son nom. Une vie somme toutes banale pour un mage si ce n’est que vous faîtes partie de vastes machinations."
@@ -678,6 +681,7 @@
       ],
       "Réput": "0",
       "Or": "1804",
+	  "Origine": "Gemmery"
       "HdV": "De Gemmery, dans l'Nilfgaard Issue d'une fratrie de 4: Un frère, plus jeune, dépressif qui est jaloux de vous, une soeur, plus jeune, sévère , un frère, plus jeune, agressif qui vous aime. Votre famille possède un sombre secret qui, s’il était découvert, détruirait votre vie et celle de votre parenté de fond en comble. Vous devez le protéger au péril de votre vie.. Possède pour influence: Un artisan. Un artisan vous a appris à apprécier le savoir-faire et la précision. Équipement: un objet que vous avez fabriqué.",
       "Event": "Débauche : vous avez passé votre temps votre temps à coucher à droite à gauche et à vous payer les services de prostituées. Si vous n’avez pas fait attention, vous avez probablement semé une collection de bâtards dans votre sillage. Incapacité mentale ou physique : Vous souffrez de crises d'angoisse et devez effectuer des jets d'étourdissement (tous les 5 tours) en période de stress. Relation compliquée: Vous êtes des rivaux sur le plan professionnel. Vous ne cessez de vous voler mutuellement des clients.",
       "Description": "...",
@@ -1094,6 +1098,7 @@
       "Event": "Relation compliquée: L’un de vous est un humain, l’autre est un non-humain, ce qui vous complique la vie. Relation compliquée: Votre famille ou vos amis détestent votre amant et désapprouvent votre relation. Ennemie : Un ancien amour à qui vous avez déjoué ses plans. Attention, son pouvoir est de 4/10.",
       "Description": "...",
       "PS": "25",
+	  "Origine": "Maecht",
       "END": "25",
       "Relance": "8"
     },
@@ -1341,6 +1346,7 @@
         ]
       },
       "Or": "1117",
+	  "Origine": "Mahakam",
       "HdV": "Des montagnes naines de Mahakam. Issue d'une fratrie de 2: Une soeur, jumeau, gentil. Votre famille est accusée de soutenir les humains et n’est donc pas particulièrement appréciée dans votre village natal.. Possède pour influence: Un chasseur. Vous avez connu un chasseur qui vous a montré comment survivre dans les contrées sauvages. Équipement: un trophée de chasse.",
       "Event": "Chevalier : vous avez été fait chevalier pour acte valeureux dans votre royaume. Dans ce royaume, vous gagnez +2 en réputation et êtes reconnu comme chevalier. Débauche : vous avez passé votre temps votre temps à coucher à droite à gauche et à vous payer les services de prostituées. Si vous n’avez pas fait attention, vous avez probablement semé une collection de bâtards dans votre sillage. Allier : Une vieille ennemie qui vous a engagé pour quelque chose, vous êtes des amis, il/elle est actuellement dans les Terres Ancestrales.",
       "Description": "...",

@@ -21,15 +21,15 @@
 
   <div id="barre1">
     <div class="progress">
-      <div id="barre1_PV" class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">VIE</div>
+      <div id="barre1_PV" class="progress-bar bg-danger" role="progressbar">VIE</div>
     </div>
 
     <div class="progress" style="right: 10%;">
-      <div id="barre1_END" class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">END</div>
+      <div id="barre1_END" class="progress-bar bg-success" role="progressbar">END</div>
     </div>
   </div>
   <div class="progress" id="barre3" style="margin-bottom: 20px;">
-      <div id='barre3_cl' class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">PV</div>
+      <div id='barre3_cl' class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%">PV</div>
       <br>
   </div>
   
@@ -38,15 +38,13 @@
   </div>
     <br>
     <div id="barre2" class="progress">
-      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">END</div>
+      <div id="barre2_cl" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%">END</div>
     </div>
 
   <br>
   <div id="les_boutons_d_actions" style="border: solid;border-color: indigo;padding: 15px;">
-    <br>
-    <div class="container" >
-      <div class="row">
-        <div class="col-sm">
+    <div class="grid-container4" >
+        <div>
           <select class="custom-select" id="P4_Caract" onchange="caract()">
             <option selected>Caractéristique</option>
             <option value="INT">Intelligence</option>
@@ -61,34 +59,31 @@
             <option value="10">Compt.exclusive</option>
           </select>
         </div>
-        <div class="col-sm">
+        <div>
           <select class="custom-select" id="P4_Compt">
             <option selected>Compétence</option>
           </select>
         </div>
-        <div class="col-sm">
+        <div>
           <input class="form-control" type="number" id="P4_Mod" placeholder="Mod.">
         </div>
-        <div class="col-sm" style="text-align: center;">
+        <div style="text-align: center;">
           <input type="button" class="btn btn-primary" value="Roll !" onclick="oncalculebien()">
         </div>
-      </div>
     </div>
     <br>
-    <div class="container" >
-      <div class="row">
+    <div class="grid-container4" >
+      <div>
 <div id="P4_Armes_aff">
-        <div class="col">
-          <select class="custom-select" id="P4_Armes">
-            <option selected>Jet d'Arme</option>
-          </select>
-        </div>
+  <select class="custom-select" id="P4_Armes">
+    <option selected>Jet d'Arme</option>
+  </select>
 </div>
-        <div class="col" style="text-align: center;">
+        <div style="text-align: center;">
           <input type="button" class="btn btn-primary" value="Roll !" onclick="oncalculebien2()">
         </div>
-
-        <div class="col-md" style="text-align: center;padding-top: 15px;padding-bottom: 15px;">
+      </div>
+      <div style="text-align: center;padding-top: 15px;padding-bottom: 15px;">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Corps à corps
@@ -98,13 +93,33 @@
               <a class="dropdown-item" style="cursor: pointer;" onclick="oncalculebien4()">Coup de pied</a>
             </div>
           </div>
-        </div>
-
-        <div class="col">
+      </div>
+      <div>
+        <div>
           <input class="form-control" type="number" id="P4_dé_x" placeholder="Dé à X faces">
         </div>
-        <div class="col" style="text-align: center;">
+        <div style="text-align: center;">
           <input type="button" class="btn btn-primary" value="Roll !" onclick="oncalculebien5()">
+        </div>
+      </div>
+      <div style="text-align: center;padding-top: 15px;padding-bottom: 15px;">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonConcentration" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Indice
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonConcentration" style="cursor: pointer;">
+            <a class="dropdown-item" onclick="calcul_effet(0,this.textContent)">Analyse de preuves</a>
+            <a class="dropdown-item" onclick="calcul_effet(1,this.textContent)">Analyse des transactions</a>
+            <a class="dropdown-item" onclick="calcul_effet(2,this.textContent)">Décryptage</a>
+            <a class="dropdown-item" onclick="calcul_effet(3,this.textContent)">Examen d'une scène</a>
+            <a class="dropdown-item" onclick="calcul_effet(4,this.textContent)">Examen de cadavre</a>
+            <a class="dropdown-item" onclick="calcul_effet(5,this.textContent)">Filature</a>
+            <a class="dropdown-item" onclick="calcul_effet(6,this.textContent)">Interrogatoire</a>
+            <a class="dropdown-item" onclick="calcul_effet(7,this.textContent)">Investigation mystique</a>
+            <a class="dropdown-item" onclick="calcul_effet(8,this.textContent)">Pistage</a>
+            <a class="dropdown-item" onclick="calcul_effet(9,this.textContent)">Recherches</a>
+            <a class="dropdown-item" onclick="calcul_effet(10,this.textContent)">Rumeurs</a>
+          </div>
         </div>
       </div>
     </div>
@@ -115,46 +130,50 @@
 
   <br>
   <div style="text-align: center;">
-    <button id="P4_TTS" class="btn btn-info btn-lg"  onclick='window.open("https://www.owlbear.rodeo/")' title="Ouvir le TTS dans un nouvel onglet">
+    <a id="P4_TTS" class="btn btn-info btn-lg" href="" target="_blank" title="Ouvir le TTS dans un nouvel onglet">
       <svg class="bi bi-aspect-ratio-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.5 2A1.5 1.5 0 000 3.5v9A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-13zm1 2a.5.5 0 00-.5.5v3a.5.5 0 001 0V5h2.5a.5.5 0 000-1h-3zm11 8a.5.5 0 00.5-.5v-3a.5.5 0 00-1 0V11h-2.5a.5.5 0 000 1h3z" clip-rule="evenodd"/></svg>
-    </button>
+    </a>
   </div>
-  <div>
-    <div style="text-align: center;"><a id="jdr0" target="_blank"></a></div>
+  <div style="text-align: center; margin-left: auto;margin-right: auto;cursor: pointer;">
+    <br><br>
+    <div>
+      <img title="Ouvrir l'image dans un nouvel onglet" class="img_cool" id="P4_img" onclick='window.open(this.src)' src="https://cdn.discordapp.com/attachments/697703780510203954/751147796178141275/The_Witcher_TRPG.png">
+    </div>
   </div>
-<div style="text-align: center; margin-left: auto;margin-right: auto;cursor: pointer;">
-  <br><br>
-  <div>
-    <img title="Ouvrir l'image dans un nouvel onglet" class="img_cool" id="P4_img" onclick='window.open(this.src)' src="https://cdn.discordapp.com/attachments/697703780510203954/751147796178141275/The_Witcher_TRPG.png">
-  </div>
-</div>
 </div>
 
 <script>
   effets();
   if(JSON_data){
-    if(JSON_data.TTS != undefined){document.getElementById("P4_TTS").onclick = 'window.open("'+JSON_data.TTS+'")';}
+    if(JSON_data.TTS != undefined){document.getElementById("P4_TTS").href = JSON_data.TTS;}
     if(JSON_data.image != undefined){document.getElementById("P4_img").src = JSON_data.image;}
   }
 if(!JSON_FICHE.Relance){JSON_FICHE.Relance = JSON_FICHE.CHA;}
 if(!JSON_FICHE.PP){JSON_FICHE.PP = 0;}
 $('#P4_Stat').append("<div>Argent: "+JSON_FICHE.Or+" couronnes</div>");
-$('#P4_Stat').append("<div>Relance: "+JSON_FICHE.Relance+" dé</div>");
+$('#P4_Stat').append("<div>Point de Chance: "+JSON_FICHE.Relance+"</div>");
 $('#P4_Stat').append("<div>Réputation: "+JSON_FICHE.Réput+"</div>");
 $('#P4_Stat').append("<div>PP: "+JSON_FICHE.PP+"</div>");
 $('#P4_Stat').append("<div>PS: "+JSON_FICHE.PS+"/"+JSON_FICHE.Caractéristique.PS+"</div>");
+  document.getElementById('barre1_PV').style.height = Math.round(Number(JSON_FICHE.PS)/Number(JSON_FICHE.Caractéristique.PS)*100)+"%";
+  document.getElementById('barre3_cl').style.width = Math.round(Number(JSON_FICHE.PS)/Number(JSON_FICHE.Caractéristique.PS)*100)+"%";
 $('#P4_Stat').append("<div>END: "+JSON_FICHE.END+"/"+JSON_FICHE.Caractéristique.END+"</div>");
+  document.getElementById('barre1_END').style.height = Math.round(Number(JSON_FICHE.END)/Number(JSON_FICHE.Caractéristique.END)*100)+"%";
+  document.getElementById('barre2_cl').style.width = Math.round(Number(JSON_FICHE.END)/Number(JSON_FICHE.Caractéristique.END)*100)+"%";
+$('#P4_Stat').append("<div>Concentration: "+JSON_FICHE.Caractéristique.Concentration+"</div>");
 if(JSON_FICHE.Caractéristique.VIG != undefined){
 		var VIG = Number(JSON_FICHE.Caractéristique.VIG);
       if(Effet.VIG){VIG = Number(VIG)+Number(Effet.VIG);}
-      JSON_FICHE.Inventaire.Arme.forEach(function(v){
-        let split = v.Effet.split('Focus');
-        if(split.length > 1){
-          let sp1 = split[1].split(')');
-          let sp2 = sp1[0].split('(');
-            VIG += Number(sp2[1]);
-        }
-      });
+      try {
+        JSON_FICHE.Inventaire.Arme.forEach(function(v){
+          let split = v.Effet.split('Focus');
+          if(split.length > 1){
+            let sp1 = split[1].split(')');
+            let sp2 = sp1[0].split('(');
+              VIG += Number(sp2[1]);
+          }
+        });
+      } catch (error) {console.log(error);}
 		$('#P4_Stat').append("Vigeur: "+VIG);
 	}
 	var Prot_Tê = 0;
@@ -217,10 +236,13 @@ if(JSON_FICHE.Inventaire.Arme != undefined){
 	});
 }
 if(JSON_FICHE.Inventaire.Autre != undefined){
-	JSON_FICHE.Inventaire.Autre.forEach(function(e){Poids += Number(e.Poids);});
+	JSON_FICHE.Inventaire.Autre.forEach(function(e){Poids += Number(e.Poids)*Number(e.Qtt);});
 }
 if(JSON_FICHE.Inventaire.Schéma != undefined){
 	JSON_FICHE.Inventaire.Schéma.forEach(function(e){Poids += Number(e.Poids);});
+}
+if(JSON_FICHE.Inventaire.Projectile != undefined){
+	JSON_FICHE.Inventaire.Projectile.forEach(function(e){Poids += Number(e.Poids)*Number(e.Qtt);});
 }
 
 if(Effet.PA){

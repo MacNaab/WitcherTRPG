@@ -69,6 +69,7 @@ function logged(){
 
 function FichePJ(){
 	// Caractéristiques secondaires:
+	var INT = Number(JSON_FICHE.Caractéristique.INT);if(Effet.INT){INT = Number(INT)+Number(Effet.INT);}
 	var COR = Number(JSON_FICHE.Caractéristique.COR);if(Effet.COR){COR = Number(COR)+Number(Effet.COR);}
 	var VOL = Number(JSON_FICHE.Caractéristique.VOL);if(Effet.VOL){COR = Number(VOL)+Number(Effet.VOL);}
 	var VIT = Number(JSON_FICHE.Caractéristique.VIT);if(Effet.VIT){COR = Number(VIT)+Number(Effet.VIT);}
@@ -88,10 +89,15 @@ function FichePJ(){
 	JSON_FICHE.Caractéristique.REC = tablecorps;
 	JSON_FICHE.Caractéristique.Pieds = CoupPieds(COR);
 	JSON_FICHE.Caractéristique.Poings = CoupPoings(COR);
-	JSON_FICHE.PS = ENDcalc;
-	JSON_FICHE.END = ENDcalc;
+	if(!JSON_FICHE.PS || JSON_FICHE.PS == undefined){
+		JSON_FICHE.PS = ENDcalc;
+	}
+	if(!JSON_FICHE.END || JSON_FICHE.END == undefined){
+		JSON_FICHE.END = ENDcalc;
+	}
 	JSON_FICHE.Relance = JSON_FICHE.Caractéristique.CHA;
 	if(!JSON_FICHE.Effet){JSON_FICHE.Effet = {};}
+	JSON_FICHE.Caractéristique.Concentration = Math.floor(Number(VOL+INT)/2)*3;
 }
 
 function CoupPoings(e){

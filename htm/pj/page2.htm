@@ -3,7 +3,7 @@
   <div id="P2_INFO">
     <div>
 		<h3>Compétences :</h3>
-		<div class="grid-container6">
+		<div class="grid-container8">
 			<div id="P2_INT">
 				<h5>Intelligence</h5>
 			</div>
@@ -12,6 +12,9 @@
 			</div>
 			<div id="P2_DEX">
 				<h5>Dextérité</h5>
+      </div>
+      <div id="P2_COR">
+				<h5>Corps</h5>
 			</div>
 			<div id="P2_EMP">
 				<h5>Empathie</h5>
@@ -102,12 +105,12 @@ JSON_FICHE.Compétences.forEach(function(e){
 		if(e.C == "INT"){$('#P2_INT').append("<div>"+e.Nom+": "+e.V+"</div>");}
 		if(e.C == "REF"){$('#P2_REF').append("<div>"+e.Nom+": "+e.V+"</div>");}
 		if(e.C == "DEX"){$('#P2_DEX').append("<div>"+e.Nom+": "+e.V+"</div>");}
-		if(e.C == "EMP"){$('#P2_EMP').append("<div>"+e.Nom+": "+e.V+"</div>");}
+		if(e.C == "DEX"){$('#P2_DEX').append("<div>"+e.Nom+": "+e.V+"</div>");}
+		if(e.C == "COR"){$('#P2_COR').append("<div>"+e.Nom+": "+e.V+"</div>");}
 		if(e.C == "TEC"){$('#P2_TEC').append("<div>"+e.Nom+": "+e.V+"</div>");}
 		if(e.C == "VOL"){$('#P2_VOL').append("<div>"+e.Nom+": "+e.V+"</div>");}
 	}
 });
-
 if(JSON_FICHE.Magie != undefined){
 	JSON_FICHE.Magie.forEach(function(e){
 		$('#P2_Magie_aff').append("<div>"+e.Nom+" ("+e.Type+")</div>");		

@@ -37,7 +37,7 @@ function searchbar(e){
 }
 
 function TableauAdmin(e){
-    for (let i = 1; i <= 8; i++) {
+    for (let i = 1; i <= 9; i++) {
         document.getElementById('TêteTablo'+i).className = "nav-link";
     }
     document.getElementById('TêteTablo'+e).className = "nav-link active";
@@ -105,12 +105,21 @@ function TableauAdmin(e){
         });
     }
     if(e == '8'){
-        var Tête = ["Nom","Composants","SD","Durée"];
+        var Tête = ["Nom","Composants","SD","Durée","Coût"];
         $('#tabloT').empty();
         Tête.forEach(function(f){$('#tabloT').append("<th scope='col'>"+f+"</th>");});
         $('#tabloC').empty();
         JSON_item.Formule.forEach(function(f){
-            $('#tabloC').append("<tr><th scope='row'>"+f.Nom+"</th><td>"+f.Composants+"</td><td>"+f.SD+"</td><td>"+f.Durée+"</td></tr>");
+            $('#tabloC').append("<tr><th scope='row'>"+f.Nom+"</th><td>"+f.Composants+"</td><td>"+f.SD+"</td><td>"+f.Durée+"</td><td>"+f.Prix+"</td></tr>");
+        });
+    }
+    if(e == '9'){
+        var Tête = ["Nom","Type","Portée","Dégâts","Effet","Coût","Poids"];
+        $('#tabloT').empty();
+        Tête.forEach(function(f){$('#tabloT').append("<th scope='col'>"+f+"</th>");});
+        $('#tabloC').empty();
+        JSON_item.Projectile.forEach(function(f){
+            $('#tabloC').append("<tr><th scope='row'>"+f.Nom+"</th><td>"+f.Type+"</td><td>"+f.Portée+"</td><td>"+f.Dégats+"</td><td>"+f.Effet+"</td><td>"+f.Prix+"</td><td>"+f.Poids+"</td></tr>");
         });
     }
 }

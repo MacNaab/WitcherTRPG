@@ -8,15 +8,31 @@
     <li class="nav-item">
       <a class="nav-link" id="p3" onclick="page('3')">Inventaire</a>
     </li>
-	<li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link" id="p4" onclick="page('4')">Histoire</a>
-    </li>
-	<li class="nav-item">
+      </li>
+    <li class="nav-item">
       <a class="nav-link" id="p5" onclick="page('5')">Journal du joueur</a>
-  </li>
-  <li class="nav-item" title="Recharger la fiche" onclick="Reload_PJ()">
-    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bootstrap-reboot" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 0 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8zm5.48-.079V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6zm0 3.75V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141z"/>
-    </svg>    
-  </li>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="p6" onclick="page('6')">Carte</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="p7" onclick="page('7')">Progression</a>
+    </li>
+    <li class="nav-item" title="Recharger la fiche" onclick="Reload_PJ()">
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bootstrap-reboot" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 0 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8zm5.48-.079V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6zm0 3.75V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141z"/>
+      </svg>    
+    </li>
 </ul>
+
+<script>
+function page(e){
+	for (let i = 1; i < 8; i++) {
+		document.getElementById('p'+i).className = "nav-link";
+	}
+	document.getElementById('p'+e).className = "nav-link active";
+	$('#content-page').load("htm/pj/page"+e+".htm");	
+}
+</script>

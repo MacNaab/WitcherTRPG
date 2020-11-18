@@ -7,15 +7,16 @@ function todtb(e){
             dtb: JSON_FICHE,
         },
         cache: false,
-        success: function(data){*/
-            $("#toast1_H").html(e);
-            $("#toast1_C").html(data);
-            $("#toast1").toast('show');/*
-        }
-    });*/
+        success: function(data){
+*/            $("#toast1_H").html(e);
+            $("#toast1_C").html('Mise à jour');
+            $("#toast1").toast('show');
+/*        }
+    });
+*/
 }
-function tojournal(e){/*
-    $.ajax({
+function tojournal(e){
+/*    $.ajax({
         url: "data/data.php",
         type: "POST",
         data: {
@@ -24,15 +25,16 @@ function tojournal(e){/*
             url: JSON_data[joueur].Journal,
         },
         cache: false,
-        success: function(data){*/
-            $("#toast1_H").html(e);
-            $("#toast1_C").html(data);
-            $("#toast1").toast('show');/*
-        }
-    });*/
+        success: function(data){
+*/            $("#toast1_H").html(e);
+            $("#toast1_C").html('Mise à jour du Journal');
+            $("#toast1").toast('show');
+/*        }
+    });
+*/
 }
 function tomap(e){
-    $.ajax({
+/*    $.ajax({
         url: "data/data.php",
         type: "POST",
         data: {
@@ -42,11 +44,12 @@ function tomap(e){
         },
         cache: false,
         success: function(data){
-            $("#toast1_H").html(e);
-            $("#toast1_C").html(data);
+*/            $("#toast1_H").html(e);
+            $("#toast1_C").html('Mise à jour');
             $("#toast1").toast('show');
-        }
+/*        }
     });
+*/
 }
 
 var JSON_effet = ""
@@ -207,6 +210,30 @@ function oncalculebien5(){
     var aff = "Jet "+A+": "+Rand;
     document.getElementById('P4_LOG').innerHTML = document.getElementById('P4_LOG').innerHTML+"<br>"+aff;
     log_backup = $("#P4_LOG").html();
+}
+
+function calcul_effet(e,f){
+    if(e==4||e==6||e==7||e==9){
+        var rand = Math.floor(Math.random() * Math.floor(10))+1;
+    }else{
+        var rand = Math.floor(Math.random() * Math.floor(6))+1;
+    }
+    // TEC
+    if(e==0||e==4){
+        var caract = Number(JSON_FICHE.Caractéristique.TEC);if(Effet.TEC){caract = Number(caract)+Number(Effet.TEC);}
+    }
+    // EMP
+    else if(e==6||e==10){
+        var caract = Number(JSON_FICHE.Caractéristique.EMP);if(Effet.EMP){caract = Number(caract)+Number(Effet.EMP);}
+    }
+    // INT
+    else{
+        var caract = Number(JSON_FICHE.Caractéristique.INT);if(Effet.INT){caract = Number(caract)+Number(Effet.INT);}
+    }
+    var result = Number(rand)+Number(caract);
+    var aff = "Jet de <b>"+f+": "+result+"</b> ("+rand+ "[<i>jet</i>] + "+caract+" [<i>caractéristique</i>])";
+    $("#P4_LOG").html($("#P4_LOG").html()+"<br>"+aff);
+    log_backup = $("#P4_LOG").html();       
 }
 
 var Effet = {};

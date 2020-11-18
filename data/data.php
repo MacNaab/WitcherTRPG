@@ -63,5 +63,4 @@ if($A == 'map'){
 
     echo 'Mise à jour de la carte dans la data '.$J.'.';
 }
-
 ?>
