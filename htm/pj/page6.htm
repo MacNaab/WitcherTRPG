@@ -51,6 +51,36 @@
   </div>
 </div>
 
+<br><hr><br>
+
+<div>
+  <div id="jtimeline-demo" class="jtimeline">
+    <ul class="jtimeline-events">
+      <li class="jtimeline-event" data-timestamp="-22013510400">
+        <u>32 Blathe 1272</u><br />
+        Début de l'aventure
+      </li>
+      <li class="jtimeline-event" data-timestamp="-22013467200">
+        <u>33 Blathe 1272</u><br />
+        Rencontre de Mansour
+      </li>
+      <li class="jtimeline-event" data-timestamp="-22013337600">
+        <u>Nuit du 33 Blathe 1272</u><br />
+        Combat contre le Cerbère
+      </li>
+      <li class="jtimeline-event" data-timestamp="-22012833600">
+        <u>Nuit du 40 Blathe 1272</u><br />
+        Découverte d'étranges statues elfiques
+      </li>
+    <li class="jtimeline-event" data-timestamp="-22012776000">
+        <u>41 Blathe 1272</u><br />
+        Sauvetage de Piotr Iap Toggen
+      </li>
+    
+    </ul>
+  </div>
+</div>
+
 <script type="text/javascript">
   //Creating the Map
     var map = L.map('map').setView([60, 0], 0);
@@ -167,3 +197,29 @@
   }
 
 </script>
+
+
+<script>
+  $(function(){
+    $('#jtimeline-demo').jTimeline();
+  });
+  
+  $('#jtimeline-demo').jTimeline({
+  
+    // pixels per second
+    resolution: 50000, 
+  
+    // minimum spacing between events
+    minimumSpacing: 200, 
+  
+    // scrolling (translateX) step size
+    step: 200, 
+  
+    // character for left arrow
+    leftArrow: "&larr;", 
+  
+    // character for right arrow
+    rightArrow: "&rarr;", 
+    
+  });
+  </script>

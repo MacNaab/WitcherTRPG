@@ -24,7 +24,7 @@
       </div>
 	</div>
 	<div id="P3_Projectile">
-		<h3>Inventaire :</h3>
+		<h3>Projectile :</h3>
 		  <div class="table-responsive">
 			<table class="table table-striped table-dark P3TABLE" >
 			  <thead>
@@ -34,6 +34,7 @@
 				  <th scope="col">Portée</th>
 				  <th scope="col">Dégâts</th>
 				  <th scope="col">Effet</th>
+				  <th scope="col">Quantité</th>
 				  <th scope="col">Poids</th>
 				</tr>
 			  </thead>
@@ -208,7 +209,7 @@ if(JSON_FICHE.Inventaire.Schéma != undefined){
 
 if(JSON_FICHE.Inventaire.Projectile != undefined){
 	JSON_FICHE.Inventaire.Projectile.forEach(function(e){
-		$("#P3_Projectiles").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Type+"</td><td>"+e.Por+"</td><td>"+e.Dég+"</td><td>"+e.Effet+"</td><td>"+Number(Number(e.Poids)*Number(e.Qtt)).toFixed(2)+"</td></tr>")
+		$("#P3_Projectiles").append("<tr><th scope='row'>"+e.Nom+"</th><td>"+e.Type+"</td><td>"+e.Por+"</td><td>"+e.Dég+"</td><td>"+e.Effet+"</td><td>"+e.Qtt+"</td><td>"+Number(Number(e.Poids)*Number(e.Qtt)).toFixed(2)+"</td></tr>")
 	});
 }else{$("#P3_Projectile").remove();}
 

@@ -77,13 +77,13 @@
             <option value="10">Compt.exclusive</option>
           </select>
         </div>
-        <div>
+        <div style="margin-left: 5px;">
           <select class="custom-select" id="P4_Compt">
             <option selected>Compétence</option>
           </select>
         </div>
-        <div>
-          <input class="form-control" type="number" id="P4_Mod" placeholder="Mod.">
+        <div style="width: 150px;margin-left: 5px;">
+          <input  class="form-control" type="number" id="P4_Mod" placeholder="Mod.">
         </div>
         <div style="text-align: center;">
           <input type="button" class="btn btn-primary" value="Roll !" onclick="oncalculebien()">
@@ -113,8 +113,8 @@
           </div>
       </div>
       <div>
-        <div>
-          <input class="form-control" type="number" id="P4_dé_x" placeholder="Dé à X faces">
+        <div style="width: 150px;text-align: center;margin-left: auto;margin-right: auto;">
+          <input class="form-control" type="text" id="P4_dé_x" placeholder="Dé à X faces">
         </div>
         <div style="text-align: center;">
           <input type="button" class="btn btn-primary" value="Roll !" onclick="oncalculebien5()">
@@ -173,10 +173,14 @@ $('#P4_Stat').append("<div>Point de Chance: "+JSON_FICHE.Relance+"</div>");
 $('#P4_Stat').append("<div>Réputation: "+JSON_FICHE.Réput+"</div>");
 $('#P4_Stat').append("<div>PP: "+JSON_FICHE.PP+"</div>");
 $('#P4_Stat').append("<div>PS: "+JSON_FICHE.PS+"/"+JSON_FICHE.Caractéristique.PS+"</div>");
+  document.getElementById('barre1_PV').innerHTML = "PS:<br>"+Math.round(Number(JSON_FICHE.PS)/Number(JSON_FICHE.Caractéristique.PS)*100)+"%";
   document.getElementById('barre1_PV').style.height = Math.round(Number(JSON_FICHE.PS)/Number(JSON_FICHE.Caractéristique.PS)*100)+"%";
+  document.getElementById('barre1_PV').style.top = 100-Math.round(Number(JSON_FICHE.PS)/Number(JSON_FICHE.Caractéristique.PS)*100)+"%";
   document.getElementById('barre3_cl').style.width = Math.round(Number(JSON_FICHE.PS)/Number(JSON_FICHE.Caractéristique.PS)*100)+"%";
 $('#P4_Stat').append("<div>END: "+JSON_FICHE.END+"/"+JSON_FICHE.Caractéristique.END+"</div>");
+  document.getElementById('barre1_END').innerHTML = "END:<br>"+Math.round(Number(JSON_FICHE.END)/Number(JSON_FICHE.Caractéristique.END)*100)+"%";
   document.getElementById('barre1_END').style.height = Math.round(Number(JSON_FICHE.END)/Number(JSON_FICHE.Caractéristique.END)*100)+"%";
+  document.getElementById('barre1_END').style.top = 100-Math.round(Number(JSON_FICHE.END)/Number(JSON_FICHE.Caractéristique.END)*100)+"%";
   document.getElementById('barre2_cl').style.width = Math.round(Number(JSON_FICHE.END)/Number(JSON_FICHE.Caractéristique.END)*100)+"%";
 $('#P4_Stat').append("<div>Concentration: "+JSON_FICHE.Caractéristique.Concentration+"</div>");
 if(JSON_FICHE.Caractéristique.VIG != undefined){

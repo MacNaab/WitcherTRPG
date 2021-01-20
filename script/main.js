@@ -1,5 +1,5 @@
 function todtb(e){
-/*    $.ajax({
+    $.ajax({
         url: "data/pj.php",
         type: "POST",
         data: {
@@ -8,33 +8,30 @@ function todtb(e){
         },
         cache: false,
         success: function(data){
-*/            $("#toast1_H").html(e);
-            $("#toast1_C").html('Mise à jour');
+            $("#toast1_H").html(e);
+            $("#toast1_C").html(data);
             $("#toast1").toast('show');
-/*        }
+        }
     });
-*/
 }
 function tojournal(e){
-/*    $.ajax({
-        url: "data/data.php",
+    $.ajax({
+        url: "data/journal.php",
         type: "POST",
         data: {
             nom: joueur,
-            action: "journal",
-            url: JSON_data[joueur].Journal,
+            url: JSON_journal[joueur],
         },
         cache: false,
         success: function(data){
-*/            $("#toast1_H").html(e);
-            $("#toast1_C").html('Mise à jour du Journal');
+            $("#toast1_H").html(e);
+            $("#toast1_C").html(data);
             $("#toast1").toast('show');
-/*        }
+        }
     });
-*/
 }
 function tomap(e){
-/*    $.ajax({
+    $.ajax({
         url: "data/data.php",
         type: "POST",
         data: {
@@ -44,17 +41,20 @@ function tomap(e){
         },
         cache: false,
         success: function(data){
-*/            $("#toast1_H").html(e);
-            $("#toast1_C").html('Mise à jour');
+            $("#toast1_H").html(e);
+            $("#toast1_C").html(data);
             $("#toast1").toast('show');
-/*        }
+        }
     });
-*/
 }
 
 var JSON_effet = ""
 $.getJSON('data/effet.json', function(jd) {
 	JSON_effet = jd;
+});
+var JSON_journal = ""
+$.getJSON('data/journal.json', function(jd) {
+	JSON_journal = jd;
 });
 
 var log_backup = "<i>Début de l'aventure...</i>";
@@ -204,11 +204,24 @@ function oncalculebien4(){
 }
 
 function oncalculebien5(){
-    var A = document.getElementById('P4_dé_x').value;
-    var Rand = Math.floor(Math.random() * Math.floor(A))+1;
-
-    var aff = "Jet "+A+": "+Rand;
-    document.getElementById('P4_LOG').innerHTML = document.getElementById('P4_LOG').innerHTML+"<br>"+aff;
+    var S = 0;var R = "";
+    var e = document.getElementById('P4_dé_x').value;
+        var a = e.split('d');
+            if(a[1]==undefined){a=e.split('D');}
+	    var b = a[0];
+        var c = a[1];
+    if(c!=undefined){        
+        for (let i = 0; i < b; i++) {  
+            var rand = Math.floor(Math.random() * Math.floor(c))+1;
+            S += rand;
+            if(i!=Number(b)-1){R += rand+' ';}else{R += rand;}
+        }
+        var aff = "Jet "+b+"d"+c+": <b>"+S+"</b> ("+R+")";
+    }else{
+	    var rand = Math.floor(Math.random() * Math.floor(e))+1;
+        var aff = "Jet a "+e+" faces: <b>"+rand+"</b>";
+    }
+    $("#P4_LOG").html($("#P4_LOG").html()+"<br>"+aff);
     log_backup = $("#P4_LOG").html();
 }
 
@@ -253,6 +266,56 @@ function effets(){
             found.V.forEach(function(e){
                 if(Effet[e.Nom]){Effet[e.Nom] += e.V;}else{Effet[e.Nom] = e.V;}
             });
+        }
+    }
+    if(JSON_FICHE.Effet.Blessure){
+        try {
+            JSON_FICHE.Effet.Blessure.forEach(function(R){
+                if(R.Nom == "Fracture ouverte de la jambe" && R.V < 3){
+                    if(R.V == 1){
+                        found = JSON_FICHE.Compétences.find(x => x.Nom == 'Esquive/Évasion');
+                        if(found != undefined){
+                            var A = -Math.round(Number(found.V)/4*3);
+                            if(Effet['Esquive/Évasion']){Effet['Esquive/Évasion'] += A;}else{Effet['Esquive/Évasion'] = A;}
+                        }
+                        found = JSON_FICHE.Compétences.find(x => x.Nom == 'Athlétisme');
+                        if(found != undefined){
+                            var B = -Math.round(Number(found.V)/4*3);
+                            if(Effet['Athlétisme']){Effet['Athlétisme'] += B;}else{Effet['Athlétisme'] = B;}
+                        }
+                        var C = -Math.round(Number(JSON_FICHE.Caractéristique.VIT)/4*3);
+                        if(Effet['VIT']){Effet['VIT'] += C;}else{Effet['VIT'] = C;}
+                    }else{
+                        found = JSON_FICHE.Compétences.find(x => x.Nom == 'Esquive/Évasion');
+                        if(found != undefined){
+                            var A = -Math.round(Number(found.V)/2);
+                            if(Effet['Esquive/Évasion']){Effet['Esquive/Évasion'] += A;}else{Effet['Esquive/Évasion'] = A;}
+                        }
+                        found = JSON_FICHE.Compétences.find(x => x.Nom == 'Athlétisme');
+                        if(found != undefined){
+                            var B = -Math.round(Number(found.V)/2);
+                            if(Effet['Athlétisme']){Effet['Athlétisme'] += B;}else{Effet['Athlétisme'] = B;}
+                        }
+                        var C = -Math.round(Number(JSON_FICHE.Caractéristique.VIT)/2);
+                        if(Effet['VIT']){Effet['VIT'] += C;}else{Effet['VIT'] = C;}
+                    }
+                }else{
+                    var found = JSON_effet.Critique.find(x => x.Nom == R.Nom);
+                    if(found != undefined){
+                        found.V.forEach(function(f){
+                            if(f.V == R.V){
+                                f.E.forEach(function(e){
+                                    if(Effet[e.Nom]){Effet[e.Nom] += e.V;}else{Effet[e.Nom] = e.V;}
+                                });
+                            }
+                        });
+                    }
+                }
+                
+            })
+        } catch (error) {
+            alert("Une erreur c'est produite dans le calcul de vos effets, regardez la console pour plus d'informations.")
+            console.log(error);
         }
     }
 

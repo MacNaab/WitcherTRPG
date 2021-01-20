@@ -1,6 +1,46 @@
 <div id="page_5">
   <br>
   <div>
+    <h3 style="text-decoration: underline;">Journal des Blessures:</h3>
+    <div class="grid-container2" >
+      <div>
+        <select class="custom-select" id="P5_Blessure" class="form-control">
+          <option disabled selected>Blessure</option>
+        </select>
+      </div>
+      <div style="text-align: center;">
+        <input type="button" class="btn btn-primary" value="Ajouter !" onclick="add_B()">
+      </div>
+    </div>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Aiguë</th>
+          <th scope="col">Stabilisé</th>
+          <th scope="col">Traité</th>
+          <th scope="col">Soigné</th>
+        </tr>
+      </thead>
+      <tbody id="JrN_B">
+      </tbody>
+    </table>
+    <br>
+    <div style="text-align: center;">
+      <input type="button" class="btn btn-success" value="Sauvegarder" onclick="todtb('Blessures')">
+    </div>    
+  </div>
+  <br>
+  <div>
+    <h3 style="text-decoration: underline;">Notes des rencontres:</h3>
+    <div style="text-align: center;">
+      <iframe src="https://drive.google.com/file/d/1OsFut64gAVc-cVz5bhMjAfOv2dDVnWgo/preview" width="100%" height="1000"></iframe>
+    </div>
+  </div>
+  <br>
+  <h3 style="text-decoration: underline;">Mon journal:</h3>
+  <div>
     <button style="position: absolute;display: inline-block;" id='editJournal' class="btn btn-secondary adroite" onclick="editS()" type="button">Editer le journal</button>
     <div style="position: absolute;" class="adroite">
       <div class="container">
@@ -20,7 +60,7 @@
 </div>
 <script>
   try {
-    $('#Journal_aff').html(JSON_data[joueur].Journal);
+    $('#Journal_aff').html(JSON_journal[joueur]);
   } catch (error) {
     $('#Journal_aff').html("Ceci est votre journal, "+joueur+", vous pouvez y écrire ce que vous voulez.");    
   }
@@ -42,11 +82,44 @@ function saveS() {
   document.getElementById('annulJournal').style.display = "none";
 };
 $("#saveJournal").on( "click", function() {
-  if(!JSON_data[joueur]){JSON_data[joueur] = {}}
-  JSON_data[joueur].Journal = $("#Journal_aff").html();
+  JSON_journal[joueur] = $("#Journal_aff").html();
   tojournal('Mise à jour du journal');
 });
 $("#annulJournal").on( "click", function() {
 	$("#Journal_aff").html(backup);
 });
+
+if(JSON_FICHE.Effet.Blessure){
+  JSON_FICHE.Effet.Blessure.forEach(function(e){
+    var A = "<tr><th scope='row'>"+e.Nom+"</th>";
+    if(e.V == 1){A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="1" checked></div></td>';}else{A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="1"></div></td>';}
+    if(e.V == 2){A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="2" checked></div></td>';}else{A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="2"></div></td>';}
+    if(e.V == 3){A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="3" checked></div></td>';}else{A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="3"></div></td>';}
+    if(e.V == 4){A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="4" checked></div></td></tr>';}else{A += '<td><div class="form-check"><input name="'+e.Nom+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="4"></div></td></tr>';}
+    $("#JrN_B").append(A);
+  });
+}
+
+function add_B(){
+  var x = $('#P5_Blessure').val();
+  if(x != null){
+    if(!JSON_FICHE.Effet.Blessure){JSON_FICHE.Effet.Blessure = [];}
+    var found = JSON_FICHE.Effet.Blessure.find(e => e.Nom == x)
+    if(found == undefined){
+      $("#JrN_B").append("<tr><th scope='row'>"+x+"</th>"+'<td><div class="form-check"><input name="'+x+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="1" checked></div></td><td><div class="form-check"><input name="'+x+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="2"></div></td><td><div class="form-check"><input name="'+x+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="3"></div></td><td><div class="form-check"><input name="'+x+'" onchange="EB(this.name,this.value)" class="form-check-input" type="radio" value="4"></div></td></tr>');
+      if(!JSON_FICHE.Effet.Blessure){JSON_FICHE.Effet.Blessure = [];}
+      JSON_FICHE.Effet.Blessure.push({
+        'Nom':x,'V':1
+      });
+    }
+  }
+  $('#P5_Blessure').val('');
+}
+
+    JSON_effet.Critique.forEach(function(f){$('#P5_Blessure').append('<option value="'+f.Nom+'">'+f.Nom+'</option>')});
+
+function EB(e,f){
+  var found = JSON_FICHE.Effet.Blessure.findIndex(x => x.Nom == e);
+  JSON_FICHE.Effet.Blessure[found].V = f;
+}
 </script>

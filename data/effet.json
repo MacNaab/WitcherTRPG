@@ -93,8 +93,10 @@
             {"V":2,"E": [{"Nom":"COR", "V":-2},{"Nom":"VIT", "V":-2}]},
             {"V":3,"E": [{"Nom":"COR", "V":-1},{"Nom":"VIT", "V":-1}]}
         ]},
-        {"Nom": "Plaie aspirante au thorax", "V":[
-            {"V":1,"E": [{"Nom":"Esquive/Évasion", "V":-2},{"Nom":"Athlétisme", "V":-2},{"Nom":"VIT", "V":-2}]}
+        {"Nom": "Fracture ouverte de la jambe", "V":[
+            {"V":1,"E": [{"Nom":"Esquive/Évasion", "V":4},{"Nom":"Athlétisme", "V":4},{"Nom":"VIT", "V":4}]},
+            {"V":2,"E": [{"Nom":"Esquive/Évasion", "V":2},{"Nom":"Athlétisme", "V":2},{"Nom":"VIT", "V":2}]},
+            {"V":3,"E": [{"Nom":"Esquive/Évasion", "V":-2},{"Nom":"Athlétisme", "V":-2},{"Nom":"VIT", "V":-2}]}
         ]}  
     ]
 }
